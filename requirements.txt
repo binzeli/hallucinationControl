@@ -1,0 +1,16 @@
+certifi==2025.10.5
+charset-normalizer==3.4.4
+idna==3.11
+PyYAML==6.0.3
+requests==2.32.5
+urllib3==2.5.0
+
+# Added libraries required for experiment scripts
+datasets
+pandas
+tqdm
+openai
+aiohttp
+python-dotenv
+numpy
+scipy
