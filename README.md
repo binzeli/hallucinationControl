@@ -107,4 +107,10 @@ python main_exp/popQA/run_experiment.py --model gpt-5-mini --scheme scheme_b_nor
 | `--reward-abstain` | `-ra` | float | 0.4 | Reward for abstaining |
 | `--reward-incorrect` | `-ri` | float | -1.0 | Penalty for incorrect answer |
 
+## Evaluation
 
+After running experiments, use `eval.py` to analyze results and generate visualizations:
+
+```bash
+python main_exp/popQA/eval.py --result-file <path_to_csv>
+```

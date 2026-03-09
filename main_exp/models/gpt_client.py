@@ -95,7 +95,7 @@ class GPTClient:
             raise ValueError(f"Unknown experiment type: {exp_type}")
         
         exp_config = self.experiments[exp_type]
-        input_file = f"main_exp/outputs/batch_files/batch_input_{exp_type}_{model_config['short_name']}_{start_idx}-{end_idx}.jsonl"
+        input_file = f"main_exp/popQA/outputs/batch_files/batch_input_{exp_type}_{model_config['short_name']}_{start_idx}-{end_idx}.jsonl"
         
         os.makedirs(os.path.dirname(input_file), exist_ok=True)
         
@@ -199,7 +199,7 @@ class GPTClient:
         file_response = self.client.files.content(output_file_id)
         
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        output_file = f"main_exp/outputs/batch_files/batch_output_{exp_type}_{model_config['short_name']}_{start_idx}-{end_idx}_{timestamp}.jsonl"
+        output_file = f"main_exp/popQA/outputs/batch_files/batch_output_{exp_type}_{model_config['short_name']}_{start_idx}-{end_idx}_{timestamp}.jsonl"
         
         os.makedirs(os.path.dirname(output_file), exist_ok=True)
         with open(output_file, 'wb') as f:
@@ -323,7 +323,7 @@ class GPTClient:
         
         all_results = []
         batch_jobs = []
-        tracking_file = f"main_exp/outputs/batch_files/batch_tracking_{exp_type}.json"
+        tracking_file = f"main_exp/popQA/outputs/batch_files/batch_tracking_{exp_type}.json"
         
         os.makedirs(os.path.dirname(tracking_file), exist_ok=True)
         
@@ -371,7 +371,7 @@ class GPTClient:
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
             # Format rewards for filename
             reward_str = f"{reward_correct:+g}_{reward_incorrect:+g}_{reward_abstain:+g}"
-            final_file = f"main_exp/outputs/{model_config['short_name']}_results/popqa_{exp_type}_results_{reward_str}_{timestamp}.csv"
+            final_file = f"main_exp/popQA/outputs/{model_config['short_name']}_results/popqa_{exp_type}_results_{reward_str}_{timestamp}.csv"
             
             os.makedirs(os.path.dirname(final_file), exist_ok=True)
             combined_df.to_csv(final_file, index=False)

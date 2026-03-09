@@ -5,7 +5,9 @@ import os
 from datetime import datetime
 from scipy.stats import gaussian_kde, binom
 from typing import Tuple, Dict
-
+import glob
+import re
+import argparse
 
 # Increase default font sizes for readability across all plots
 plt.rcParams.update({
@@ -19,23 +21,28 @@ plt.rcParams.update({
 
 
 
-def plot_idk_confidence_separate(df, file_label, reward_setting):
+def plot_idk_confidence_separate(df, file_label, reward_setting, output_dir):
     """
     Plots separate histograms for Answered (IDK=0) and Said IDK/Best Guess (IDK=1).
     Each plot shows correct vs incorrect breakdown as stacked bars.
     For baseline data (no idk_flag), plots a single histogram of all data.
     
     Optimized for conference paper publication with professional styling.
-    """
-    # Setup
-    output_dir = "gpt5_all_results/plot_idk_confidence_separate"
-    os.makedirs(output_dir, exist_ok=True)
     
+    Args:
+        df: DataFrame with experiment results
+        file_label: Label for the plot title
+        reward_setting: Reward configuration string
+        output_dir: Directory path where plots will be saved
+    
+    Returns:
+        str: Path to the saved plot file
+    """
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     # Sanitize file_label and reward_setting so they can't create subdirectories
     import re
     safe_label = re.sub(r'[^A-Za-z0-9_.-]+', '_', file_label)
-    safe_reward = re.sub(r'[^A-Za-z0-9_.-]+', '_', str(reward_setting))
+    safe_reward = re.sub(r'[^A-Za-z0-9_.+-]+', '_', str(reward_setting))
     output_name = f"{safe_label}_({safe_reward})_{timestamp}.png"
     output_path = os.path.join(output_dir, output_name)
 
@@ -120,7 +127,7 @@ def plot_idk_confidence_separate(df, file_label, reward_setting):
         plt.close()
         
         print(f"✅ Saved baseline histogram: {output_path}")
-        return
+        return output_path
 
     # Create bins for 0-1 range (20 bins of 0.05 each)
     bins = np.linspace(0, 1, 21)
@@ -217,6 +224,7 @@ def plot_idk_confidence_separate(df, file_label, reward_setting):
     plt.close()
     
     print(f"✅ Saved: {output_path}")
+    return output_path
 
 
 def calculate_calibration_error(df: pd.DataFrame, file_label: str, num_bins: int = 10) -> Dict[str, float]:
@@ -482,12 +490,16 @@ def summarize(df, label):
 
 def parse_filename(filename):
     """
-    Parse experiment filename to extract scheme and reward values.
-    Example: popqa_scheme_b_norm_results_+1_+0_+0.4_20260308_221816.csv
-    Returns: (scheme_name, reward_correct, reward_incorrect, reward_abstain)
+    Parse experiment filename to extract model name, scheme and reward values.
+    Example: main_exp/outputs/popqa/gpt5_results/popqa_scheme_b_norm_results_+1_+0_+0.4_20260308_221816.csv
+    Returns: (model_name, scheme_name, reward_correct, reward_incorrect, reward_abstain)
     """
-    import re
+
     basename = os.path.basename(filename)
+    
+    # Extract model name from directory path (e.g., gpt5_results -> gpt5)
+    model_match = re.search(r'/([^/]+)_results/', filename)
+    model = model_match.group(1) if model_match else "gpt5"
     
     # Extract scheme name (between popqa_ and _results)
     scheme_match = re.search(r'popqa_(.+?)_results', basename)
@@ -505,12 +517,12 @@ def parse_filename(filename):
         reward_incorrect = "-1"
         reward_abstain = "+0.4"
     
-    return scheme, reward_correct, reward_incorrect, reward_abstain
+    return model, scheme, reward_correct, reward_incorrect, reward_abstain
 
 
 def get_latest_file(pattern):
     """Find the most recent file matching the pattern."""
-    import glob
+
     files = glob.glob(pattern)
     if not files:
         raise FileNotFoundError(f"No files found matching pattern: {pattern}")
@@ -524,7 +536,7 @@ def get_all_result_files(results_dir="main_exp/outputs/popqa/gpt5_results"):
     Find all result CSV files in the specified directory.
     Returns a dictionary mapping scheme names to their file paths.
     """
-    import glob
+    
     pattern = os.path.join(results_dir, "popqa_*_results_*.csv")
     files = glob.glob(pattern)
     
@@ -534,7 +546,7 @@ def get_all_result_files(results_dir="main_exp/outputs/popqa/gpt5_results"):
     # Group files by scheme and keep only the latest for each scheme
     scheme_files = {}
     for file in files:
-        scheme, _, _, _ = parse_filename(file)
+        model, scheme, _, _, _ = parse_filename(file)
         if scheme not in scheme_files:
             scheme_files[scheme] = file
         else:
@@ -546,7 +558,7 @@ def get_all_result_files(results_dir="main_exp/outputs/popqa/gpt5_results"):
 
 
 def main():
-    import argparse
+
     
     # Set up argument parser
     parser = argparse.ArgumentParser(
@@ -573,8 +585,8 @@ def main():
     
     print(f"\n📊 Analyzing result file: {filepath}")
     
-    # Parse filename to get scheme and reward settings
-    scheme_name, r_correct, r_incorrect, r_abstain = parse_filename(filepath)
+    # Parse filename to get model name, scheme and reward settings
+    model_name, scheme_name, r_correct, r_incorrect, r_abstain = parse_filename(filepath)
     
     # Build reward setting string
     reward_parts = [r_correct]
@@ -585,6 +597,7 @@ def main():
     print(f"\n{'='*80}")
     print(f"Processing: {scheme_name}")
     print(f"{'='*80}")
+    print(f"  Model: {model_name}")
     print(f"  Scheme: {scheme_name}")
     print(f"  Rewards: {reward_setting}")
     print(f"  File: {filepath}")
@@ -600,11 +613,20 @@ def main():
         file_label = f"{scheme_name.replace('_', ' ').title()}"
         analysis_label = scheme_name.upper().replace('SCHEME_', '')
     
+    # Track all output files
+    output_files = []
+    
+    # Setup output directory with parsed model name
+    output_dir = f"main_exp/popQA/outputs/{model_name}_results/plot_idk_confidence_separate"
+    os.makedirs(output_dir, exist_ok=True)
+    
     # Run summary
     summarize(df, f"{file_label}")
     
     # Generate plots 
-    plot_idk_confidence_separate(df, file_label, reward_setting)
+    plot_file = plot_idk_confidence_separate(df, file_label, reward_setting, output_dir)
+    if plot_file:
+        output_files.append(plot_file)
     
     ######################### ECE calculation #########################
     results = calculate_calibration_by_category(df, analysis_label, num_bins=10)
@@ -618,8 +640,6 @@ def main():
     if 'baseline' not in scheme_name.lower():
         brier_score_answered, margin_answered = calculate_brier_score_with_ci(df, answered_only=True)
         print(f"Brier Score (answered only): {brier_score_answered:.4f} ± {margin_answered:.4f}")
-    
-    print(f"\n{'='*80}\n")
 
 
 

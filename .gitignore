@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-outputs/
+*outputs/
 .env
 
 
@@ -30,7 +29,5 @@ __pycache__/
 *.tmp
 *.swp
 *.swo
-=======
 # Ignore macOS system files
 .DS_Store
->>>>>>> cada7827100e7251e692178e5a85c39beef9a7b1
