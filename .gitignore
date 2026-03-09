@@ -1,0 +1,31 @@
+outputs/
+.env
+
+
+# Ignore Conda environments
+.conda/
+
+# Ignore virtual environment
+venv/
+
+# Ignore Python configuration files
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.env
+*.venv
+*.egg-info/
+*.eggs/
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore macOS system files
+.DS_Store
+
+# Ignore logs and temporary files
+*.log
+*.tmp
+*.swp
+*.swo
