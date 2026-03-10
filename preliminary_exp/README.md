@@ -36,7 +36,6 @@ Code for the preliminary experiment validating self-reported (verbal) confidence
 - **Brier score** — self-confidence and API confidence.
 - **False answer rate** — 1 − accuracy.
 - **Correlation** — Pearson, Spearman, Kendall (self vs API confidence).
-- **Plots** — density comparisons, scatter plots, distributions.
 
 ---
 
@@ -73,7 +72,6 @@ Code for the preliminary experiment validating self-reported (verbal) confidence
 - **Brier score** — per-question average across repeats, then mean.
 - **False answer rate** — question-level accuracy over repeats, then mean.
 - **Correlation** — Pearson (self vs API key-token).
-- **Plots** — density, scatter, distributions.
 
 ---
 
@@ -81,4 +79,4 @@ Code for the preliminary experiment validating self-reported (verbal) confidence
 
 1. **Model support**: Only models that return token-level log-probabilities in the API response are supported (e.g. `gpt-4o-mini`). For other models, change the model name and adjust the logprob extraction logic in the run scripts.
 2. **Utils**: See `utils/README.md` for `api_caller` and `yaml_parser`.
-3. **Environment**: Set the API key in `.env` or your environment (e.g. `API_KEY_PROJ`, `API_KEY_ALT`).
+3. **Environment**: Set the API key in `.env` or your environment (e.g. `API_KEY_PROJ`).
