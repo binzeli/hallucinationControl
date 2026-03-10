@@ -1,0 +1,89 @@
+index,question,options,correct_answer,model_answers,model_answer,answer_distribution,self_confidences,api_confidences_key_token
+2817,A child with type A B blood inherits an IA allele from one parent and an IB allele from the other. The child will carry both A and B glycoproteins on the surface of all red blood cells. This pattern of expression is referred to as,"A. recessive inheritance
+B. genetic recombination
+C. incomplete dominance
+D. pleiotropy
+E. codominance
+F. polygenic
+G. dominant inheritance
+H. epistasis
+I. linkage
+J. genetic drift",E,E;E;E;E;E;E;E;E;E;E,E,E:10,0.950000;0.950000;0.950000;0.950000;0.950000;0.950000;0.950000;0.950000;0.950000;0.950000,1.000000;1.000000;1.000000;1.000000;1.000000;1.000000;1.000000;1.000000;1.000000;1.000000
+2818,A frameshift mutation is created when,"A. a base pair is moved from one location in a gene to another
+B. a codon's nucleotide sequence changes so that it calls for production of a different amino acid than the original one
+C. telomeric sequences are removed from DNA
+D. a base pair is either inserted or deleted in a gene
+E. a large portion of a chromosome is deleted
+F. a gene is duplicated within the DNA sequence
+G. a codon's nucleotide sequence is changed so that it no longer codes for any amino acid
+H. a base pair is replaced with a different base pair in a gene
+I. a codon's nucleotide sequence is changed so that it codes for the same amino acid
+J. a codon's nucleotide sequence is changed so that instead of coding for a given amino acid it acts to terminate translation",D,D;D;D;D;D;D;D;D;D;D,D,D:10,0.950000;0.950000;0.980000;0.950000;0.950000;0.980000;0.950000;0.980000;0.980000;0.950000,0.999997;0.999999;0.999992;0.999965;0.999999;0.999993;0.999998;0.999985;0.999965;0.999998
+2819,"Cell motility, as viewed in a cultured fibroblast, encompasses all of the following EXCEPT","A. adhesion plaques
+B. vinculin
+C. clathrin
+D. lamellipodia",C,C;C;C;C;C;C;C;C;C;C,C,C:10,0.950000;0.950000;0.950000;0.950000;0.950000;0.950000;0.950000;0.950000;0.950000;0.950000,1.000000;1.000000;1.000000;1.000000;1.000000;1.000000;1.000000;1.000000;1.000000;1.000000
+2820,Mouse sperm contain receptor proteins that bind to a glycoprotein (ZP3) in the zona pellucida of mouse eggs. Binding of ZP3 receptors to ZP3 initiates the sperm’s acrosomal reaction. All of the following experimental observations would be expected EXCEPT:,"A. Injecting eggs with antibodies that bind to ZP3 blocks in vitro fertilization.
+B. Incubating sperm with purified ZP3 prior to mixing sperm and eggs blocks in vitro fertilization.
+C. Incubating eggs with antibodies that bind to ZP3 blocks in vitro fertilization.
+D. Coating synthetic beads with a different glycoprotein, ZP2, fails to lead to sperm aggregation on the beads.",A,B;B;B;B;B;B;B;B;B;B,B,B:10,0.950000;0.950000;0.950000;0.950000;0.950000;0.950000;0.950000;0.950000;0.950000;0.950000,0.998967;0.996406;0.999665;0.998299;0.999089;0.999739;0.999769;0.998299;0.999447;0.999739
+2821,Cancer cells grown in culture are similar to normal cells grown in culture in that they,"A. do not have the ability to metastasize
+B. divide an indefinite number of times
+C. undergo programmed cell death
+D. can grow without a nutrient supply
+E. do not require oxygen to survive
+F. proliferate to the same cell density
+G. are able to repair DNA damage efficiently
+H. are not susceptible to mutations
+I. require a surface for attachment in order to grow
+J. do not display contact inhibition",I,B;B;B;B;B;B;B;B;B;J,B,"B:9, J:1",0.950000;0.950000;0.950000;0.750000;0.950000;0.750000;0.950000;0.950000;0.950000;0.950000,0.999999;0.999977;0.999953;0.999963;0.999963;0.999959;0.999986;0.999999;0.999986;0.999996
+2823,Why is genetic drift less important in human evolution at present than it was twenty thousand or more years ago?,"A. The human genome has fully adapted to current environmental pressures
+B. Modern medicine has eliminated the effects of genetic drift
+C. The rate of genetic drift is directly proportional to technological advancements
+D. Humans have reached a genetic equilibrium where drift is no longer possible
+E. Humans have developed immunity to genetic drift
+F. Genetic drift is now counteracted by the influence of cultural evolution
+G. Genetic mutations are less common in present-day humans
+H. Genetic drift has increased over time
+I. Human evolution has stopped
+J. Populations are now larger and more connected, reducing the impact of genetic drift",J,J;J;J;J;J;J;J;J;J;J,J,J:10,0.950000;0.950000;0.950000;0.950000;0.950000;0.950000;0.950000;0.950000;0.950000;0.950000,1.000000;1.000000;1.000000;1.000000;1.000000;1.000000;1.000000;1.000000;1.000000;1.000000
+2824,Describe briefly the characteristics of the ontogeny of a humanbeing from a zygote to a mature fetus. What is the significanceof this?,"A. Ontogeny refers to the development of social behaviors in humans from infancy to adulthood.
+B. Ontogeny is the study of morphological changes of an organism throughout its lifespan.
+C. The ontogeny of a human begins with the birth and ends with the onset of puberty.
+D. Ontogeny is the sequence of events involved in the evolutionary development of a species over time.
+E. Ontogeny represents the individual development of an organism.
+F. The ontogeny of the human embryo reveals to some extent the evolutionary history of man. The significance of this is that ontogeny recapitulates phylogeny.
+G. Ontogeny describes the genetic control of cell growth.
+H. Ontogeny involves the maturation of the immune system from birth to the aging process.
+I. The ontogeny of a human being starts at adolescence and continues until the individual reaches full emotional and intellectual maturity.
+J. Ontogeny is the process of an individual organism growing organically.",F,E;E;E;E;E;E;E;E;E;E,E,E:10,0.950000;0.950000;0.950000;0.950000;0.950000;0.950000;0.950000;0.950000;0.950000;0.950000,0.999999;1.000000;1.000000;1.000000;0.999999;0.999999;1.000000;1.000000;1.000000;1.000000
+2826,A gene C mutates to c with a frequency of 2 × 10^-6 per generation. There are no other forces acting on these alleles and mating is random. How many generations are needed to increase the frequency of gene c from 2 percent to 3 percent?,"A. 2,500 generations
+B. 6,200 generations
+C. 15,000 generations
+D. 8,764 generations
+E. 10,000 generations
+F. 20,000 generations
+G. 3,000 generations
+H. 1,000 generations
+I. 7,500 generations
+J. 5,128 generations",J,E;J;J;E;J;J;J;E;E;J,J,"E:4, J:6",0.800000;0.850000;0.850000;0.800000;0.950000;0.850000;0.850000;0.750000;0.750000;0.850000,0.931053;0.999967;1.000000;0.764435;1.000000;1.000000;1.000000;0.770081;0.796724;0.999959
+2827,How are chromosomal breaks produced? What factors modify these breaks?,"A. Chromosomal breaks are produced by chemical reactions
+B. Chromosomal breaks are produced by mechanical stress and are modified by cellular metabolism and DNA repair efficiency.
+C. Chromosomal breaks are produced by low energy radiation
+D. Chromosomal breaks are produced by high energy radiation and modified by factors such as radiation frequency, ion density, length of exposure, and chromosome state.
+E. Chromosomal breaks are produced by thermal fluctuations and are modified by the cell type and surrounding tissue matrix.
+F. Chromosomal breaks are produced by osmotic pressure changes and are modified by the organism's overall health and immune response.
+G. Chromosomal breaks are produced by natural cellular processes and are modified by age and environmental factors.
+H. Chromosomal breaks are produced by ultraviolet light exposure and modified by the presence of certain genetic mutations and cellular antioxidants.
+I. Chromosomal breaks are modified by temperature and pressure
+J. Chromosomal breaks are produced by magnetic fields and modified by the phase of the cell cycle and nutrient availability.",D,B;D;D;D;D;D;D;B;D,D,"B:2, D:7",0.850000;0.950000;0.950000;0.950000;0.930000;0.950000;0.950000;0.850000;0.950000,0.995691;1.000000;0.999999;0.999999;0.999830;0.999999;1.000000;0.996568;0.999999
+2828,"In Caucasians the incidence of cystic fibrosis is about 1 in 2,000 births; but, among nonwhites the incidence is about 1 in 250,000 births. What would be the rate of incidence amongmatingsbetween Caucasians and nonwhites? If these offspring were to mate randomly among themselves, what incidence would be expected among their offspring?","A. 1 in 125,000 births; 1 in 62,500 births
+B. 1 in 30,000 births; 1 in 15,000 births
+C. 1 in 4,000 births; 1 in 100,000 births
+D. 1 in 10,000 births; 1 in 20,000 births
+E. 1 in 2,000 births; 1 in 250,000 births
+F. 1 in 8,000 births; 1 in 16,000 births
+G. 1 in 60,000 births; 1 in 120,000 births
+H. 1 in 1,000 births; 1 in 5,000 births
+I. 1 in 22,000 births; 1 in 6,700 births
+J. 1 in 16,000 births; 1 in 32,000 births",I,A;A;A;B;B;A;I;B;A;B,A,"A:5, B:4, I:1",0.850000;0.850000;0.600000;0.850000;0.850000;0.750000;0.750000;0.850000;0.850000;0.850000,0.764787;0.939119;0.509068;0.998459;0.976876;0.298431;0.294437;0.951714;0.311904;0.951779
