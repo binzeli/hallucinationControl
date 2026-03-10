@@ -361,12 +361,11 @@ async def main(category, prompt_file, output_file, api_key, api_url, results_fol
         print(f"Error: Could not find {category} data. Exiting.")
         sys.exit(1)
 
-    # if num_questions is not None and num_questions > 0:
-    #     category_df = category_df.head(num_questions).copy()
-    #     print(f"Limited to first {len(category_df)} questions")
-
-    category_df = category_df.iloc[601:].copy()
-    print(f"Testing on {len(category_df)} {category} questions")
+    if num_questions is not None and num_questions > 0:
+        category_df = category_df.head(num_questions).copy()
+        print(f"Limited to first {len(category_df)} {category} questions")
+    else:
+        print(f"Running on full {category} dataset: {len(category_df)} questions")
 
     # Prompt file path based on this script location (prompts/ is inside preliminary_exp/)
     script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -415,11 +414,11 @@ if __name__ == "__main__":
     OUTPUT_FILE = "biology-1"
     OUTPUT_BASE = "MMLU-Pro"  # Prefix to distinguish from PopQA results
     API_URL = "https://api.openai.com/v1/chat/completions"
-    API_KEY_ENV = "API_KEY_ALT"
+    API_KEY_ENV = "API_KEY_PROJ"
     RESULTS_FOLDER = "preliminary_exp/outputs"
     BATCH_SIZE = 5  # Number of questions per batch
     NUM_REPEATS = 10
-    NUM_QUESTIONS = None
+    NUM_QUESTIONS = 50
 
     api_key = os.getenv(API_KEY_ENV)
     if not api_key:

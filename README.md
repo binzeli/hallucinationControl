@@ -8,23 +8,43 @@ This project explores methods to control hallucinations in Large Language Models
 ## Project Structure
 
 ```
-hallucinationControl/
-├── main_exp/
+├── main_exp/                           # Main (reward-scheme) experiments
 │   ├── models/
-│   │   ├── gpt_client.py       # Generic GPT Batch API client
-│   │   └── __init__.py
+│   │   └── gpt_client.py               # Generic GPT batch API client
 │   ├── popQA/
-│   │   ├── run_experiment.py   # Main entry point for PopQA experiments
-│   │   └── eval.py             # Evaluation scripts
+│   │   ├── run_experiment.py           # Main entry for PopQA reward experiments
+│   │   ├── eval.py                     # Evaluation for main_exp PopQA
+│   │   ├── plot/
+│   │   │   ├── plot_abstention.py
+│   │   │   └── far_vs_abstention.py
+│   │   └── ablation_study/
+│   │       ├── remove_reward/run_no_reward.py
+│   │       └── remove_confidence/run_no_confidence.py
 │   ├── prompts/
-│   │   └── prompts.py          # Experiment prompt templates
+│   │   └── prompts.py                  # Experiment prompt templates
 │   ├── utils/
-│   │   ├── response_parser.py  # Parse model responses
-│   │   ├── abstain_parser.py   # Detect abstention patterns
-│   │   └── __init__.py
-│   └── outputs/                # Generated results (created at runtime)
+│   │   ├── response_parser.py          # Parse model responses
+│   │   └── abstain_parser.py           # Detect abstention patterns
+│   ├── rare_common_facts.py
+│   └── example_output/                 # Example run outputs
+├── preliminary_exp/                     # Validity of self-reported confidence
+│   ├── README.md                       # PopQA & MMLU-Pro pipeline docs
+│   ├── run_PopQA.py                    # PopQA API runner (logprobs, IDK/best-guess)
+│   ├── run_MMLU-pro.py                 # MMLU-Pro API runner (no-CoT, repeats)
+│   ├── evaluate_PopQA.py               # ECE, Brier, correlation (numerical only)
+│   ├── evaluate_MMLU-Pro.py            # Same metrics for MMLU-Pro CSVs
+│   ├── utils/
+│   │   ├── README.md
+│   │   ├── api_caller.py               # Concurrent API calls, logprobs
+│   │   └── yaml_parser.py              # YAML load/save
+│   ├── prompts/
+│   │   └── biology/
+│   │       └── biology-1.yaml          # No-CoT prompt template
+│   ├── example_output/                 # Example result CSVs
+│   └── outputs/                        # Result CSVs (create dir; see preliminary_exp/README)
 ├── requirements.txt
-├── .env                        # API keys (create this file)
+├── .env                                # API keys (create this file)
+├── .gitignore
 └── README.md
 ```
 
