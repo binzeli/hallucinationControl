@@ -1,5 +1,4 @@
-*outputs/
-preliminary_exp/outputs/
+outputs/
 .env
 
 
