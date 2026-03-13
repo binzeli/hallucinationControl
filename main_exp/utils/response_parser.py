@@ -30,3 +30,4 @@ def extract_fields(text):
     best_conf = float(best_conf_match.group(1)) if best_conf_match else None
 
     return answer, conf, best_guess, best_conf
+    
