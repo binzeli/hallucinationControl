@@ -1,0 +1,119 @@
+prompt: |
+  Give your confidence about your answer in decimal number between 0 and 1, where 0 means you are completely unsure and 1 means you are completely sure. Use four decimal places for precision without unnecessary rounding (e.g., 0.8765).
+
+  Think step by step before answering.
+
+  If you truly don't know, first say 'I don't know' and do not give a confidence for that (in that case just leave it blank). If you choose to answer, then provide your answer and your confidence for it. When answering, your answer must be exactly one option letter from the provided options (for example A, B, C, D, etc.).
+
+  If you said 'I don't know', then also include in the same response your best possible guess for the answer and your confidence for it. The best guess must also be exactly one option letter from the provided options.
+
+  Format your response as below such that you must begin your response by saying "Answer:" first:
+
+  Answer: <your first answer>
+  Confidence: <0–1>
+
+  If you answered 'I don't know', then also include:
+
+  Best Guess: <your best possible answer>
+  Best Guess Confidence: <0–1>
+
+
+  Examples:
+
+  Question: Which of the following represents an accurate statement concerning arthropods?
+  Options:
+  A. They possess an exoskeleton composed primarily of peptidoglycan.
+  B. They possess an open circulatory system with a dorsal heart.
+  C. They are members of a biologically unsuccessful phylum incapable of exploiting diverse habitats and nutrition sources.
+  D. They lack paired, jointed appendages.
+
+  Thinking:
+  Let's think step by step. Arthropod exoskeletons are made of chitin, not peptidoglycan, so eliminate (A). Arthropods are evolutionarily successful, so (C) is false. They have paired jointed appendages, eliminating (D). The remaining correct statement is (B).
+
+  Answer: B
+  Confidence: 0.9500
+
+
+  Question: In a given population, 1 out of every 400 people has a cancer caused by a completely recessive allele, b. Assuming the population is in Hardy-Weinberg equilibrium, which proportion of individuals carry the allele but do not develop the cancer?
+
+  Options:
+  A. 19/400
+  B. 1/400
+  C. 40/400
+  D. 38/400
+  E. 2/400
+  F. 1/200
+  G. 20/400
+  H. 50/400
+
+  Thinking:
+  Let's think step by step. The recessive disease frequency is q² = 1/400, so q = 0.05. Then p = 1 − q = 0.95. The heterozygote frequency is 2pq = 2 × 0.95 × 0.05 = 0.095, which corresponds to 38 individuals in a population of 400.
+
+  Answer: D
+  Confidence: 0.8500
+
+
+  Question: A mutation in a bacterial enzyme changed a previously polar amino acid into a nonpolar amino acid at a site distant from the enzyme's active site. How might this mutation alter the enzyme's substrate specificity?
+
+  Options:
+  A. By changing the enzyme's pH optimum
+  B. By changing the enzyme's molecular weight
+  C. An amino acid change away from the active site increases substrate specificity.
+  D. By changing the shape of the protein
+  E. By changing the enzyme's temperature optimum
+  F. By altering the enzyme's ability to be denatured
+  G. By changing the enzyme's location in the cell
+  H. By changing the enzyme's color
+  I. An amino acid change away from the active site cannot alter specificity.
+  J. By altering the enzyme's rate of reaction
+
+  Thinking:
+  Let's think step by step. A change in the amino acid sequence can affect the protein’s tertiary structure. Changes in tertiary structure can alter the overall shape of the protein, which can affect substrate binding.
+
+  Answer: D
+  Confidence: 0.9000
+
+
+  Question: Which of the following is not a way to form recombinant DNA?
+
+  Options:
+  A. Translation
+  B. Conjugation
+  C. Specialized transduction
+  D. Transformation
+
+  Thinking:
+  Let's think step by step. Conjugation, transduction, and transformation are mechanisms that can transfer DNA between organisms. Translation is the process of synthesizing proteins from RNA, so it does not form recombinant DNA.
+
+  Answer: A
+  Confidence: 0.9200
+
+
+  Question: Which of the following is not known to be involved in the control of cell division?
+
+  Options:
+  A. Microtubules
+  B. Checkpoints
+  C. DNA polymerase
+  D. Centrosomes
+  E. Cyclins
+  F. Mitochondria
+  G. Protein kinases
+  H. Fibroblast cells
+
+  Thinking:
+  Let's think step by step. Microtubules, checkpoints, cyclins, and kinases all play roles in regulating the cell cycle. Fibroblasts are a type of cell, not a regulatory mechanism. However, I am not completely certain of the best choice here.
+
+  Answer: I don't know
+  Confidence:
+
+  Best Guess: H
+  Best Guess Confidence: 0.5200
+
+
+  Now answer the following question:
+
+  Question: {question}
+
+  Options:
+  {options}

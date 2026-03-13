@@ -1,0 +1,135 @@
+prompt: |
+  Give your confidence about your answer in decimal number between 0 and 1, where 0 means you are completely unsure and 1 means you are completely sure. Use four decimal places for precision without unnecessary rounding (e.g., 0.8765).
+
+  Think step by step before answering.
+
+  If you truly don't know, first say 'I don't know' and do not give a confidence for that (in that case just leave it blank). If you choose to answer, then provide your answer and your confidence for it. When answering, your answer must be exactly one option letter from the provided options (for example A, B, C, D, etc.).
+
+  If you said 'I don't know', then also include in the same response your best possible guess for the answer and your confidence for it. The best guess must also be exactly one option letter from the provided options.
+
+  Format your response as below such that you must begin your response by saying "Answer:" first:
+
+  Answer: <your first answer>
+  Confidence: <0–1>
+
+  If you answered 'I don't know', then also include:
+
+  Best Guess: <your best possible answer>
+  Best Guess Confidence: <0–1>
+
+
+  Examples:
+
+  Question: What is the judge ad hoc?
+  Options:
+  A. Judge ad hoc is the president of the ICJ
+  B. Judge ad hoc is a temporary judge appointed for a specific period of time
+  C. Judge ad hoc is the judge that each party will always nominate in every contentious case
+  D. Judge ad hoc is the member of the bench of the ICJ with a casting vote
+  E. Judge ad hoc is a judge who is nominated by the parties involved in a contentious case, irrespective of their nationality
+  F. Judge ad hoc is a judge who decides on the admissibility of cases before the ICJ
+  G. Judge ad hoc is a judge appointed by the Security Council of the United Nations
+  H. Judge ad hoc is a surrogate judge, in case a judge is disqualified or passes away
+  I. If a party to a contentious case before the ICJ does not have a national sitting as judge, it is entitled to nominate someone as a judge solely for that case, with the title of judge ad hoc
+  J. N/A
+
+  Thinking:
+  Let's think step by step. A judge ad hoc at the ICJ is appointed for a particular contentious case when a party does not have one of its nationals on the bench. That matches option (I).
+
+  Answer: I
+  Confidence: 0.8000
+
+
+  Question: Which word best summarizes Weber's explanation of the development of formally rational law?
+  Options:
+  A. Socialism.
+  B. Legitimacy.
+  C. Authority.
+  D. Democracy.
+  E. Bureaucracy.
+  F. Conflict.
+  G. Capitalism.
+  H. Charisma.
+  I. Co-operation.
+  J. Tradition.
+
+  Thinking:
+  Let's think step by step. Weber links formally rational law to the broader development of modern capitalist society, where calculability, predictability, and rational organization become central. Among the options, capitalism best summarizes that explanation.
+
+  Answer: G
+  Confidence: 0.6000
+
+
+  Question: The ________ School of jurisprudence postulates that the law is based on what is "correct."
+  Options:
+  A. Legal Pragmatism
+  B. Legal Formalism
+  C. Comparative
+  D. Analytical
+  E. Sociological
+  F. Historical
+  G. Critical Legal Studies
+  H. Realist
+  I. Positivist
+  J. Natural Law
+
+  Thinking:
+  Let's think step by step. Natural Law theory holds that law is grounded in morality and what is inherently right or correct, rather than only in enacted rules. So the correct answer is (J).
+
+  Answer: J
+  Confidence: 0.9000
+
+
+  Question: A state has recently enacted a statute prohibiting the disposal of any nuclear wastes within the state. This law does not contravene or conflict with any federal statutes. A man operates a company in the state that is engaged in the disposal of nuclear wastes. Subsequent to the passage of the state statute, the man, not yet aware of the new law, entered into contracts with many out-of-state firms to dispose of their nuclear wastes in the state. On account of this new law, however, the man will be unable to perform these contracts. Assume that the man has standing to challenge this state law. Which of the following presents his strongest constitutional grounds to challenge the state law prohibiting the disposal of nuclear wastes within the state?
+  Options:
+  A. The second amendment - the right to bear arms.
+  B. The due process clause of the Fourteenth Amendment.
+  C. The tenth amendment - powers not delegated to the United States by the Constitution.
+  D. The first amendment - freedom of speech.
+  E. The privileges and immunities clause of Article IV, Section 2.
+  F. The commerce clause.
+  G. The sixth amendment - right to a fair trial.
+  H. The eighth amendment - prohibition of cruel and unusual punishment.
+  I. The equal protection clause of the Fourteenth Amendment.
+  J. N/A
+
+  Thinking:
+  Let's think step by step. The state law affects the flow of nuclear waste disposal contracts involving out-of-state firms, so it burdens interstate commerce. The strongest constitutional challenge is therefore under the Commerce Clause.
+
+  Answer: F
+  Confidence: 0.5000
+
+
+  Question: Functions of the law include all but which of the following?
+  Options:
+  A. defining the limits of government power
+  B. regulating the use of public spaces
+  C. keeping the peace
+  D. maximizing individual freedom
+  E. maintaining order and stability
+  F. preventing environmental degradation
+  G. providing a basis for compromise
+  H. promoting social justice
+  I. promoting the principles of the free enterprise system
+  J. encouraging economic growth
+
+  Thinking:
+  Let's think step by step. Some listed items are widely recognized functions of law, such as keeping the peace, maintaining order, and defining governmental limits. But I am not fully certain which option is the best exclusion here.
+
+  Answer: I don't know
+  Confidence:
+
+  Best Guess: I
+  Best Guess Confidence: 0.8000
+
+
+  Now answer the following question:
+
+  Question: {question}
+
+  Options:
+  {options}
+
+parameters:
+  temperature: 0.0
+  model: gpt-4o-mini-2024-07-18
