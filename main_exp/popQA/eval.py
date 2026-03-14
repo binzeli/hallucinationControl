@@ -250,7 +250,7 @@ def calculate_calibration_error(df: pd.DataFrame, file_label: str, num_bins: int
     
     # Clean data
     df_calc['confidence'] = pd.to_numeric(df_calc['confidence'], errors='coerce')
-    df_calc['confidence'] = df_calc['confidence'].clip(0, 100)
+    df_calc['confidence'] = df_calc['confidence'].clip(0, 1)
 
     # Create bins
     bins = np.linspace(0, 1, num_bins + 1)
