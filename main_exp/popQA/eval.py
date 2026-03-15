@@ -457,18 +457,15 @@ def summarize(df, label):
         answered = df["idk_flag"] == 0 
         far_e1 = df.loc[answered, "false_answer_flag"].sum() / answered.sum()
         far_e2 = 1 - acc
-        #far_e3 = df.loc[answered, "false_answer_flag"].sum() / len(df) if len(df) > 0 else 0
         print(f"\n📊 {label} Summary:")
 
 
         far_e1_margin = calculate_ci_pm(df.loc[answered, "false_answer_flag"].sum(), answered.sum())
         far_e2_margin = calculate_ci_pm(len(df) - df["correct"].sum(), len(df))
-        #far_e3_margin = calculate_ci_pm(df.loc[answered, "false_answer_flag"].sum(), len(df))
-
-        print(f"  False-Answer Rate - E1: {far_e1:.3f} ± {far_e1_margin:.3f}")
-        print(f"  False-Answer Rate - E2: {far_e2:.3f} ± {far_e2_margin:.3f}")
-        #print(f"  False-Answer Rate - E3: {far_e3:.3f} ± {far_e3_margin:.3f}")
-
+        
+        print(f"  False-Answer Rate - Answered: {far_e1:.3f} ± {far_e1_margin:.3f}")
+        print(f"  False-Answer Rate - Overall: {far_e2:.3f} ± {far_e2_margin:.3f}")
+       
         # calculate total score
         total_score = df["score"].sum()
         print(f"  Total Score: {total_score} out of {len(df)}")

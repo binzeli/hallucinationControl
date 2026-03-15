@@ -256,7 +256,10 @@ def run_experiment(
             correct = is_correct(ans, gold)
 
         if idk_flag:
-            score = reward_abstain
+            if exp_type.lower().startswith("scheme_b"):
+                score = reward_abstain
+            else:
+                score = reward_incorrect
         elif correct:
             score = reward_correct
         else:

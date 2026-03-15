@@ -114,6 +114,7 @@ python main_exp/popQA/run_experiment.py --model <model_name> --scheme <scheme_na
 Run scheme_b_norm with GPT-5:
 ```bash
 python main_exp/popQA/run_experiment.py --model gpt-5-mini --scheme scheme_b_norm --samples 1000 -rc 1 -ra 0.4 -ri -1
+python3 main_exp/popQA/run_experiment.py --model gpt-4o-mini --scheme scheme_a --samples 10 -rc 1 -ri -1
 ```
 
 ### Command-Line Arguments

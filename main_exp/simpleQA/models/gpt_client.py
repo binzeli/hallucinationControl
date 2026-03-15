@@ -1,0 +1,424 @@
+"""
+GPT-specific implementation for running experiments with OpenAI models.
+"""
+
+import os
+import sys
+
+# Set up path before other imports - add main_exp directory to path
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from openai import OpenAI
+import pandas as pd
+import re
+from tqdm import tqdm
+from datasets import load_dataset
+import ast
+import string
+import random
+import numpy as np
+from dotenv import load_dotenv
+from datetime import datetime
+import json
+import time
+
+from prompts.prompts import get_experiment_prompt, SYSTEM_PROMPT
+from utils.abstain_parser import parse_csv
+from utils.response_parser import extract_fields
+
+# Load environment variables
+load_dotenv()
+
+
+class GPTClient:
+    """
+    Runner for GPT experiments using OpenAI's Batch API.
+    """
+    
+    # Model configurations
+    MODEL_CONFIGS = {
+        "gpt-4o-mini": {
+            "full_name": "gpt-4o-mini-2024-07-18",
+            "batch_size": 5000,  # 2M token limit
+            "short_name": "gpt4"
+        },
+        "gpt-5-mini": {
+            "full_name": "gpt-5-mini-2025-08-07",
+            "batch_size": 10000,  # 5M token limit
+            "short_name": "gpt5"
+        }
+    }
+    
+    def __init__(self, experiments):
+        """
+        Initialize GPT experiment runner.
+        
+        Args:
+            experiments: Dictionary of experiment configurations
+        """
+        self.experiments = experiments
+        self.client = OpenAI(api_key=os.getenv("API_KEY"))
+    
+    # ------------------------
+    # HELPER FUNCTIONS
+    # ------------------------
+    
+    @staticmethod
+    def normalize(text):
+        return text.lower().translate(str.maketrans('', '', string.punctuation)).strip()
+
+    def is_correct(self, llm_answer, gold_answers):
+        """Return True if llm_answer matches or is contained in any gold answer."""
+        if all(isinstance(g, str) and len(g) == 1 for g in gold_answers):
+            try:
+                joined = "".join(gold_answers)
+                gold_answers = ast.literal_eval(joined)
+            except Exception:
+                gold_answers = ["".join(gold_answers)]
+
+        if llm_answer is None:
+            return False
+        norm_llm = self.normalize(llm_answer)
+        for gold in gold_answers:
+            norm_gold = self.normalize(gold)
+            if norm_gold in norm_llm or norm_llm in norm_gold:
+                return True
+        return False
+
+    # ------------------------
+    # BATCH API FUNCTIONS
+    # ------------------------
+
+    def create_batch_input_file(self, dataset, start_idx, end_idx, exp_type, reward_correct, reward_abstain, 
+                                reward_incorrect, model_name, model_config):
+        """Create JSONL file with batch requests for a range of indices."""
+        if exp_type not in self.experiments:
+            raise ValueError(f"Unknown experiment type: {exp_type}")
+        
+        exp_config = self.experiments[exp_type]
+        input_file = f"main_exp/simpleQA/outputs/batch_files/batch_input_{exp_type}_{model_config['short_name']}_{start_idx}-{end_idx}.jsonl"
+        
+        os.makedirs(os.path.dirname(input_file), exist_ok=True)
+        
+        with open(input_file, 'w') as f:
+            for idx in tqdm(range(start_idx, end_idx), desc=f"Creating batch input [{start_idx}-{end_idx}]"):
+                ex = dataset[idx]
+                q = ex["problem"]
+                
+                prompt = get_experiment_prompt(
+                    reward_correct=reward_correct,
+                    reward_abstain=reward_abstain,
+                    reward_incorrect=reward_incorrect,
+                    question=q,
+                    exp_type=exp_type
+                )
+                
+                batch_request = {
+                    "custom_id": f"request-{idx}",
+                    "method": "POST",
+                    "url": "/v1/responses",
+                    "body": {
+                        "model": model_config["full_name"],
+                        "input": []
+                    }
+                }
+                
+                # Add reasoning parameter only for GPT-5 models
+                if "gpt-5" in model_name:
+                    batch_request["body"]["reasoning"] = {"effort": "minimal"}
+                
+                if exp_config["use_system_prompt"]:
+                    batch_request["body"]["input"].append({"role": "system", "content": SYSTEM_PROMPT})
+                
+                batch_request["body"]["input"].append({"role": "user", "content": prompt})
+                
+                f.write(json.dumps(batch_request) + '\n')
+        
+        print(f"✅ Batch input file created: {input_file}")
+        return input_file
+
+    def upload_batch_file(self, input_file):
+        """Upload the batch input file to OpenAI."""
+        print(f"📤 Uploading batch file: {input_file}")
+        with open(input_file, 'rb') as f:
+            batch_input_file = self.client.files.create(file=f, purpose="batch")
+        print(f"✅ File uploaded with ID: {batch_input_file.id}")
+        return batch_input_file.id
+
+    def create_batch_job(self, input_file_id):
+        """Create a batch processing job."""
+        print(f"🚀 Creating batch job...")
+        batch = self.client.batches.create(
+            input_file_id=input_file_id,
+            endpoint="/v1/responses",
+            completion_window="24h"
+        )
+        print(f"✅ Batch job created with ID: {batch.id}")
+        print(f"   Status: {batch.status}")
+        return batch.id
+
+    def check_batch_status(self, batch_id):
+        """Check the status of a batch job."""
+        batch = self.client.batches.retrieve(batch_id)
+        if batch.status == "failed" and hasattr(batch, 'errors'):
+            print(f"   Batch Errors: {batch.errors}")
+        return batch
+
+    def wait_for_batch_completion(self, batch_id, check_interval=60):
+        """Wait for batch to complete, checking periodically."""
+        print(f"⏳ Waiting for batch {batch_id} to complete...")
+        print(f"   Checking status every {check_interval} seconds")
+        
+        while True:
+            batch = self.check_batch_status(batch_id)
+            completed = batch.request_counts.completed if hasattr(batch, 'request_counts') else 0
+            total = batch.request_counts.total if hasattr(batch, 'request_counts') else 0
+            print(f"   Status: {batch.status} | Completed: {completed}/{total}")
+            
+            if batch.status == "completed":
+                print(f"✅ Batch completed!")
+                return batch
+            elif batch.status == "failed":
+                print(f"❌ Batch failed!")
+                return batch
+            elif batch.status in ["expired", "cancelled"]:
+                print(f"⚠️  Batch {batch.status}!")
+                return batch
+            
+            time.sleep(check_interval)
+
+    def download_batch_results(self, batch, dataset, start_idx, end_idx, exp_type, reward_correct, 
+                               reward_abstain, reward_incorrect, model_config):
+        """Download and process batch results."""
+        if batch.status != "completed":
+            print(f"❌ Batch is not completed. Status: {batch.status}")
+            return None
+        
+        print(f"📥 Downloading batch results...")
+        
+        output_file_id = batch.output_file_id
+        file_response = self.client.files.content(output_file_id)
+        
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        output_file = f"main_exp/simpleQA/outputs/batch_files/batch_output_{exp_type}_{model_config['short_name']}_{start_idx}-{end_idx}_{timestamp}.jsonl"
+        
+        os.makedirs(os.path.dirname(output_file), exist_ok=True)
+        with open(output_file, 'wb') as f:
+            f.write(file_response.content)
+        
+        print(f"✅ Batch output saved to: {output_file}")
+        
+        # Process results
+        results = []
+        with open(output_file, 'r') as f:
+            for line in f:
+                result = json.loads(line)
+                custom_id = result["custom_id"]
+                idx = int(custom_id.split("-")[1])
+                
+                ex = dataset[idx]
+                q = ex["problem"]
+                gold = ex["answer"]
+                
+                if result["response"]["status_code"] == 200:
+                    response_body = result["response"]["body"]
+                    out = None
+                    
+                    # GPT-5 batch format
+                    if "output" in response_body and isinstance(response_body["output"], list):
+                        for output_item in response_body["output"]:
+                            if output_item.get("type") == "message" and "content" in output_item:
+                                for content_item in output_item["content"]:
+                                    if content_item.get("type") == "output_text" and "text" in content_item:
+                                        out = content_item["text"]
+                                        break
+                                if out:
+                                    break
+                    elif "output_text" in response_body:
+                        out = response_body["output_text"]
+                    elif "choices" in response_body:
+                        out = response_body["choices"][0]["message"]["content"]
+                    
+                    if not out:
+                        print(f"⚠️  Could not extract text from {custom_id}")
+                        continue
+                    
+                    ans, conf, best, best_conf = extract_fields(out)
+                    timestamp_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                    idk_flag = bool(re.search(r"i don't know", out or "", re.IGNORECASE))
+                    
+                    if idk_flag:
+                        correct = self.is_correct(best, [gold])
+                    else:
+                        correct = self.is_correct(ans, [gold])
+                    
+                    if idk_flag:
+                        if exp_type.lower().startswith("scheme_b"):
+                            score = reward_abstain
+                        else:
+                            score = reward_incorrect
+                    elif correct:
+                        score = reward_correct
+                    else:
+                        score = reward_incorrect
+                    
+                    false_flag = int(not correct and not idk_flag)
+                    
+                    results.append({
+                        "dataset_id": idx,
+                        "timestamp": timestamp_str,
+                        "question": q, "answer": gold,
+                        "first_answer": ans, "first_confidence": conf,
+                        "best_guess": best, "best_guess_confidence": best_conf,
+                        "correct": int(correct), "score": score,
+                        "idk_flag": int(idk_flag), "false_answer_flag": false_flag
+                    })
+                else:
+                    print(f"⚠️  Error in request {custom_id}: {result['response']['status_code']}")
+        
+        return pd.DataFrame(results)
+
+    def run_single_batch(self, dataset, start_idx, end_idx, exp_type, reward_correct, reward_abstain, 
+                         reward_incorrect, model_name, model_config):
+        """Run a single batch experiment."""
+        print(f"\n{'='*80}")
+        print(f"Processing batch: {start_idx} to {end_idx}")
+        print(f"{'='*80}")
+        
+        input_file = self.create_batch_input_file(dataset, start_idx, end_idx, exp_type, reward_correct, 
+                                                   reward_abstain, reward_incorrect, model_name, model_config)
+        input_file_id = self.upload_batch_file(input_file)
+        batch_id = self.create_batch_job(input_file_id)
+        
+        batch_info = {
+            "batch_id": batch_id,
+            "start_idx": start_idx,
+            "end_idx": end_idx,
+            "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        }
+        
+        return batch_id, batch_info
+
+    def run_multi_batch_experiment(self, dataset, exp_type, reward_correct, reward_abstain, reward_incorrect, 
+                                   model_name, model_config):
+        """Run experiment in multiple batches sequentially."""
+        if exp_type not in self.experiments:
+            raise ValueError(f"Unknown experiment type: {exp_type}")
+        
+        exp_config = self.experiments[exp_type]
+        total_size = len(dataset)
+        # Use smaller batch size if dataset is smaller than max batch size
+        batch_size = min(total_size, model_config["batch_size"])
+        num_batches = (total_size + batch_size - 1) // batch_size
+ 
+        all_results = []
+        batch_jobs = []
+        tracking_file = f"main_exp/simpleQA/outputs/batch_files/batch_tracking_{exp_type}.json"
+        
+        os.makedirs(os.path.dirname(tracking_file), exist_ok=True)
+        
+        for i in range(num_batches):
+            start_idx = i * batch_size
+            end_idx = min((i + 1) * batch_size, total_size)
+            
+            batch_id, batch_info = self.run_single_batch(dataset, start_idx, end_idx, exp_type, 
+                                                          reward_correct, reward_abstain, reward_incorrect,
+                                                          model_name, model_config)
+            batch_jobs.append(batch_info)
+            
+            with open(tracking_file, 'w') as f:
+                json.dump(batch_jobs, f, indent=2)
+            
+            print(f"✅ Batch {i+1}/{num_batches} submitted: {batch_id}")
+            
+            print(f"\n⏳ Waiting for batch {i+1}/{num_batches} to complete before submitting next batch...\n")
+            batch = self.wait_for_batch_completion(batch_id)
+            
+            if batch.status == "completed":
+                print(f"\n📥 Downloading results for batch {i+1}/{num_batches}...")
+                results_df = self.download_batch_results(batch, dataset, start_idx, end_idx, exp_type, 
+                                                         reward_correct, reward_abstain, reward_incorrect, model_config)
+                if results_df is not None:
+                    all_results.append(results_df)
+                    print(f"✅ Batch {i+1}/{num_batches} processed successfully ({len(results_df)} results)")
+                else:
+                    print(f"⚠️  Failed to process results for batch {i+1}/{num_batches}")
+            else:
+                print(f"❌ Batch {i+1}/{num_batches} failed with status: {batch.status}")
+                print("⚠️  Stopping sequential processing due to failure")
+                break
+            
+            if i < num_batches - 1:
+                print(f"\n{'='*80}")
+                print(f"Moving to next batch...\n")
+                time.sleep(5)
+        
+        # Combine all results
+        if all_results:
+            combined_df = pd.concat(all_results, ignore_index=True)
+            combined_df = combined_df.sort_values('dataset_id').reset_index(drop=True)
+            
+            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+            # Format rewards for filename
+            if exp_type.lower().startswith("scheme_b"):
+                reward_str = f"{reward_correct:+g}_{reward_incorrect:+g}_{reward_abstain:+g}"
+            else:
+                reward_str = f"{reward_correct:+g}_{reward_incorrect:+g}"
+            final_file = f"main_exp/simpleQA/outputs/{model_config['short_name']}_results/simpleqa_{exp_type}_results_{reward_str}_{timestamp}.csv"
+            
+            os.makedirs(os.path.dirname(final_file), exist_ok=True)
+            combined_df.to_csv(final_file, index=False)
+            
+            # Post-process for scheme_a_baseline and pure_eval
+            if exp_type in ["scheme_a_baseline", "pure_eval"]:
+                print(f"\n{'='*80}")
+                print(f"📝 Post-processing {exp_type} results...")
+                print(f"{'='*80}")
+                combined_df = parse_csv(final_file, final_file)
+            
+            print(f"\n{'='*80}")
+            print(f"🎉 All batches processed successfully!")
+            print(f"📊 Total results: {len(combined_df)}")
+            print(f"💾 Final results saved to: {final_file}")
+            print(f"📝 Batch tracking saved to: {tracking_file}")
+            print(f"{'='*80}")
+            
+            return combined_df, batch_jobs
+        else:
+            print("\n❌ No results to combine")
+            return None, batch_jobs
+
+    def run_experiment(self, model_name, exp_type, n_samples, reward_correct, reward_abstain, reward_incorrect):
+        """Main entry point for GPT experiments."""
+        
+        # Get model configuration
+        if model_name not in self.MODEL_CONFIGS:
+            raise ValueError(f"Unknown model: {model_name}")
+        
+        model_config = self.MODEL_CONFIGS[model_name]
+        
+        # Set random seed
+        SEED = 42
+        random.seed(SEED)
+        np.random.seed(SEED)
+
+        print("📚 Loading SimpleQA dataset...")
+        dataset = load_dataset("basicv8vc/SimpleQA")
+        dataset = dataset["test"]
+        
+        if n_samples:
+            print(f"⚙️  Running with {n_samples} samples only")
+            dataset = dataset.select(range(n_samples))
+        
+        print(f"\n🚀 Running {exp_type.upper()} experiment with Batch API...")
+        print("   Processing batches sequentially to avoid token limit\n")
+        
+        try:
+            self.run_multi_batch_experiment(
+                dataset, exp_type, reward_correct, reward_abstain, reward_incorrect,
+                model_name, model_config
+            )
+        except Exception as e:
+            print(f"❌ Error during batch processing: {str(e)}")
+            import traceback
+            traceback.print_exc()

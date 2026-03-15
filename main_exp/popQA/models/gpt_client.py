@@ -3,6 +3,11 @@ GPT-specific implementation for running experiments with OpenAI models.
 """
 
 import os
+import sys
+
+# Set up path before other imports - add main_exp directory to path
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 from openai import OpenAI
 import pandas as pd
 import re
@@ -16,10 +21,6 @@ from dotenv import load_dotenv
 from datetime import datetime
 import json
 import time
-
-# Import from parent directory
-import sys
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from prompts.prompts import get_experiment_prompt, SYSTEM_PROMPT
 from utils.abstain_parser import parse_csv
@@ -254,7 +255,10 @@ class GPTClient:
                         correct = self.is_correct(ans, gold)
                     
                     if idk_flag:
-                        score = reward_abstain
+                        if exp_type.lower().startswith("scheme_b"):
+                            score = reward_abstain
+                        else:
+                            score = reward_incorrect
                     elif correct:
                         score = reward_correct
                     else:
@@ -309,18 +313,7 @@ class GPTClient:
         # Use smaller batch size if dataset is smaller than max batch size
         batch_size = min(total_size, model_config["batch_size"])
         num_batches = (total_size + batch_size - 1) // batch_size
-        
-        print(f"\n{'='*80}")
-        print(f"🧪 Experiment: {exp_type}")
-        print(f"   {exp_config['description']}")
-        print(f"   Rewards: Correct={reward_correct:+g}, Incorrect={reward_incorrect:+g}, Abstain={reward_abstain:+g}")
-        print(f"   System Prompt: {'Yes' if exp_config['use_system_prompt'] else 'No'}")
-        print(f"{'='*80}")
-        print(f"📊 Total dataset size: {total_size}")
-        print(f"📦 Batch size: {batch_size}")
-        print(f"🔢 Number of batches needed: {num_batches}")
-        print(f"⚠️  Processing sequentially: each batch waits for previous to complete\n")
-        
+ 
         all_results = []
         batch_jobs = []
         tracking_file = f"main_exp/popQA/outputs/batch_files/batch_tracking_{exp_type}.json"
@@ -370,7 +363,10 @@ class GPTClient:
             
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
             # Format rewards for filename
-            reward_str = f"{reward_correct:+g}_{reward_incorrect:+g}_{reward_abstain:+g}"
+            if exp_type.lower().startswith("scheme_b"):
+                reward_str = f"{reward_correct:+g}_{reward_incorrect:+g}_{reward_abstain:+g}"
+            else:
+                reward_str = f"{reward_correct:+g}_{reward_incorrect:+g}"
             final_file = f"main_exp/popQA/outputs/{model_config['short_name']}_results/popqa_{exp_type}_results_{reward_str}_{timestamp}.csv"
             
             os.makedirs(os.path.dirname(final_file), exist_ok=True)
@@ -416,11 +412,6 @@ class GPTClient:
         if n_samples:
             print(f"⚙️  Running with {n_samples} samples only")
             dataset = dataset.select(range(n_samples))
-        
-        print(f"📋 Total dataset size: {len(dataset)}")
-        print(f"🤖 Model: {model_config['full_name']}")
-        print(f"📦 Batch size: {model_config['batch_size']}")
-        print(f"💰 Rewards: Correct={reward_correct:+g}, Abstain={reward_abstain:+g}, Incorrect={reward_incorrect:+g}")
         
         print(f"\n🚀 Running {exp_type.upper()} experiment with Batch API...")
         print("   Processing batches sequentially to avoid token limit\n")

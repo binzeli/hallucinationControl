@@ -52,7 +52,7 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  python3 main_exp/popQA/run_experiment.py --model gpt-4o-mini --scheme scheme_a --samples 10 -rc 1 -ra 0 -ri -1
+  python3 main_exp/simpleQA/run_experiment.py --model gpt-4o-mini --scheme scheme_a --samples 10 -rc 1 -ri -1
   python run_experiment.py -m gpt-5-mini -s pure_eval -n 500
   python run_experiment.py -m gpt-5-mini -s scheme_b -rc 1 -ra 0.4 -ri -1
         """
