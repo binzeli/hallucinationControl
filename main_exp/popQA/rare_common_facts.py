@@ -276,8 +276,8 @@ def summarize(df, label, file_handle=None):
         f"\n📊 {label} Summary:\n"
         f"  Number of Answered Questions: {answered.sum()}\n"
         f"  Number of Incorrect Answers: {df.loc[answered, 'false_answer_flag'].sum()}\n"
-        f"  False-Answer Rate - E1: {far_e1:.3f} ± {far_e1_margin:.3f}\n"
-        f"  False-Answer Rate - E2: {far_e2:.3f} ± {far_e2_margin:.3f}\n"
+        f"  False-Answer Rate - Answered: {far_e1:.3f} ± {far_e1_margin:.3f}\n"
+        f"  False-Answer Rate - Overall: {far_e2:.3f} ± {far_e2_margin:.3f}\n"
     )
     
     if file_handle is not None:

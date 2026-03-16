@@ -6,6 +6,9 @@ This script routes to the appropriate model-specific implementation.
 import argparse
 import sys
 import os
+import random
+import numpy as np
+from datasets import load_dataset
 
 # Add main_exp directory to path so imports work correctly
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -52,7 +55,7 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  python3 main_exp/popQA/run_experiment.py --model gpt-4o-mini --scheme scheme_a --samples 10 -rc 1 -ra 0 -ri -1
+  python3 main_exp/popQA/run_experiment.py --model gpt-4o-mini --scheme scheme_a --samples 10 -rc 1 -ri -1
   python run_experiment.py -m gpt-5-mini -s pure_eval -n 500
   python run_experiment.py -m gpt-5-mini -s scheme_b -rc 1 -ra 0.4 -ri -1
         """
@@ -111,19 +114,35 @@ Examples:
     print(f"Model: {args.model} (type: {model_type})")
     print(f"Scheme: {args.scheme}")
     print(f"Samples: {args.samples if args.samples else 'Full dataset'}")
-    reward_str = f"Rewards: Correct={args.reward_correct:+g}, Abstain={args.reward_abstain:+g}"
+    reward_str = f"Rewards: Correct={args.reward_correct:+g}, Incorrect={args.reward_incorrect:+g}"
     if args.scheme.lower().startswith("scheme_b"):
-        reward_str += f", Incorrect={args.reward_incorrect:+g}"
+        reward_str += f", Abstain={args.reward_abstain:+g}"
     print(reward_str)
     print(f"{'='*80}\n")
+    
+    # Load dataset
+    print("📚 Loading PopQA dataset...")
+    # Set random seed
+    SEED = 42
+    random.seed(SEED)
+    np.random.seed(SEED)
+    
+    dataset = load_dataset("akariasai/PopQA")
+    dataset = dataset["test"]
+    
+    if args.samples:
+        print(f"⚙️  Running with {args.samples} samples only")
+        dataset = dataset.select(range(args.samples))
+    
+    print(f"✅ Dataset loaded: {len(dataset)} samples\n")
     
     # Route to appropriate model handler
     if model_type == "gpt":
         runner = GPTClient(experiments=EXPERIMENTS)
         runner.run_experiment(
+            dataset=dataset,
             model_name=args.model,
             exp_type=args.scheme,
-            n_samples=args.samples,
             reward_correct=args.reward_correct,
             reward_abstain=args.reward_abstain,
             reward_incorrect=args.reward_incorrect

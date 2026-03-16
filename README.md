@@ -90,32 +90,13 @@ The project implements five experimental schemes:
 | **scheme_b** | Full rewards including IDK incentive | Correct, Incorrect, Abstain | No |
 | **scheme_b_norm** | Same as scheme_b with normative system prompt | Correct, Incorrect, Abstain | Yes |
 
-### Default Reward Values
-
-- **Correct answer**: +1.0
-- **Incorrect answer**: -1.0
-- **Abstain ("I don't know")**: +0.4
-
 ## Usage
-
-### Basic Command
-
-```bash
-python main_exp/popQA/run_experiment.py --model <model_name> --scheme <scheme_name>
-```
 
 ### Available Models
 
 - `gpt-4o-mini` - GPT-4o Mini (no reasoning mode)
 - `gpt-5-mini` - GPT-5 Mini (with reasoning mode)
 
-### Examples
-
-Run scheme_b_norm with GPT-5:
-```bash
-python main_exp/popQA/run_experiment.py --model gpt-5-mini --scheme scheme_b_norm --samples 1000 -rc 1 -ra 0.4 -ri -1
-python3 main_exp/popQA/run_experiment.py --model gpt-4o-mini --scheme scheme_a --samples 10 -rc 1 -ri -1
-```
 
 ### Command-Line Arguments
 
@@ -127,6 +108,14 @@ python3 main_exp/popQA/run_experiment.py --model gpt-4o-mini --scheme scheme_a -
 | `--reward-correct` | `-rc` | float | 1.0 | Reward for correct answer |
 | `--reward-abstain` | `-ra` | float | 0.4 | Reward for abstaining |
 | `--reward-incorrect` | `-ri` | float | -1.0 | Penalty for incorrect answer |
+
+### Examples
+
+Run scheme_b_norm with GPT-5 mini:
+```bash
+python main_exp/popQA/run_experiment.py --model gpt-5-mini --scheme scheme_b_norm --samples 1000 -rc 1 -ra 0.4 -ri -1
+python3 main_exp/popQA/run_experiment.py --model gpt-4o-mini --scheme scheme_a --samples 10 -rc 1 -ri -1
+```
 
 ## Evaluation
 

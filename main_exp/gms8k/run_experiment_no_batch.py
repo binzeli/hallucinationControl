@@ -1,25 +1,25 @@
 """
-Main experiment runner that can work with different model types.
-This script routes to the appropriate model-specific implementation.
+Main experiment runner for GSM8K dataset - Non-batch version
+This script calls the LLM one at a time for each question.
 """
 
 import argparse
 import sys
 import os
+import random
+import numpy as np
+from datasets import load_dataset
 
 # Add main_exp directory to path so imports work correctly
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # Models are now in the same directory
-from models.gpt_client import GPTClient
+from models.gpt_client_no_batch import GPTClient
 
 
 AVAILABLE_MODELS = {
     "gpt-4o-mini": "gpt",
     "gpt-5-mini": "gpt",
-    # Future models can be added here:
-    # "claude-3-5-sonnet": "claude",
-    # "gemini-2.0-flash": "gemini",
 }
 
 EXPERIMENTS = {
@@ -48,13 +48,13 @@ EXPERIMENTS = {
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Run hallucination control experiments with different models and schemes.",
+        description="Run hallucination control experiments with GSM8K dataset and different models/schemes (Non-batch mode).",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  python3 main_exp/simpleQA/run_experiment.py --model gpt-4o-mini --scheme scheme_a --samples 10 -rc 1 -ri -1
-  python run_experiment.py -m gpt-5-mini -s pure_eval -n 500
-  python run_experiment.py -m gpt-5-mini -s scheme_b -rc 1 -ra 0.4 -ri -1
+  python3 main_exp/gms8k/run_experiment_no_batch.py --model gpt-4o-mini --scheme scheme_a --samples 10 -rc 1 -ri -1
+  python run_experiment_no_batch.py -m gpt-5-mini -s pure_eval -n 500
+  python run_experiment_no_batch.py -m gpt-5-mini -s scheme_b -rc 1 -ra 0.4 -ri -1
         """
     )
     
@@ -106,7 +106,7 @@ Examples:
     model_type = AVAILABLE_MODELS[args.model]
     
     print(f"\n{'='*80}")
-    print(f"🚀 Starting Experiment")
+    print(f"🚀 Starting Experiment (GSM8K Dataset) - NON-BATCH MODE")
     print(f"{'='*80}")
     print(f"Model: {args.model} (type: {model_type})")
     print(f"Scheme: {args.scheme}")
@@ -117,22 +117,33 @@ Examples:
     print(reward_str)
     print(f"{'='*80}\n")
     
+    # Load dataset
+    print("📚 Loading GSM8K dataset...")
+    # Set random seed
+    SEED = 42
+    random.seed(SEED)
+    np.random.seed(SEED)
+    
+    dataset = load_dataset("openai/gsm8k", "main")
+    dataset = dataset["test"]
+    
+    if args.samples:
+        print(f"⚙️  Running with {args.samples} samples only")
+        dataset = dataset.select(range(args.samples))
+    
+    print(f"✅ Dataset loaded: {len(dataset)} samples\n")
+    
     # Route to appropriate model handler
     if model_type == "gpt":
         runner = GPTClient(experiments=EXPERIMENTS)
         runner.run_experiment(
+            dataset=dataset,
             model_name=args.model,
             exp_type=args.scheme,
-            n_samples=args.samples,
             reward_correct=args.reward_correct,
             reward_abstain=args.reward_abstain,
             reward_incorrect=args.reward_incorrect
         )
-    # Future model types can be added here:
-    # elif model_type == "claude":
-    #     run_claude_experiment(...)
-    # elif model_type == "gemini":
-    #     run_gemini_experiment(...)
     else:
         print(f"❌ Model type '{model_type}' not yet implemented")
         sys.exit(1)

@@ -332,7 +332,9 @@ def main():
     print(f"Model: {args.model}  Scheme: {args.scheme}  Category: {args.category}")
     print(f"Prompt file: {args.prompt_file}")
     print(f"Samples: {args.samples if args.samples else 'Full dataset'}")
-    print(f"Rewards: Correct={args.reward_correct:+g}, Abstain={args.reward_abstain:+g}, Incorrect={args.reward_incorrect:+g}")
+    reward_str = f"Rewards: Correct={args.reward_correct:+g}, Incorrect={args.reward_incorrect:+g}"
+    if args.scheme.lower().startswith("scheme_b"):
+        reward_str += f", Abstain={args.reward_abstain:+g}"
     print(f"{'='*80}\n")
 
     run_experiment(

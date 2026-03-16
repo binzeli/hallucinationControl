@@ -1,5 +1,6 @@
 """
-GPT-specific implementation for running experiments with OpenAI models.
+GPT-specific implementation for running experiments with OpenAI models on GSM8K dataset.
+Adapted from popQA gpt_client.py with numeric answer extraction from "####" lines.
 """
 
 import os
@@ -23,8 +24,7 @@ import json
 import time
 
 from prompts.prompts import get_experiment_prompt, SYSTEM_PROMPT
-from utils.abstain_parser import parse_csv
-from utils.response_parser import extract_fields
+from utils.response_parser import extract_fields_gsm8k
 
 # Load environment variables
 load_dotenv()
@@ -32,7 +32,7 @@ load_dotenv()
 
 class GPTClient:
     """
-    Runner for GPT experiments using OpenAI's Batch API.
+    Runner for GPT experiments using OpenAI's Batch API on GSM8K dataset.
     """
     
     # Model configurations
@@ -64,32 +64,69 @@ class GPTClient:
     # ------------------------
     
     @staticmethod
-    def normalize(text):
-        return text.lower().translate(str.maketrans('', '', string.punctuation)).strip()
-
-    def is_correct(self, llm_answer, gold_answers):
-        """Return True if llm_answer matches or is contained in any gold answer."""
-        if all(isinstance(g, str) and len(g) == 1 for g in gold_answers):
-            try:
-                joined = "".join(gold_answers)
-                parsed = ast.literal_eval(joined)
-                # Ensure it's always a list of strings - if it's a single value, wrap it
-                gold_answers = [str(parsed)] if not isinstance(parsed, list) else [str(x) for x in parsed]
-            except Exception:
-                gold_answers = ["".join(gold_answers)]
-
-        if llm_answer is None:
+    def extract_numeric_answer_from_gsm8k(answer_text):
+        """
+        Extract the numeric answer from GSM8K answer text.
+        GSM8K answers have format: ... #### ANSWER
+        We extract just the numeric value after ####
+        
+        Args:
+            answer_text: Text containing the answer after "####"
+            
+        Returns:
+            The numeric value as a string
+        """
+        if not answer_text:
+            return None
+        
+        # Try to extract number after ####
+        match = re.search(r'####\s*(.+?)(?:\n|$)', answer_text, re.IGNORECASE)
+        if match:
+            numeric_part = match.group(1).strip()
+            return numeric_part
+        
+        return None
+    
+    def is_correct_gsm8k(self, llm_answer, gold_answer):
+        """
+        Check if LLM answer matches GSM8K gold answer (numeric comparison).
+        Both should be numeric values extracted from "####" lines.
+        Handles currency symbols, commas, spaces, and units (e.g., "3 bolts" vs "3").
+        
+        Args:
+            llm_answer: LLM's extracted numeric answer
+            gold_answer: Gold standard numeric answer
+            
+        Returns:
+            bool: True if answers match
+        """
+        if llm_answer is None or gold_answer is None:
             return False
-        norm_llm = self.normalize(llm_answer)
-        for gold in gold_answers:
-            norm_gold = self.normalize(gold)
-            if norm_gold in norm_llm or norm_llm in norm_gold:
-                return True
-        return False
+        
+        # Normalize both answers - remove currency symbols, spaces, commas, etc.
+        llm_norm = str(llm_answer).strip().replace('$', '').replace(',', '').replace(' ', '')
+        gold_norm = str(gold_answer).strip().replace('$', '').replace(',', '').replace(' ', '')
+        
+        # Try to extract just the numeric part using regex (handles cases like "3bolts" or "3 bolts")
+        llm_numeric = re.search(r'[-+]?[\d.]+', llm_norm)
+        gold_numeric = re.search(r'[-+]?[\d.]+', gold_norm)
+        
+        if llm_numeric and gold_numeric:
+            try:
+                llm_num = float(llm_numeric.group())
+                gold_num = float(gold_numeric.group())
+                return abs(llm_num - gold_num) < 1e-6
+            except (ValueError, TypeError):
+                pass
+        
+        # Fall back to full string comparison
+        return llm_norm.lower() == gold_norm.lower()
 
     # ------------------------
     # BATCH API FUNCTIONS
     # ------------------------
+
+
 
     def create_batch_input_file(self, dataset, start_idx, end_idx, exp_type, reward_correct, reward_abstain, 
                                 reward_incorrect, model_name, model_config):
@@ -98,14 +135,14 @@ class GPTClient:
             raise ValueError(f"Unknown experiment type: {exp_type}")
         
         exp_config = self.experiments[exp_type]
-        input_file = f"main_exp/simpleQA/outputs/batch_files/batch_input_{exp_type}_{model_config['short_name']}_{start_idx}-{end_idx}.jsonl"
+        input_file = f"main_exp/gms8k/outputs/batch_files/batch_input_{exp_type}_{model_config['short_name']}_{start_idx}-{end_idx}.jsonl"
         
         os.makedirs(os.path.dirname(input_file), exist_ok=True)
         
         with open(input_file, 'w') as f:
             for idx in tqdm(range(start_idx, end_idx), desc=f"Creating batch input [{start_idx}-{end_idx}]"):
                 ex = dataset[idx]
-                q = ex["problem"]
+                q = ex["question"]
                 
                 prompt = get_experiment_prompt(
                     reward_correct=reward_correct,
@@ -118,21 +155,25 @@ class GPTClient:
                 batch_request = {
                     "custom_id": f"request-{idx}",
                     "method": "POST",
-                    "url": "/v1/responses",
+                    "url": "/v1/chat/completions",
                     "body": {
                         "model": model_config["full_name"],
-                        "input": []
+                        "messages": []
                     }
                 }
+                
+                # Set temperature based on model
+                if "gpt-4" in model_name:
+                    batch_request["body"]["temperature"] = 0
                 
                 # Add reasoning parameter only for GPT-5 models
                 if "gpt-5" in model_name:
                     batch_request["body"]["reasoning"] = {"effort": "minimal"}
                 
                 if exp_config["use_system_prompt"]:
-                    batch_request["body"]["input"].append({"role": "system", "content": SYSTEM_PROMPT})
+                    batch_request["body"]["messages"].append({"role": "system", "content": SYSTEM_PROMPT})
                 
-                batch_request["body"]["input"].append({"role": "user", "content": prompt})
+                batch_request["body"]["messages"].append({"role": "user", "content": prompt})
                 
                 f.write(json.dumps(batch_request) + '\n')
         
@@ -152,7 +193,7 @@ class GPTClient:
         print(f"🚀 Creating batch job...")
         batch = self.client.batches.create(
             input_file_id=input_file_id,
-            endpoint="/v1/responses",
+            endpoint="/v1/chat/completions",
             completion_window="24h"
         )
         print(f"✅ Batch job created with ID: {batch.id}")
@@ -196,13 +237,21 @@ class GPTClient:
             print(f"❌ Batch is not completed. Status: {batch.status}")
             return None
         
+        # Check if there are results
+        if not hasattr(batch, 'output_file_id') or batch.output_file_id is None:
+            print(f"⚠️  No output file available. Batch may have had errors or no successful requests.")
+            print(f"   Batch status: {batch.status}")
+            if hasattr(batch, 'error_file_id') and batch.error_file_id:
+                print(f"   Error file ID: {batch.error_file_id}")
+            return pd.DataFrame()  # Return empty dataframe
+        
         print(f"📥 Downloading batch results...")
         
         output_file_id = batch.output_file_id
         file_response = self.client.files.content(output_file_id)
         
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        output_file = f"main_exp/simpleQA/outputs/batch_files/batch_output_{exp_type}_{model_config['short_name']}_{start_idx}-{end_idx}_{timestamp}.jsonl"
+        output_file = f"main_exp/gms8k/outputs/batch_files/batch_output_{exp_type}_{model_config['short_name']}_{start_idx}-{end_idx}_{timestamp}.jsonl"
         
         os.makedirs(os.path.dirname(output_file), exist_ok=True)
         with open(output_file, 'wb') as f:
@@ -219,8 +268,10 @@ class GPTClient:
                 idx = int(custom_id.split("-")[1])
                 
                 ex = dataset[idx]
-                q = ex["problem"]
-                gold = ex["answer"]
+                q = ex["question"]
+                # Extract gold answer from "####" line
+                gold_answer_text = ex["answer"]
+                gold_answer = self.extract_numeric_answer_from_gsm8k(gold_answer_text)
                 
                 if result["response"]["status_code"] == 200:
                     response_body = result["response"]["body"]
@@ -245,14 +296,17 @@ class GPTClient:
                         print(f"⚠️  Could not extract text from {custom_id}")
                         continue
                     
-                    ans, conf, best, best_conf = extract_fields(out)
+                    ans, conf, best, best_conf = extract_fields_gsm8k(out)
                     timestamp_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                     idk_flag = bool(re.search(r"i don't know", out or "", re.IGNORECASE))
                     
+                    # For GSM8K, if IDK flag is set, use best_guess, otherwise use first answer
                     if idk_flag:
-                        correct = self.is_correct(best, [str(gold)])
+                        llm_answer = best
+                        correct = self.is_correct_gsm8k(llm_answer, gold_answer)
                     else:
-                        correct = self.is_correct(ans, [str(gold)])
+                        llm_answer = ans
+                        correct = self.is_correct_gsm8k(llm_answer, gold_answer)
                     
                     if idk_flag:
                         if exp_type.lower().startswith("scheme_b"):
@@ -269,11 +323,16 @@ class GPTClient:
                     results.append({
                         "dataset_id": idx,
                         "timestamp": timestamp_str,
-                        "question": q, "answer": gold,
-                        "first_answer": ans, "first_confidence": conf,
-                        "best_guess": best, "best_guess_confidence": best_conf,
-                        "correct": int(correct), "score": score,
-                        "idk_flag": int(idk_flag), "false_answer_flag": false_flag
+                        "question": q,
+                        "gold_answer": gold_answer,
+                        "first_answer": ans,
+                        "first_confidence": conf,
+                        "best_guess": best,
+                        "best_guess_confidence": best_conf,
+                        "correct": int(correct),
+                        "score": score,
+                        "idk_flag": int(idk_flag),
+                        "false_answer_flag": false_flag
                     })
                 else:
                     print(f"⚠️  Error in request {custom_id}: {result['response']['status_code']}")
@@ -315,7 +374,7 @@ class GPTClient:
  
         all_results = []
         batch_jobs = []
-        tracking_file = f"main_exp/simpleQA/outputs/batch_files/batch_tracking_{exp_type}.json"
+        tracking_file = f"main_exp/gms8k/outputs/batch_files/batch_tracking_{exp_type}.json"
         
         os.makedirs(os.path.dirname(tracking_file), exist_ok=True)
         
@@ -340,9 +399,11 @@ class GPTClient:
                 print(f"\n📥 Downloading results for batch {i+1}/{num_batches}...")
                 results_df = self.download_batch_results(batch, dataset, start_idx, end_idx, exp_type, 
                                                          reward_correct, reward_abstain, reward_incorrect, model_config)
-                if results_df is not None:
+                if results_df is not None and len(results_df) > 0:
                     all_results.append(results_df)
                     print(f"✅ Batch {i+1}/{num_batches} processed successfully ({len(results_df)} results)")
+                elif results_df is not None and len(results_df) == 0:
+                    print(f"⚠️  Batch {i+1}/{num_batches} completed but returned no results")
                 else:
                     print(f"⚠️  Failed to process results for batch {i+1}/{num_batches}")
             else:
@@ -366,61 +427,33 @@ class GPTClient:
                 reward_str = f"{reward_correct:+g}_{reward_incorrect:+g}_{reward_abstain:+g}"
             else:
                 reward_str = f"{reward_correct:+g}_{reward_incorrect:+g}"
-            final_file = f"main_exp/simpleQA/outputs/{model_config['short_name']}_results/simpleqa_{exp_type}_results_{reward_str}_{timestamp}.csv"
+            final_file = f"main_exp/gms8k/outputs/{model_config['short_name']}_results/gsm8k_{exp_type}_results_{reward_str}_{timestamp}.csv"
             
             os.makedirs(os.path.dirname(final_file), exist_ok=True)
             combined_df.to_csv(final_file, index=False)
             
-            # Post-process for scheme_a_baseline and pure_eval
-            if exp_type in ["scheme_a_baseline", "pure_eval"]:
-                print(f"\n{'='*80}")
-                print(f"📝 Post-processing {exp_type} results...")
-                print(f"{'='*80}")
-                combined_df = parse_csv(final_file, final_file)
-            
             print(f"\n{'='*80}")
             print(f"🎉 All batches processed successfully!")
             print(f"📊 Total results: {len(combined_df)}")
+            print(f"Accuracy: {combined_df['correct'].mean():.2%}")
+            print(f"IDK rate: {combined_df['idk_flag'].mean():.2%}")
+            print(f"False answer rate: {combined_df['false_answer_flag'].mean():.2%}")
+            print(f"Average score: {combined_df['score'].mean():.4f}")
             print(f"💾 Final results saved to: {final_file}")
             print(f"📝 Batch tracking saved to: {tracking_file}")
             print(f"{'='*80}")
             
             return combined_df, batch_jobs
         else:
-            print("\n❌ No results to combine")
+            print("\n❌ No results collected!")
             return None, batch_jobs
 
-    def run_experiment(self, model_name, exp_type, n_samples, reward_correct, reward_abstain, reward_incorrect):
-        """Main entry point for GPT experiments."""
-        
-        # Get model configuration
-        if model_name not in self.MODEL_CONFIGS:
-            raise ValueError(f"Unknown model: {model_name}")
-        
+    def run_experiment(self, dataset, model_name, exp_type, reward_correct, reward_abstain, reward_incorrect):
+        """Run the full experiment."""
         model_config = self.MODEL_CONFIGS[model_name]
+        print(f"🎯 Using model configuration for {model_name}:")
+        print(f"   Full name: {model_config['full_name']}")
+        print(f"   Batch size: {model_config['batch_size']}\n")
         
-        # Set random seed
-        SEED = 42
-        random.seed(SEED)
-        np.random.seed(SEED)
-
-        print("📚 Loading SimpleQA dataset...")
-        dataset = load_dataset("basicv8vc/SimpleQA")
-        dataset = dataset["test"]
-        
-        if n_samples:
-            print(f"⚙️  Running with {n_samples} samples only")
-            dataset = dataset.select(range(n_samples))
-        
-        print(f"\n🚀 Running {exp_type.upper()} experiment with Batch API...")
-        print("   Processing batches sequentially to avoid token limit\n")
-        
-        try:
-            self.run_multi_batch_experiment(
-                dataset, exp_type, reward_correct, reward_abstain, reward_incorrect,
-                model_name, model_config
-            )
-        except Exception as e:
-            print(f"❌ Error during batch processing: {str(e)}")
-            import traceback
-            traceback.print_exc()
+        return self.run_multi_batch_experiment(dataset, exp_type, reward_correct, reward_abstain, 
+                                               reward_incorrect, model_name, model_config)

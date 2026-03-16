@@ -123,6 +123,10 @@ class GPTClient:
                     }
                 }
                 
+                # Set temperature based on model
+                if "gpt-4" in model_name:
+                    batch_request["body"]["temperature"] = 0
+                    
                 # Add reasoning parameter only for GPT-5 models
                 if "gpt-5" in model_name:
                     batch_request["body"]["reasoning"] = {"effort": "minimal"}
@@ -391,27 +395,23 @@ class GPTClient:
             print("\n❌ No results to combine")
             return None, batch_jobs
 
-    def run_experiment(self, model_name, exp_type, n_samples, reward_correct, reward_abstain, reward_incorrect):
-        """Main entry point for GPT experiments."""
+    def run_experiment(self, dataset, model_name, exp_type, reward_correct, reward_abstain, reward_incorrect):
+        """Main entry point for GPT experiments.
+        
+        Args:
+            dataset: Pre-loaded dataset to run experiment on
+            model_name: Name of the model to use
+            exp_type: Type of experiment to run
+            reward_correct: Reward for correct answers
+            reward_abstain: Reward for abstaining
+            reward_incorrect: Reward/penalty for incorrect answers
+        """
         
         # Get model configuration
         if model_name not in self.MODEL_CONFIGS:
             raise ValueError(f"Unknown model: {model_name}")
         
         model_config = self.MODEL_CONFIGS[model_name]
-        
-        # Set random seed
-        SEED = 42
-        random.seed(SEED)
-        np.random.seed(SEED)
-
-        print("📚 Loading PopQA dataset...")
-        dataset = load_dataset("akariasai/PopQA")
-        dataset = dataset["test"]
-        
-        if n_samples:
-            print(f"⚙️  Running with {n_samples} samples only")
-            dataset = dataset.select(range(n_samples))
         
         print(f"\n🚀 Running {exp_type.upper()} experiment with Batch API...")
         print("   Processing batches sequentially to avoid token limit\n")
