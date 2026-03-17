@@ -207,8 +207,12 @@ class QwenClient:
         results = []
         
         indices = list(range(start_idx, end_idx))
+        print(f"📊 Total indices to process: {len(indices)}")
+        
         for i in tqdm(range(0, len(indices), model_config["batch_size"]), desc=f"Processing batch [{start_idx}-{end_idx}]"):
             batch_indices = indices[i:i + model_config["batch_size"]]
+            print(f"\n   🔄 Sub-batch {i // model_config['batch_size'] + 1}: Processing {len(batch_indices)} examples (indices {batch_indices[0]}-{batch_indices[-1]})")
+            
             prompts = []
             examples = []
             for idx in batch_indices:
@@ -228,15 +232,20 @@ class QwenClient:
                 examples.append((idx, q, gold, s_pop, o_pop))
 
             try:
+                print(f"      🤖 Generating responses for {len(prompts)} examples...")
                 outputs = self.generate_responses_batch(prompts, temperature=0)
+                print(f"      ✅ Responses generated successfully")
             except Exception as e:
                 print(f"⚠️  Error processing batch {i // model_config['batch_size']}: {str(e)}")
                 continue
 
+            print(f"      📝 Processing results...")
+            processed_count = 0
             for (idx, q, gold, s_pop, o_pop), out, prompt in zip(examples, outputs, prompts):
                 try:
-                    print("prompt:", prompt)
-                    print("response:", out)
+                    print(f"         [{processed_count + 1}/{len(examples)}] Processing example {idx}...")
+                    print("         prompt:", prompt[:100] + "..." if len(prompt) > 100 else prompt)
+                    print("         response:", out[:100] + "..." if len(out) > 100 else out)
 
                     if not out:
                         print(f"⚠️  Could not generate response for index {idx}")
@@ -273,9 +282,13 @@ class QwenClient:
                         "correct": int(correct), "score": score,
                         "idk_flag": int(idk_flag), "false_answer_flag": false_flag
                     })
+                    processed_count += 1
+                    print(f"         ✅ Example {idx} processed (correct: {correct}, idk: {idk_flag})")
                 except Exception as e:
                     print(f"⚠️  Error processing index {idx}: {str(e)}")
                     continue
+            
+            print(f"      🎯 Sub-batch complete: {processed_count}/{len(examples)} examples processed\n")
         
         return pd.DataFrame(results)
 
