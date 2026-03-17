@@ -48,7 +48,8 @@ def plot_idk_confidence_separate(df, file_label, reward_setting, output_dir):
 
     # Set publication-quality style
     plt.rcParams['font.family'] = 'sans-serif'
-    plt.rcParams['font.sans-serif'] = ['Arial', 'Helvetica']
+    # Use DejaVu Sans first to avoid missing font warnings on clusters
+    plt.rcParams['font.sans-serif'] = ['DejaVu Sans', 'Arial', 'Helvetica']
     plt.rcParams['font.size'] = 12
     plt.rcParams['axes.labelsize'] = 14
     plt.rcParams['axes.titlesize'] = 14
