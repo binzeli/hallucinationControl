@@ -21,6 +21,7 @@ from datetime import datetime
 
 from prompts.prompts import get_experiment_prompt, SYSTEM_PROMPT
 from utils.response_parser import extract_fields
+from utils.abstain_parser import parse_csv
 
 # Load environment variables
 load_dotenv()
@@ -256,6 +257,13 @@ class GPTClient:
         
         output_file = f"main_exp/TriviaQA/outputs/{model_config['short_name']}_results/triviaqa_{exp_type}_results_{reward_str}_{timestamp}.csv"
         results_df.to_csv(output_file, index=False)
+
+        # Post-process for scheme_a_baseline and pure_eval
+        if exp_type in ["scheme_a_baseline", "pure_eval"]:
+            print(f"\n{'='*80}")
+            print(f"📝 Post-processing {exp_type} results...")
+            print(f"{'='*80}")
+            results_df = parse_csv(output_file, output_file)
         
         print(f"\n{'='*80}")
         print(f"🎉 Experiment completed!")
