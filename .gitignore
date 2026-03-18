@@ -31,3 +31,5 @@ __pycache__/
 *.swo
 # Ignore macOS system files
 .DS_Store
+
+slurm*
