@@ -14,6 +14,7 @@ Note: self_confidence, api_confidence_min, and api_confidence_avg are already pr
 based on IDK logic (if IDK, use best_guess values; otherwise use first_answer values).
 """
 
+import argparse
 import os
 import pandas as pd
 import numpy as np
@@ -413,29 +414,42 @@ def process_csv_file(input_file_path: str, output_dir: str, num_bins: int = 10):
 
 
 if __name__ == "__main__":
-    # Set input file name here
-    input_file = "popQA-20260309_183536.csv"  # Change this to your input CSV file name
-    
-    # Get the directory of this script
+    parser = argparse.ArgumentParser(
+        description="Evaluate PopQA experiment results from a CSV file.",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+    )
+    parser.add_argument(
+        "--result-file", "-f",
+        type=str,
+        required=True,
+        help="Path to the result CSV file to analyze",
+    )
+    parser.add_argument(
+        "--output-dir", "-o",
+        type=str,
+        default=None,
+        help="Directory for output (default: script_dir/outputs)",
+    )
+    parser.add_argument(
+        "--num-bins",
+        type=int,
+        default=10,
+        help="Number of bins for ECE (default: 10)",
+    )
+    args = parser.parse_args()
+
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    results_dir = os.path.join(script_dir, "outputs")
-    
-    # Determine input file path
-    if os.path.isabs(input_file) or os.path.exists(input_file):
-        input_path = input_file
-    else:
-        input_path = os.path.join(results_dir, input_file)
-    
-    # Output directory for visualizations (same as results directory)
-    output_dir = results_dir
-    
-    # Check if input file exists
+    output_dir = args.output_dir if args.output_dir is not None else os.path.join(script_dir, "outputs")
+
+    input_path = args.result_file
+    if not os.path.isabs(input_path) and not os.path.exists(input_path):
+        input_path = os.path.join(output_dir, input_path)
+
     if not os.path.exists(input_path):
         print(f"Error: Input file not found: {input_path}")
-        print(f"Please update the input_file variable in the script.")
     else:
         try:
-            process_csv_file(input_path, output_dir, num_bins=10)
+            process_csv_file(input_path, output_dir, num_bins=args.num_bins)
         except Exception as e:
             print(f"Error processing file: {e}")
             import traceback

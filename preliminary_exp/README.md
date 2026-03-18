@@ -33,7 +33,22 @@ Before running the scripts, create an `outputs/` directory under `preliminary_ex
 
 ### Evaluation: `evaluate_PopQA.py`
 
-**Input**: PopQA output CSV (set `input_file` in `__main__`).
+**Input**: PopQA output CSV (path via CLI).
+
+**Command** (run from repo root):
+
+```bash
+python preliminary_exp/evaluate_PopQA.py -f <path_to_csv>
+```
+
+Examples:
+
+```bash
+python preliminary_exp/evaluate_PopQA.py -f popQA-20260306_160146.csv
+python preliminary_exp/evaluate_PopQA.py -f preliminary_exp/outputs/popQA-20260306_160146.csv
+```
+
+Optional: `-o <output_dir>` (default: `preliminary_exp/outputs`), `--num-bins <n>` (default: 10).
 
 **Metrics**:
 
@@ -72,7 +87,22 @@ Before running the scripts, create an `outputs/` directory under `preliminary_ex
 
 ### Evaluation: `evaluate_MMLU-Pro.py`
 
-**Input**: MMLU-Pro output CSV (set `input_file` in `__main__`).
+**Input**: MMLU-Pro output CSV (path via CLI).
+
+**Command** (run from repo root):
+
+```bash
+python preliminary_exp/evaluate_MMLU-Pro.py -f <path_to_csv>
+```
+
+Examples:
+
+```bash
+python preliminary_exp/evaluate_MMLU-Pro.py -f MMLU-Pro-biology-1-20260309_232622.csv
+python preliminary_exp/evaluate_MMLU-Pro.py -f preliminary_exp/outputs/MMLU-Pro-biology-1-20260309_232622.csv
+```
+
+Optional: `-o <output_dir>` (default: `preliminary_exp/outputs`), `--num-bins <n>` (default: 10).
 
 **Metrics**:
 
