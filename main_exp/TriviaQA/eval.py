@@ -504,11 +504,11 @@ def parse_filename(filename):
     
     # Extract reward values (format: +1_-1_+0.4 or +1_0_+0.4)
     # Rewards are between _results_ and timestamp (8 digits)
-    reward_match = re.search(r'_results_([+-]?\d+(?:\.\d+)?)_([+-]?\d+(?:\.\d+)?)_([+-]?\d+(?:\.\d+)?)_\d{8}', basename)
+    reward_match = re.search(r'_results_([+-]?\d+(?:\.\d+)?)_([+-]?\d+(?:\.\d+)?)(?:_([+-]?\d+(?:\.\d+)?))?_\d{8}',basename)
     if reward_match:
         reward_correct = reward_match.group(1)
         reward_incorrect = reward_match.group(2)
-        reward_abstain = reward_match.group(3)
+        reward_abstain = reward_match.group(3) if reward_match.group(3) is not None else "N/A"
     else:
         reward_correct = "+1"
         reward_incorrect = "-1"
@@ -586,9 +586,10 @@ def main():
     model_name, scheme_name, r_correct, r_incorrect, r_abstain = parse_filename(filepath)
     
     # Build reward setting string
-    reward_parts = [r_correct]
-    reward_parts.append(r_incorrect)
-    reward_parts.append(r_abstain)
+    reward_parts = [r_correct, r_incorrect]
+    if r_abstain != "N/A":
+        reward_parts.append(r_abstain)
+
     reward_setting = ", ".join(reward_parts)
     
     print(f"\n{'='*80}")
