@@ -134,6 +134,8 @@ class GPTClient:
                 "content": prompt
             })
             
+            print("prompt:", input_messages)
+
             response = self.client.responses.create(
                 model=model_config["full_name"],
                 input=input_messages,
@@ -200,7 +202,7 @@ class GPTClient:
                 
                 response_text = self.call_llm(prompt, model_name, model_config, system_prompt)
 
-                print("prompt:", prompt)
+                
                 print("response:", response_text)
                 
                 ans, conf, best, best_conf = extract_fields(response_text)
