@@ -42,6 +42,11 @@ class QwenClient:
             "full_name": "Qwen/Qwen3-8B",
             "batch_size": 40,
             "short_name": "qwen3-8b"
+        },
+        "qwen-3.5": {
+            "full_name": "Qwen/Qwen3.5-9B",
+            "batch_size": 40,
+            "short_name": "qwen35-9b"
         }
     }
     
@@ -150,7 +155,8 @@ class QwenClient:
         generated_ids = [output_ids[len(input_ids):] for input_ids, output_ids in zip(model_inputs.input_ids, generated_ids)]
         response = self.tokenizer.batch_decode(generated_ids, skip_special_tokens=True)[0]
 
-        return self.strip_think_tags(response)
+        return self.strip_think_tags(response)  # Commented out to see full response with think tags
+
 
     def generate_responses_batch(self, prompts, temperature=0, max_tokens=5000):
         """Generate responses for a batch of prompts in one call."""
@@ -161,7 +167,7 @@ class QwenClient:
                 messages.append({"role": "system", "content": SYSTEM_PROMPT})
             messages.append({"role": "user", "content": prompt})
             messages_list.append(messages)
-
+        print("messages_list[0]:", messages_list[0])  # Debug: print first message structure
         texts = [
             self.tokenizer.apply_chat_template(
                 messages,
@@ -195,7 +201,7 @@ class QwenClient:
             for output_ids, input_len in zip(generated_ids, input_lengths)
         ]
         responses = self.tokenizer.batch_decode(trimmed, skip_special_tokens=True)
-        return [self.strip_think_tags(r) for r in responses]
+        return [self.strip_think_tags(r) for r in responses]  # Commented out to see full response with think tags
 
     def run_batch(self, dataset, start_idx, end_idx, exp_type, reward_correct, reward_abstain, 
                   reward_incorrect, model_config):

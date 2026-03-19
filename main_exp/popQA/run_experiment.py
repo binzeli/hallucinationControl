@@ -22,6 +22,7 @@ AVAILABLE_MODELS = {
     "gpt-4o-mini": "gpt",
     "gpt-5-mini": "gpt",
     "qwen-3": "qwen",
+    "qwen-3.5": "qwen",
     # Future models can be added here:
     # "claude-3-5-sonnet": "claude",
     # "gemini-2.0-flash": "gemini",
