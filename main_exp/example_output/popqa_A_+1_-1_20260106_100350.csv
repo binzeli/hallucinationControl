@@ -29,7 +29,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 27,2026-01-05 11:10:56,1718,81374,What is Colleen Zenk Pinter's occupation?,"[""actor"", ""actress"", ""actors"", ""actresses""]",Actress,0.96,,,1,1,0,0
 28,2026-01-05 11:10:57,152,8320,What is Thomas McMurtry's occupation?,"[""test pilot""]",Test pilot (United States Air Force test pilot and later NASA research/test pilot),0.81,,,1,1,0,0
 29,2026-01-05 11:10:59,322,43223,What is Albert Bates's occupation?,"[""lawyer"", ""attorney"", ""solicitor"", ""barrister"", ""lawyers""]",I don't know,,,,0,-1,1,0
-30,2026-01-05 11:11:00,1132,25550,What is Heath's occupation?,"[""songwriter"", ""song writer""]",,,,,0,-1,0,1
+30,2026-01-05 11:11:00,1132,25550,What is Heath's occupation?,"[""songwriter"", ""song writer""]",,,,,0,-1,1,1
 31,2026-01-05 11:11:01,396,42844,What is Wise's occupation?,"[""record producer"", ""music producer""]",I don't know,,,,0,-1,1,0
 32,2026-01-05 11:11:02,792,24952,What is Stevie Cameron's occupation?,"[""journalist"", ""journo"", ""journalists""]",Investigative journalist and author,0.88,,,1,1,0,0
 33,2026-01-05 11:11:03,996,7223,What is Yoshiki Tonogai's occupation?,"[""mangaka"", ""manga artist""]",Manga artist (Japanese manga artist),0.96,,,1,1,0,0
@@ -53,7 +53,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 51,2026-01-05 11:11:24,1072,81374,What is Robert Viharo's occupation?,"[""actor"", ""actress"", ""actors"", ""actresses""]",Actor,0.83,,,1,1,0,0
 52,2026-01-05 11:11:25,1494,81374,What is Ankita Sharma's occupation?,"[""actor"", ""actress"", ""actors"", ""actresses""]",I don't know,,,,0,-1,1,0
 53,2026-01-05 11:11:26,31792,6776,What is Robby Krieger's occupation?,"[""guitarist"", ""guitar player"", ""guitarists""]","Musician (guitarist, songwriter)",0.95,,,1,1,0,0
-54,2026-01-05 11:11:27,135900,20559,What is Paul's occupation?,"[""missionary"", ""Christian missionary""]",,,,,0,-1,0,1
+54,2026-01-05 11:11:27,135900,20559,What is Paul's occupation?,"[""missionary"", ""Christian missionary""]",,,,,0,-1,1,1
 55,2026-01-05 11:11:28,206,25692,What is Shozaburo Nakamura's occupation?,"[""politician"", ""political leader"", ""political figure"", ""polit."", ""pol""]",I don't know,,,,0,-1,1,0
 56,2026-01-05 11:11:29,1419,25550,What is Esquerita's occupation?,"[""pianist"", ""songwriter"", ""song writer""]","Singer, songwriter and pianist (rock and roll/R&B performer)",0.84,,,1,1,0,0
 57,2026-01-05 11:11:31,43,11157,What is Derek Wheatley's occupation?,"[""novelist"", ""barrister"", ""barrister-at-law"", ""Bar-at-law""]",I don't know,,Derek Wheatley is a barrister (lawyer),0.22,1,1,1,0
@@ -97,7 +97,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 95,2026-01-05 11:32:26,84,26544,What is Ivo Perilli's occupation?,"[""screenwriter"", ""scenarist"", ""writer"", ""screen writer"", ""script writer"", ""scriptwriter""]",Screenwriter,0.89,,,1,1,0,0
 96,2026-01-05 11:32:27,580,81374,What is Nathan Purdee's occupation?,"[""actor"", ""actress"", ""actors"", ""actresses""]",Actor,0.86,,,1,1,0,0
 97,2026-01-05 11:32:28,1098,9714,What is Joseph Weydemeyer's occupation?,"[""journalist"", ""journo"", ""journalists"", ""revolutionary"", ""insurrectionist"", ""revolutionist"", ""revolutioner""]","Joseph Weydemeyer was a soldier, journalist, and political activist (notably a German revolutionary and later a Union Army officer and Marxist journalist in the United States).",0.856,,,1,1,0,0
-98,2026-01-05 11:32:29,994,16182,What is Ai's occupation?,"[""poet"", ""poetess"", ""bard""]",,,,,0,-1,0,1
+98,2026-01-05 11:32:29,994,16182,What is Ai's occupation?,"[""poet"", ""poetess"", ""bard""]",,,,,0,-1,1,1
 99,2026-01-05 11:32:30,62,28389,What is Rinaldo del Mel's occupation?,"[""composer""]",Composer (Renaissance composer),0.86,,,1,1,0,0
 100,2026-01-05 11:32:32,353,25692,"What is Francis Howard, 5th Baron Howard of Effingham's occupation?","[""politician"", ""political leader"", ""political figure"", ""polit."", ""pol""]",Soldier (English peer and soldier — he served as an army officer),0.8745,,,0,-1,0,1
 101,2026-01-05 11:32:33,109,25692,What is Luís Marques Guedes's occupation?,"[""politician"", ""political leader"", ""political figure"", ""polit."", ""pol""]",Politician,0.95,,,1,1,0,0
@@ -160,10 +160,10 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 158,2026-01-05 11:33:41,333,24952,What is Maurizio Belpietro's occupation?,"[""journalist"", ""journo"", ""journalists"", ""television presenter"", ""host"", ""hostess"", ""TV host"", ""television host"", ""TV presenter"", ""TV anchor"", ""television anchor""]",He is an Italian journalist and newspaper editor (newspaper editor-in-chief).,0.98,,,1,1,0,0
 159,2026-01-05 11:33:43,10374,42844,What is Dash's occupation?,"[""record producer"", ""music producer""]",I don't know,,"Superhero (specifically, a superhero with super-speed — member of the Parr family in The Incredibles)",0.25,0,-1,1,0
 160,2026-01-05 11:33:44,344,24952,What is Baton Haxhiu's occupation?,"[""journalist"", ""journo"", ""journalists""]",Journalist,0.86,,,1,1,0,0
-161,2026-01-05 11:33:45,5158,28389,What is Johnson's occupation?,"[""composer""]",,,,,0,-1,0,1
+161,2026-01-05 11:33:45,5158,28389,What is Johnson's occupation?,"[""composer""]",,,,,0,-1,1,1
 162,2026-01-05 11:33:46,542,20559,What is Samuel Wells Williams's occupation?,"[""missionary"", ""Christian missionary""]","He was an American linguist, missionary, sinologist, diplomat, and author (notably a missionary and sinologist/linguist).",0.37,,,1,1,0,0
 163,2026-01-05 11:33:47,81,25692,What is Walter Köbel's occupation?,"[""politician"", ""political leader"", ""political figure"", ""polit."", ""pol""]",German politician,0.6543,,,1,1,0,0
-164,2026-01-05 11:33:48,197,25692,What is Debbie Johnson's occupation?,"[""politician"", ""political leader"", ""political figure"", ""polit."", ""pol""]",,,,,0,-1,0,1
+164,2026-01-05 11:33:48,197,25692,What is Debbie Johnson's occupation?,"[""politician"", ""political leader"", ""political figure"", ""polit."", ""pol""]",,,,,0,-1,1,1
 165,2026-01-05 11:33:49,1852,81374,What is John Scurti's occupation?,"[""actor"", ""actress"", ""actors"", ""actresses""]",Actor,0.86,,,1,1,0,0
 166,2026-01-05 11:33:50,69,33483,What is John Barnes's occupation?,"[""monk"", ""monks""]",I don't know,,"Author and essayist (British novelist, critic, and historian)",0.12,0,-1,1,0
 167,2026-01-05 11:33:52,242,28389,What is Kekko Fornarelli's occupation?,"[""composer"", ""pianist""]",Musician (jazz pianist/composer),0.87,,,1,1,0,0
@@ -190,7 +190,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 188,2026-01-05 11:34:17,447,25692,What is Ek Yi Oun's occupation?,"[""politician"", ""political leader"", ""political figure"", ""polit."", ""pol""]",Politician,0.64,,,1,1,0,0
 189,2026-01-05 11:34:18,758,42844,What is Benjamin Mount's occupation?,"[""record producer"", ""music producer""]",Benjamin Mount is a voice actor.,0.52,,,0,-1,0,1
 190,2026-01-05 11:34:20,990,28389,What is Ivan Mládek's occupation?,"[""composer"", ""songwriter"", ""song writer""]","Czech musician, composer, comedian, and actor (primarily known as a singer-songwriter and entertainer)",0.671,,,1,1,0,0
-191,2026-01-05 11:34:21,21931,45772,What is Bala's occupation?,"[""film director"", ""movie director"", ""director"", ""motion picture director"", ""screenwriter"", ""scenarist"", ""writer"", ""screen writer"", ""script writer"", ""scriptwriter""]",,,,,0,-1,0,1
+191,2026-01-05 11:34:21,21931,45772,What is Bala's occupation?,"[""film director"", ""movie director"", ""director"", ""motion picture director"", ""screenwriter"", ""scenarist"", ""writer"", ""screen writer"", ""script writer"", ""scriptwriter""]",,,,,0,-1,1,1
 192,2026-01-05 11:34:22,700,81374,What is Steve Tom's occupation?,"[""actor"", ""actress"", ""actors"", ""actresses""]",Actor,0.71,,,1,1,0,0
 193,2026-01-05 11:34:23,272,81374,What is Ilja Rosendahl's occupation?,"[""record producer"", ""music producer"", ""actor"", ""actress"", ""actors"", ""actresses""]","Musician, producer, composer, and filmmaker (recording artist and music producer; also actor and film director)",0.434,,,1,1,0,0
 194,2026-01-05 11:34:24,1186,45772,What is Ron Nyswaner's occupation?,"[""film director"", ""movie director"", ""director"", ""motion picture director"", ""screenwriter"", ""scenarist"", ""writer"", ""screen writer"", ""script writer"", ""scriptwriter""]",Screenwriter and film director (also playwright and producer),0.8487,,,1,1,0,0
@@ -200,13 +200,13 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 198,2026-01-05 11:34:30,220,3476,What is Otto Frankel's occupation?,"[""geneticist""]",Geneticist (conservation geneticist / plant breeder),0.82,,,1,1,0,0
 199,2026-01-05 11:34:31,257,25747,What is Hate Man's occupation?,"[""philosopher""]",Philosopher and street personality (self-styled philosopher / social critic),0.5467,,,1,1,0,0
 200,2026-01-05 11:34:32,75,5896,What is Rich Brightman's occupation?,"[""singer-songwriter"", ""singer songwriter"", ""singer/songwriter"", ""singersongwriter"", ""singer-songwriter""]",I don't know,,,,0,-1,1,0
-201,2026-01-05 11:34:34,3629,42844,What is Mr. Porter's occupation?,"[""record producer"", ""music producer""]",,,Mr. Porter is a shopkeeper (store owner/manager),0.15,0,-1,0,1
+201,2026-01-05 11:34:34,3629,42844,What is Mr. Porter's occupation?,"[""record producer"", ""music producer""]",,,Mr. Porter is a shopkeeper (store owner/manager),0.15,0,-1,1,1
 202,2026-01-05 11:34:35,215,25692,What is Felix Walker's occupation?,"[""politician"", ""political leader"", ""political figure"", ""polit."", ""pol""]",I don't know,,Felix Walker was a U.S. politician (a U.S. Congressman from North Carolina in the early 19th century).,0.46,1,1,1,0
 203,2026-01-05 11:34:36,279,28389,What is Javad Maroufi's occupation?,"[""composer""]",Pianist and composer,0.82,,,1,1,0,0
 204,2026-01-05 11:34:37,73,26544,What is Franz Seitz Sr.'s occupation?,"[""film director"", ""movie director"", ""director"", ""motion picture director"", ""screenwriter"", ""scenarist"", ""writer"", ""screen writer"", ""script writer"", ""scriptwriter"", ""film producer"", ""movie producer"", ""producer""]","Film director (German film director, producer and screenwriter)",0.59,,,1,1,0,0
 205,2026-01-05 11:34:39,75216,81374,What is Chris Jericho's occupation?,"[""actor"", ""actress"", ""actors"", ""actresses""]","Professional wrestler, musician (lead singer of the rock band Fozzy), author, and actor.",0.88,,,1,1,0,0
 206,2026-01-05 11:34:40,66,25692,What is Frederick Dundas's occupation?,"[""politician"", ""political leader"", ""political figure"", ""polit."", ""pol""]",Politician,0.86,,,1,1,0,0
-207,2026-01-05 11:34:41,1155,38478,What is Aim's occupation?,"[""disc jockey"", ""DJ"", ""dee jay"", ""dj"", ""D.J."", ""disk jockey"", ""dee-jay"", ""deejay"", ""disquaire"", ""discaire""]",,,,,0,-1,0,1
+207,2026-01-05 11:34:41,1155,38478,What is Aim's occupation?,"[""disc jockey"", ""DJ"", ""dee jay"", ""dj"", ""D.J."", ""disk jockey"", ""dee-jay"", ""deejay"", ""disquaire"", ""discaire""]",,,,,0,-1,1,1
 208,2026-01-05 11:34:42,2403,81374,What is Nadia Giosia's occupation?,"[""actor"", ""actress"", ""actors"", ""actresses""]","Nadia Giosia is a Canadian chef, television host, actress, writer, and comedian (best known as a chef and TV personality).",0.86,,,1,1,0,0
 209,2026-01-05 11:34:43,304,22041,"What is Adele Capell, Countess of Essex's occupation?","[""socialite"", ""prominent person""]",Socialite,0.72,,,1,1,0,0
 210,2026-01-05 11:34:45,4437,2030,What is Edward Francis Hutton's occupation?,"[""financier""]",Financier (financier and stockbroker; founder of E. F. Hutton & Co.),0.95,,,1,1,0,0
@@ -242,7 +242,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 240,2026-01-05 11:35:23,184,16182,What is Alfred Mombert's occupation?,"[""poet"", ""poetess"", ""bard""]",Poet,0.98,,,1,1,0,0
 241,2026-01-05 11:35:24,126052,81374,What is Famke Janssen's occupation?,"[""screenwriter"", ""scenarist"", ""writer"", ""screen writer"", ""script writer"", ""scriptwriter"", ""actor"", ""actress"", ""actors"", ""actresses"", ""model"", ""fashion model"", ""sitter"", ""poser""]","Actress, director, and former model",0.91,,,1,1,0,0
 242,2026-01-05 11:35:25,269,10855,What is Sylwester Braun's occupation?,"[""photographer"", ""photog"", ""photographers""]",Photographer,0.84,,,1,1,0,0
-243,2026-01-05 11:35:26,159,14198,What is Jack Mackenzie's occupation?,"[""civil engineer""]",,,,,0,-1,0,1
+243,2026-01-05 11:35:26,159,14198,What is Jack Mackenzie's occupation?,"[""civil engineer""]",,,,,0,-1,1,1
 244,2026-01-05 11:35:27,11990,81374,What is Kiko Mizuhara's occupation?,"[""actor"", ""actress"", ""actors"", ""actresses""]","Model, actress, singer, and designer (primarily known as a fashion model)",0.87,,,1,1,0,0
 245,2026-01-05 11:35:28,3464,26544,What is Michael Radford's occupation?,"[""film director"", ""movie director"", ""director"", ""motion picture director"", ""screenwriter"", ""scenarist"", ""writer"", ""screen writer"", ""script writer"", ""scriptwriter""]",Film director and screenwriter,0.75,,,1,1,0,0
 246,2026-01-05 11:35:29,8010,14886,What is Henry Campbell-Bannerman's occupation?,"[""diplomat"", ""politician"", ""political leader"", ""political figure"", ""polit."", ""pol""]",British politician (Prime Minister of the United Kingdom),0.945,,,1,1,0,0
@@ -273,7 +273,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 271,2026-01-05 11:36:00,711,2030,What is Joseph R. Perella's occupation?,"[""financier""]",Investment banker,0.91,,,0,-1,0,1
 272,2026-01-05 11:36:01,205,28389,What is Stanley Peiris's occupation?,"[""composer""]",Musician (music director/composer and pianist),0.74,,,1,1,0,0
 273,2026-01-05 11:36:02,322,25692,What is P. Palaniappan's occupation?,"[""politician"", ""political leader"", ""political figure"", ""polit."", ""pol""]",I don't know,,Politician,0.3,1,1,1,0
-274,2026-01-05 11:36:03,1652,5896,What is Alice's occupation?,"[""pianist"", ""singer-songwriter"", ""singer songwriter"", ""singer/songwriter"", ""singersongwriter"", ""singer-songwriter""]",,,Software engineer,0.25,0,-1,0,1
+274,2026-01-05 11:36:03,1652,5896,What is Alice's occupation?,"[""pianist"", ""singer-songwriter"", ""singer songwriter"", ""singer/songwriter"", ""singersongwriter"", ""singer-songwriter""]",,,Software engineer,0.25,0,-1,1,1
 275,2026-01-05 11:36:04,92,5720,What is J. Da Silva's occupation?,"[""cricket umpire"", ""umpire""]",I don't know,,J. Da Silva is a footballer (soccer player).,0.12,0,-1,1,0
 276,2026-01-05 11:36:05,93,6538,What is Carsten Carlsen's occupation?,"[""composer"", ""pianist""]",I don't know,,,,0,-1,1,0
 277,2026-01-05 11:36:06,8042,24952,What is Josh Mankiewicz's occupation?,"[""journalist"", ""journo"", ""journalists""]","Journalist and television correspondent (reporter), best known as a correspondent for NBC News' Dateline.",0.83,,,1,1,0,0
@@ -286,7 +286,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 284,2026-01-05 11:36:15,34,25692,What is Levi P. Powers's occupation?,"[""politician"", ""political leader"", ""political figure"", ""polit."", ""pol""]",Lawyer and politician (judge; served as a county judge and served in the Wisconsin State Assembly),0.4367,,,1,1,0,0
 285,2026-01-05 11:36:16,17881,81374,What is Kamya Panjabi's occupation?,"[""actor"", ""actress"", ""actors"", ""actresses""]",Actress and television presenter (Indian actress and TV personality),0.95,,,1,1,0,0
 286,2026-01-05 11:36:17,714,81374,What is Robert Gwilym's occupation?,"[""actor"", ""actress"", ""actors"", ""actresses""]",Actor,0.86,,,1,1,0,0
-287,2026-01-05 11:36:18,1440,81374,What is Min's occupation?,"[""actor"", ""actress"", ""actors"", ""actresses""]",,,,,0,-1,0,1
+287,2026-01-05 11:36:18,1440,81374,What is Min's occupation?,"[""actor"", ""actress"", ""actors"", ""actresses""]",,,,,0,-1,1,1
 288,2026-01-05 11:36:19,72,14886,What is John Strange's occupation?,"[""diplomat""]",I don't know,,"Fictional character John Strange (of Marvel Comics) is a sorcerer/occult detective; if referring to the historical John Strange (British), he was a diplomat and politician.",0.15,1,1,1,0
 289,2026-01-05 11:36:21,745,81374,What is Everley Gregg's occupation?,"[""actor"", ""actress"", ""actors"", ""actresses""]",Actress,0.85,,,1,1,0,0
 290,2026-01-05 11:36:22,245402,38478,What is Ruby Rose's occupation?,"[""disc jockey"", ""DJ"", ""dee jay"", ""dj"", ""D.J."", ""disk jockey"", ""dee-jay"", ""deejay"", ""disquaire"", ""discaire"", ""actor"", ""actress"", ""actors"", ""actresses"", ""television presenter"", ""host"", ""hostess"", ""TV host"", ""television host"", ""TV presenter"", ""TV anchor"", ""television anchor""]","Actress, model, presenter, and former MTV VJ (television presenter) — she is primarily known as an actress and model.",0.52,,,1,1,0,0
@@ -373,7 +373,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 371,2026-01-05 11:37:57,53974,81374,What is Richard Rishi's occupation?,"[""actor"", ""actress"", ""actors"", ""actresses""]",Actor,0.81,,,1,1,0,0
 372,2026-01-05 11:37:59,30935,81374,What is Seungri's occupation?,"[""actor"", ""actress"", ""actors"", ""actresses""]","Singer, songwriter, actor, businessman (former member of the K-pop group Big Bang)",0.9123,,,1,1,0,0
 373,2026-01-05 11:38:00,533,25692,What is Toni Jennings's occupation?,"[""politician"", ""political leader"", ""political figure"", ""polit."", ""pol""]",Politician (former Lieutenant Governor of Florida),0.89,,,1,1,0,0
-374,2026-01-05 11:38:02,2488,38478,What is Switch's occupation?,"[""disc jockey"", ""DJ"", ""dee jay"", ""dj"", ""D.J."", ""disk jockey"", ""dee-jay"", ""deejay"", ""disquaire"", ""discaire""]",,,,,0,-1,0,1
+374,2026-01-05 11:38:02,2488,38478,What is Switch's occupation?,"[""disc jockey"", ""DJ"", ""dee jay"", ""dj"", ""D.J."", ""disk jockey"", ""dee-jay"", ""deejay"", ""disquaire"", ""discaire""]",,,,,0,-1,1,1
 375,2026-01-05 11:38:03,55,25692,What is Thomas Gifford's occupation?,"[""politician"", ""political leader"", ""political figure"", ""polit."", ""pol""]",Novelist (author),0.82,,,0,-1,0,1
 376,2026-01-05 11:38:04,451,81374,What is DM Sevilla's occupation?,"[""actor"", ""actress"", ""actors"", ""actresses""]",I don't know,,,,0,-1,1,0
 377,2026-01-05 11:38:05,248,25692,What is Sardar Muhammad Yousaf Zaman's occupation?,"[""politician"", ""political leader"", ""political figure"", ""polit."", ""pol""]",I don't know,,,,0,-1,1,0
@@ -412,7 +412,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 410,2026-01-05 11:38:52,44715,26544,What is Leigh Whannell's occupation?,"[""screenwriter"", ""scenarist"", ""writer"", ""screen writer"", ""script writer"", ""scriptwriter"", ""actor"", ""actress"", ""actors"", ""actresses""]","Screenwriter, director, and actor (also producer and film crew member)",0.93,,,1,1,0,0
 411,2026-01-05 11:38:54,1534,16182,What is Yannis Ritsos's occupation?,"[""poet"", ""poetess"", ""bard""]",Poet (Greek poet),0.82,,,1,1,0,0
 412,2026-01-05 11:38:55,2804,42844,What is Andy C's occupation?,"[""disc jockey"", ""DJ"", ""dee jay"", ""dj"", ""D.J."", ""disk jockey"", ""dee-jay"", ""deejay"", ""disquaire"", ""discaire"", ""record producer"", ""music producer""]",Drum and bass DJ and record producer,0.86,,,1,1,0,0
-413,2026-01-05 11:38:56,514,42844,What is Frequency's occupation?,"[""disc jockey"", ""DJ"", ""dee jay"", ""dj"", ""D.J."", ""disk jockey"", ""dee-jay"", ""deejay"", ""disquaire"", ""discaire"", ""record producer"", ""music producer""]",,,,,0,-1,0,1
+413,2026-01-05 11:38:56,514,42844,What is Frequency's occupation?,"[""disc jockey"", ""DJ"", ""dee jay"", ""dj"", ""D.J."", ""disk jockey"", ""dee-jay"", ""deejay"", ""disquaire"", ""discaire"", ""record producer"", ""music producer""]",,,,,0,-1,1,1
 414,2026-01-05 11:38:57,141,81374,What is Zoran Rankić's occupation?,"[""actor"", ""actress"", ""actors"", ""actresses""]",Actor,0.7,,,1,1,0,0
 415,2026-01-05 11:38:58,304,25692,What is Chitra Bahadur K.C.'s occupation?,"[""politician"", ""political leader"", ""political figure"", ""polit."", ""pol""]",Politician,0.82,,,1,1,0,0
 416,2026-01-05 11:39:00,1017,42844,What is Ski Beatz's occupation?,"[""record producer"", ""music producer""]",Record producer and hip-hop musician (hip hop record producer),0.9,,,1,1,0,0
@@ -498,9 +498,9 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 496,2026-01-05 11:50:57,15101521,16427,What is Donald Trump's occupation?,"[""actor"", ""actress"", ""actors"", ""actresses"", ""socialite"", ""prominent person"", ""real estate development"", ""property development"", ""Real estate development"", ""politician"", ""political leader"", ""political figure"", ""polit."", ""pol"", ""business magnate"", ""businessperson"", ""tycoon"", ""magnate""]","Businessman, media personality, and politician; most notably he served as the 45th President of the United States (2017–2021).",0.88,,,1,1,0,0
 497,2026-01-05 11:50:59,89,28889,What is John Williams Tobey's occupation?,"[""architect""]",I don't know,,He was a politician (specifically a mayor or local government official),0.25,0,-1,1,0
 498,2026-01-05 11:51:00,151,25692,What is Ivan III Drašković's occupation?,"[""politician"", ""political leader"", ""political figure"", ""polit."", ""pol""]",Croatian nobleman and military leader (Ban of Croatia),0.56,,,0,-1,0,1
-499,2026-01-05 11:51:01,140,20534,What is Michael's occupation?,"[""priest"", ""reverend"", ""priestess""]",,,,,0,-1,0,1
+499,2026-01-05 11:51:01,140,20534,What is Michael's occupation?,"[""priest"", ""reverend"", ""priestess""]",,,,,0,-1,1,1
 500,2026-01-05 11:51:03,43,24952,What is Jorge Traverso's occupation?,"[""journalist"", ""journo"", ""journalists""]",Jorge Traverso is a Uruguayan journalist and news presenter (television news anchor).,0.86,,,1,1,0,0
-501,2026-01-05 11:51:04,4026,81374,What is Peter's occupation?,"[""actor"", ""actress"", ""actors"", ""actresses""]",,,,,0,-1,0,1
+501,2026-01-05 11:51:04,4026,81374,What is Peter's occupation?,"[""actor"", ""actress"", ""actors"", ""actresses""]",,,,,0,-1,1,1
 502,2026-01-05 11:51:05,428,81374,What is Mariví Bilbao's occupation?,"[""actor"", ""actress"", ""actors"", ""actresses""]",Actress,0.9,,,1,1,0,0
 503,2026-01-05 11:51:07,14410,44000,What is Mark T. Vande Hei's occupation?,"[""astronaut"", ""spacionaut"", ""astronauts"", ""space traveller""]",He is a NASA astronaut (United States astronaut; Army colonel and engineer by background).,0.98,,,1,1,0,0
 504,2026-01-05 11:51:09,909,81374,What is Dick Rude's occupation?,"[""actor"", ""actress"", ""actors"", ""actresses""]","Film director, actor, and writer",0.82,,,1,1,0,0
@@ -547,7 +547,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 545,2026-01-05 11:52:09,64,1197,In what city was Antonio Calcagni born?,"[""Recanati""]",Recanati,0.78,,,1,1,0,0
 546,2026-01-05 11:52:10,156,114701,In what city was William Marshall Craig born?,"[""Manchester"", ""Manchester, England""]",I don't know,,London,0.25,0,-1,1,0
 547,2026-01-05 11:52:11,59,79427,In what city was Philipp Crone born?,"[""Cologne"", ""Köln"", ""Kreisfreie Stadt Köln"", ""Cologne, Germany"", ""Cologne (Germany)""]",Hamburg,0.62,,,0,-1,0,1
-548,2026-01-05 11:52:13,44,11855,In what city was I.P. Paul born?,"[""Thrissur"", ""Thrichur"", ""Thrissivaperur""]",,,,,0,-1,0,1
+548,2026-01-05 11:52:13,44,11855,In what city was I.P. Paul born?,"[""Thrissur"", ""Thrichur"", ""Thrissivaperur""]",,,,,0,-1,1,1
 549,2026-01-05 11:52:14,472,8667,In what city was Danie Mellor born?,"[""Mackay"", ""Mackay, Queensland"", ""Mackay, Queensland, Australia""]","Innisfail, Queensland, Australia",0.62,,,0,-1,0,1
 550,2026-01-05 11:52:15,318,260,In what city was Constantine of Kostenets born?,"[""Kostenets""]","Kostenets (near Sofia), Bulgaria",0.54,,,1,1,0,0
 551,2026-01-05 11:52:16,72,134197,In what city was Endre Bálint born?,"[""Budapest"", ""Buda Pest"", ""Buda-Pest"", ""Budapešť"", ""Budapesta"", ""Budapeszt"", ""Buda"", ""Ofen"", ""Budín"", ""Budim"", ""Budon"", ""Pest"", ""Pešť"", ""Pešta"", ""Óbuda"", ""Alt-Ofen"", ""Kőbánya""]",Budapest,0.65,,,1,1,0,0
@@ -633,7 +633,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 631,2026-01-05 12:04:06,109,459,In what city was Elena Romagnolo born?,"[""Borgosesia""]",Biella,0.84,,,0,-1,0,1
 632,2026-01-05 12:04:07,430,265592,"In what city was Dominique, comte de Cassini born?","[""Paris"", ""City of Light"", ""Paris, France""]",Paris,0.84,,,1,1,0,0
 633,2026-01-05 12:04:09,375,517,In what city was Joris Delle born?,"[""Briey""]",Arles,0.98,,,0,-1,0,1
-634,2026-01-05 12:04:10,201,265592,In what city was Stone born?,"[""Paris"", ""City of Light"", ""Paris, France""]",,,,,0,-1,0,1
+634,2026-01-05 12:04:10,201,265592,In what city was Stone born?,"[""Paris"", ""City of Light"", ""Paris, France""]",,,,,0,-1,1,1
 635,2026-01-05 12:04:11,79,123,In what city was Ivan Khomukha born?,"[""Ipatovo""]",I don't know,,,,0,-1,1,0
 636,2026-01-05 12:04:12,1356,62287,"In what city was Margaret, Countess of Pembroke born?","[""Windsor Castle""]",Newport Pagnell,0.42,,,0,-1,0,1
 637,2026-01-05 12:04:13,196,8226,In what city was Ferdinand Elle born?,"[""Mechelen"", ""Mechlin"", ""Malines""]",Meaux,0.84,,,0,-1,0,1
@@ -659,7 +659,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 657,2026-01-05 12:04:37,457,6237,In what city was Koudai Tsukakoshi born?,"[""Tochigi Prefecture""]",Tokyo,0.72,,,0,-1,0,1
 658,2026-01-05 12:04:38,78,4075,In what city was John Edgerton born?,"[""Johnston County"", ""Johnston County, North Carolina""]","Nashville, Tennessee",0.73,,,0,-1,0,1
 659,2026-01-05 12:04:39,207,69761,In what city was Jerry Best born?,"[""Queens"", ""Queens, New York City"", ""Queens, New York""]",I don't know,,,,0,-1,1,0
-660,2026-01-05 12:04:40,97,7679,In what city was Jim born?,"[""Arizona Territory""]",,,,,0,-1,0,1
+660,2026-01-05 12:04:40,97,7679,In what city was Jim born?,"[""Arizona Territory""]",,,,,0,-1,1,1
 661,2026-01-05 12:04:41,473,67905,In what city was Barbu Ștefănescu Delavrancea born?,"[""Bucharest"", ""Little Paris"", ""Paris of the East"", ""București"", ""Bucureşti"", ""Bucuresti"", ""Буцуреșти""]","Delea Veche (a neighborhood of Bucharest), Romania",0.69,,,1,1,0,0
 662,2026-01-05 12:04:42,107,159313,In what city was Michael Woolston Ash born?,"[""Philadelphia"", ""Philly"", ""City of Brotherly Love"", ""Cradle of Liberty"", ""Philadelphia, Pennsylvania"", ""City of Philadelphia"", ""Philadelphia, PA""]","Philadelphia, Pennsylvania",0.81,,,1,1,0,0
 663,2026-01-05 12:04:44,705,730,In what city was Gustavo A. Madero born?,"[""Parras de la Fuente"", ""Parras""]",Mexico City,0.88,,,0,-1,0,1
@@ -702,7 +702,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 700,2026-01-05 12:15:44,37,121081,In what city was Kristian Outinen born?,"[""Copenhagen"", ""København"", ""CPH"", ""Köpenhamn"", ""Kööpenhamina"", ""Kopenhagen"", ""Kobenhavn"", ""Köbenhavn"", ""Hafnia"", ""Hafn"", ""Havn""]",I don't know,,,,0,-1,1,0
 701,2026-01-05 12:15:45,59,3033,In what city was Matthijs Dulken born?,"[""Roermond"", ""Remunj""]",I don't know,,,,0,-1,1,0
 702,2026-01-05 12:15:46,127,81518,In what city was Fahd Ananta born?,"[""Dhaka"", ""Dacca"", ""Dhaka City""]",Dhaka,0.48,,,1,1,0,0
-703,2026-01-05 12:15:47,388,131670,In what city was Dee born?,"[""Montreal"", ""Montréal"", ""City of Montreal"", ""Montreal, Quebec"", ""Ville de Montréal"", ""Ville de Montreal""]",,,,,0,-1,0,1
+703,2026-01-05 12:15:47,388,131670,In what city was Dee born?,"[""Montreal"", ""Montréal"", ""City of Montreal"", ""Montreal, Quebec"", ""Ville de Montréal"", ""Ville de Montreal""]",,,,,0,-1,1,1
 704,2026-01-05 12:15:48,256,101288,In what city was Antigoni Goni born?,"[""Athens""]","Athens, Greece",0.88,,,1,1,0,0
 705,2026-01-05 12:15:50,67,3584,In what city was Sebastian Hofmann born?,"[""Sinsheim""]",I don't know,,"Munich, Germany",0.25,0,-1,1,0
 706,2026-01-05 12:15:51,57,10342,In what city was Emil Marschalk von Ostheim born?,"[""Bamberg"", ""Town of Bamberg""]",Bamberg,0.76,,,1,1,0,0
@@ -716,7 +716,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 714,2026-01-05 12:16:01,221,265592,In what city was Germaine Aussey born?,"[""Paris"", ""City of Light"", ""Paris, France""]",Paris,0.75,,,1,1,0,0
 715,2026-01-05 12:16:02,59,225,In what city was Bruno Nöckler born?,"[""Prettau"", ""Predoi""]","Sterzing (Vipiteno), Italy",0.83,,,0,-1,0,1
 716,2026-01-05 12:16:04,61,18147,In what city was Gloria Porras Valles born?,"[""Baja California Sur"", ""South Lower California"", ""Free and Sovereign State of Baja California Sur"", ""South Territory of Baja California"", ""MX-BCS"", ""BCS"", ""MX03"", ""Estado de Baja California Sur""]",I don't know,,,,0,-1,1,0
-717,2026-01-05 12:16:05,560,159313,In what city was Harvey born?,"[""Philadelphia"", ""Philly"", ""City of Brotherly Love"", ""Cradle of Liberty"", ""Philadelphia, Pennsylvania"", ""City of Philadelphia"", ""Philadelphia, PA""]",,,,,0,-1,0,1
+717,2026-01-05 12:16:05,560,159313,In what city was Harvey born?,"[""Philadelphia"", ""Philly"", ""City of Brotherly Love"", ""Cradle of Liberty"", ""Philadelphia, Pennsylvania"", ""City of Philadelphia"", ""Philadelphia, PA""]",,,,,0,-1,1,1
 718,2026-01-05 12:26:09,221,1452,In what city was Glover Morrill Allen born?,"[""Walpole"", ""Walpole, New Hampshire"", ""Walpole N.H."", ""Walpole NH""]","Cambridge, Massachusetts",0.84,,,0,-1,0,1
 719,2026-01-05 12:26:10,45680,1990,In what city was Annie Oakley born?,"[""Darke County"", ""Darke County, Ohio""]","Woodland, near Greenville, Ohio",0.86,,,0,-1,0,1
 720,2026-01-05 12:26:11,133,18666,In what city was Gabriella Di Laccio born?,"[""Porto Alegre""]","Brasília, Brazil",0.75,,,0,-1,0,1
@@ -728,9 +728,9 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 726,2026-01-05 12:26:19,4752,159313,In what city was Edward Drinker Cope born?,"[""Philadelphia"", ""Philly"", ""City of Brotherly Love"", ""Cradle of Liberty"", ""Philadelphia, Pennsylvania"", ""City of Philadelphia"", ""Philadelphia, PA""]","Philadelphia, Pennsylvania",0.95,,,1,1,0,0
 727,2026-01-05 12:26:20,25,17913,In what city was Klaus-Degenhard Schmidt born?,"[""Kiel""]",I don't know,,Berlin,0.12,0,-1,1,0
 728,2026-01-05 12:26:21,89,531,In what city was Robert B. Scarborough born?,"[""Chesterfield"", ""Chesterfield, South Carolina"", ""Chesterfield, SC""]","Danville, Virginia",0.2345,,,0,-1,0,1
-729,2026-01-05 12:26:22,172,38819,In what city was Manon born?,"[""Bern"", ""Berne"", ""city of Bern"", ""Berna""]",,,,,0,-1,0,1
-730,2026-01-05 12:26:23,1954,14762,In what city was Liz born?,"[""Tarzana"", ""Tarzana, Los Angeles"", ""Tarzana, California""]",,,,,0,-1,0,1
-731,2026-01-05 12:26:24,181,223,In what city was Joseph born?,"[""Ustyuzhna""]",,,,,0,-1,0,1
+729,2026-01-05 12:26:22,172,38819,In what city was Manon born?,"[""Bern"", ""Berne"", ""city of Bern"", ""Berna""]",,,,,0,-1,1,1
+730,2026-01-05 12:26:23,1954,14762,In what city was Liz born?,"[""Tarzana"", ""Tarzana, Los Angeles"", ""Tarzana, California""]",,,,,0,-1,1,1
+731,2026-01-05 12:26:24,181,223,In what city was Joseph born?,"[""Ustyuzhna""]",,,,,0,-1,1,1
 732,2026-01-05 12:26:25,60,4293,In what city was Dilson Torres born?,"[""Maracay""]","Maracay, Venezuela",0.832,,,1,1,0,0
 733,2026-01-05 12:26:26,50,63356,In what city was Ray Strauss born?,"[""Perth"", ""Perth, Western Australia"", ""Perth, Australia"", ""Perth, W.A.""]",I don't know,,,,0,-1,1,0
 734,2026-01-05 12:26:27,342,101992,In what city was Charles Hyder born?,"[""Albuquerque"", ""Albuquerque, New Mexico"", ""ABQ"", ""Albuquerque, NM"", ""Albiuquerque, NM"", ""The Duke City"", ""Burque"", ""La Villa de Alburquerque""]",I don't know,,"Boston, Massachusetts",0.25,0,-1,1,0
@@ -928,7 +928,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 926,2026-01-05 13:20:36,51795,66960,In what city was Steve Kerr born?,"[""Beirut""]","Beirut, Lebanon",0.92,,,1,1,0,0
 927,2026-01-05 13:20:37,232,25231,In what city was Ed Parker Jr. born?,"[""Glendale"", ""Glendale, CA"", ""Glendale, California"", ""Glendale, California, USA""]","Honolulu, Hawaii",0.75,,,0,-1,0,1
 928,2026-01-05 13:20:38,60,485,In what city was Montxu Miranda born?,"[""Santurtzi"", ""Santurce""]",Irun,0.53,,,0,-1,0,1
-929,2026-01-05 13:20:39,43190,68463,In what city was Isaac born?,"[""Canaan""]",,,,,0,-1,0,1
+929,2026-01-05 13:20:39,43190,68463,In what city was Isaac born?,"[""Canaan""]",,,,,0,-1,1,1
 930,2026-01-05 13:20:40,208,147710,In what city was Cornelis Springer born?,"[""Amsterdam"", ""Mokum"", ""Amsterdam, NL"", ""Amsterdam, Netherlands"", ""A'dam""]",Amsterdam,0.47,,,1,1,0,0
 931,2026-01-05 13:20:41,1424,147710,In what city was Gerard Reve born?,"[""Amsterdam"", ""Mokum"", ""Amsterdam, NL"", ""Amsterdam, Netherlands"", ""A'dam""]",Amsterdam,0.95,,,1,1,0,0
 932,2026-01-05 13:20:43,940,184,In what city was Alois Rašín born?,"[""Nechanice""]",Rychnov nad Kněžnou,0.86,,,0,-1,0,1
@@ -1014,7 +1014,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 1012,2026-01-05 13:32:36,26,112627,In what city was Jiří Vyčichlo born?,"[""Prague"", ""Praha"", ""Hlavní město Praha"", ""City of Prague""]",Prague,0.72,,,1,1,0,0
 1013,2026-01-05 13:32:37,213,1389,In what city was Youri Messen-Jaschin born?,"[""Arosa"", ""Arosa GR""]",Lausanne,0.76,,,0,-1,0,1
 1014,2026-01-05 13:32:39,77,3474,In what city was Jesús Antonio Hernández born?,"[""Los Mochis"", ""Los Mochis""]",I don't know,,"Mexico City, Mexico",0.25,0,-1,1,0
-1015,2026-01-05 13:32:40,33147,105848,In what city was Dr. John born?,"[""New Orleans"", ""NOLA"", ""New Orleans, Louisiana"", ""New Orleans, LA"", ""The Big Easy"", ""Crescent City""]",,,,,0,-1,0,1
+1015,2026-01-05 13:32:40,33147,105848,In what city was Dr. John born?,"[""New Orleans"", ""NOLA"", ""New Orleans, Louisiana"", ""New Orleans, LA"", ""The Big Easy"", ""Crescent City""]",,,,,0,-1,1,1
 1016,2026-01-05 13:32:41,741,718380,In what city was Wayne Horvitz born?,"[""New York City"", ""NYC"", ""New York"", ""the five boroughs"", ""Big Apple"", ""City of New York"", ""NY City"", ""New York, New York"", ""New York City, New York"", ""New York, NY"", ""New York City (NYC)""]","Seattle, Washington",0.93,,,0,-1,0,1
 1017,2026-01-05 13:32:42,677,159313,In what city was Lindsay Pagano born?,"[""Philadelphia"", ""Philly"", ""City of Brotherly Love"", ""Cradle of Liberty"", ""Philadelphia, Pennsylvania"", ""City of Philadelphia"", ""Philadelphia, PA""]","Los Angeles, California",0.86,,,0,-1,0,1
 1018,2026-01-05 13:32:43,353,147710,In what city was Jan van de Cappelle born?,"[""Amsterdam"", ""Mokum"", ""Amsterdam, NL"", ""Amsterdam, Netherlands"", ""A'dam""]",Amsterdam,0.86,,,1,1,0,0
@@ -1027,7 +1027,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 1025,2026-01-05 13:32:52,153,9411,In what city was Bill Short born?,"[""Kingston"", ""Kingston, New York""]",I don't know,,"Amsterdam, New York",0.12,0,-1,1,0
 1026,2026-01-05 13:32:53,99,2031,In what city was Francisco María Oreamuno Bonilla born?,"[""Cartago"", ""Cartago, Costa Rica""]","Cartago, Costa Rica",0.86,,,1,1,0,0
 1027,2026-01-05 13:32:55,99,47618,In what city was Martin Simonson born?,"[""Gothenburg"", ""Göteborg""]","Kristiansand, Norway",0.62,,,0,-1,0,1
-1028,2026-01-05 13:32:55,2234,379485,In what city was Hittman born?,"[""Los Angeles"", ""Los Angeles, California"", ""Pink City"", ""The town of Our Lady the Queen of the Angels of the Little Portion"", ""La La Land"", ""Tinsel Town"", ""City of Angels"", ""City of Los Angeles"", ""LA, California"", ""L.A."", ""LA"", ""Double Dubuque"", ""Los Ángeles"", ""Los Angeles, CA""]",,,,,0,-1,0,1
+1028,2026-01-05 13:32:55,2234,379485,In what city was Hittman born?,"[""Los Angeles"", ""Los Angeles, California"", ""Pink City"", ""The town of Our Lady the Queen of the Angels of the Little Portion"", ""La La Land"", ""Tinsel Town"", ""City of Angels"", ""City of Los Angeles"", ""LA, California"", ""L.A."", ""LA"", ""Double Dubuque"", ""Los Ángeles"", ""Los Angeles, CA""]",,,,,0,-1,1,1
 1029,2026-01-05 13:32:57,676,114880,In what city was William Bell Scott born?,"[""Edinburgh"", ""Edinburg"", ""Edinburgh, Scotland"", ""City of Edinburgh"", ""Edina"", ""Modern Athens""]",London,0.82,,,0,-1,0,1
 1030,2026-01-05 13:32:58,353,26897,In what city was Roger Mendy born?,"[""Dakar""]",Dakar,0.9,,,1,1,0,0
 1031,2026-01-05 13:32:59,99,147710,In what city was Mimoun Ouled Radi born?,"[""Amsterdam"", ""Mokum"", ""Amsterdam, NL"", ""Amsterdam, Netherlands"", ""A'dam""]",Amsterdam,0.82,,,1,1,0,0
@@ -1076,7 +1076,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 1074,2026-01-05 13:33:57,102,131670,In what city was Jean Dorion born?,"[""Montreal"", ""Montréal"", ""City of Montreal"", ""Montreal, Quebec"", ""Ville de Montréal"", ""Ville de Montreal""]","Montreal, Quebec, Canada",0.47,,,1,1,0,0
 1075,2026-01-05 13:33:58,185,13920,In what city was Klaus Wunder born?,"[""Erfurt""]",I don't know,,,,0,-1,1,0
 1076,2026-01-05 13:33:59,94,740,In what city was Heiko Balz born?,"[""Burg"", ""Burg bei Magdeburg"", ""Burg (bei Magdeburg)"", ""Burg (b Magdeburg)"", ""Stadt Burg""]","Burg bei Magdeburg, East Germany",0.7082,,,1,1,0,0
-1077,2026-01-05 13:34:00,534,257506,In what city was KK born?,"[""Minnesota"", ""MN"", ""Land of 10,000 Lakes"", ""Minnesota, United States"", ""State of Minnesota"", ""Minn."", ""US-MN""]",,,,,0,-1,0,1
+1077,2026-01-05 13:34:00,534,257506,In what city was KK born?,"[""Minnesota"", ""MN"", ""Land of 10,000 Lakes"", ""Minnesota, United States"", ""State of Minnesota"", ""Minn."", ""US-MN""]",,,,,0,-1,1,1
 1078,2026-01-05 13:34:01,81,88244,In what city was Margot Shumway born?,"[""Cincinnati"", ""Cincy"", ""Cincinnati, Ohio"", ""Cinti"", ""Cincinnati, OH"", ""Cin City""]",I don't know,,,,0,-1,1,0
 1079,2026-01-05 13:34:02,136,112627,In what city was Norbert Grund born?,"[""Prague"", ""Praha"", ""Hlavní město Praha"", ""City of Prague""]",Prague,0.88,,,1,1,0,0
 1080,2026-01-05 13:34:03,108,16942,In what city was Jaakko Laakso born?,"[""Turku"", ""Åbo"", ""Aboa""]",Helsinki,0.76,,,0,-1,0,1
@@ -1084,7 +1084,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 1082,2026-01-05 13:34:06,60,23497,In what city was Vitaliy Sobko born?,"[""Kharkiv"", ""Kharkov"", ""Chárkiv"", ""Harkov"", ""Khar'kov"", ""Kharkoff""]",Kharkiv,0.78,,,1,1,0,0
 1083,2026-01-05 13:34:07,50,1317,In what city was Mikael Eriksson born?,"[""Karlskoga""]",I don't know,,Stockholm,0.25,0,-1,1,0
 1084,2026-01-05 13:34:08,137,1113,In what city was James W. Owens born?,"[""Franklin County"", ""Franklin County, Indiana""]","Cincinnati, Ohio",0.4286,,,0,-1,0,1
-1085,2026-01-05 13:34:09,135,5624,In what city was John Johnson born?,"[""LaGrange"", ""LaGrange, Georgia"", ""La Grange""]",,,,,0,-1,0,1
+1085,2026-01-05 13:34:09,135,5624,In what city was John Johnson born?,"[""LaGrange"", ""LaGrange, Georgia"", ""La Grange""]",,,,,0,-1,1,1
 1086,2026-01-05 13:34:10,89,131455,In what city was Rodger Stevens born?,"[""Brooklyn"", ""Brooklyn, New York""]",New York City,0.68,,,0,-1,0,1
 1087,2026-01-05 13:34:11,171,17106,In what city was Gintautas Umaras born?,"[""Kaunas"", ""Kovno"", ""Kovne"", ""Kovna"", ""Kowno"", ""Kauen""]","Kaunas, Lithuania",0.98,,,1,1,0,0
 1088,2026-01-05 13:34:12,213,1641,In what city was Cooper Smeaton born?,"[""Carleton Place""]","Lindsay, Ontario",0.86,,,0,-1,0,1
@@ -1668,7 +1668,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 1666,2026-01-05 14:18:36,2668,106297,What genre is Metal Heart?,"[""heavy metal"", ""heavy metal music"", ""Heavy Metal"", ""Metal"", ""Metal music"", ""metal"", ""Heavy Metal Music""]",Rock,0.71,,,0,-1,0,1
 1667,2026-01-05 14:18:38,15203,63112,What genre is Xenogears?,"[""role-playing video game"", ""RPG"", ""RPVG"", ""role playing video game"", ""role-playing game"", ""role playing video games"", ""CRPG"", ""computer RPG"", ""computer role-playing video game"", ""RP video game""]","Xenogears is a role-playing game (RPG), specifically a Japanese role-playing game (JRPG).",0.9875,,,1,1,0,0
 1668,2026-01-05 14:18:39,375,64579,What genre is Love in Magic?,"[""romantic comedy"", ""romedy"", ""romcom""]","Romantic comedy (romance, comedy)",0.959,,,1,1,0,0
-1669,2026-01-05 14:18:40,1153,59051,What genre is Blake?,"[""Western classical music"", ""Western art music"", ""European classical music"", ""Classical music""]",,,,,0,-1,0,1
+1669,2026-01-05 14:18:40,1153,59051,What genre is Blake?,"[""Western classical music"", ""Western art music"", ""European classical music"", ""Classical music""]",,,,,0,-1,1,1
 1670,2026-01-05 14:18:41,1566,6379,What genre is Q?,"[""television comedy"", ""TV comedy"", ""comedy TV"", ""Telecomedia"", ""comedy television""]",I don't know,,,,0,-1,1,0
 1671,2026-01-05 14:18:42,1317,59051,What genre is André Watts?,"[""Western classical music"", ""Western art music"", ""European classical music"", ""Classical music""]",Classical (pianist),0.9786,,,0,-1,0,1
 1672,2026-01-05 14:18:43,513,43484,What genre is Live?,"[""psychedelic rock"", ""acid rock"", ""psy rock"", ""psyrock"", ""psychedelia""]",I don't know,,Live is a rock band (alternative rock/post-grunge),0.4321,0,-1,1,0
@@ -1935,7 +1935,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 1933,2026-01-05 14:24:20,11294,35346,What genre is Equation?,"[""folk rock"", ""Folk Rock""]",I don't know,,Fiction — specifically science fiction,0.31,0,-1,1,0
 1934,2026-01-05 14:24:21,5973,106297,What genre is Scream?,"[""heavy metal"", ""heavy metal music"", ""Heavy Metal"", ""Metal"", ""Metal music"", ""metal"", ""Heavy Metal Music""]",Scream is a slasher horror film (horror/slasher genre).,0.9827,,,0,-1,0,1
 1935,2026-01-05 14:24:23,3618,44973,What genre is Evil Dead: Hail to the King?,"[""survival horror"", ""survival horror video game""]",Action-adventure survival horror,0.672,,,1,1,0,0
-1936,2026-01-05 14:24:24,4245,36819,What genre is Andre?,"[""comedy-drama"", ""dramedy"", ""comedic drama"", ""tragicomedy"", ""seriocomedy"", ""comedy drama"", ""dramatic comedy"", ""Comedy-drama, dramedy""]",,,,,0,-1,0,1
+1936,2026-01-05 14:24:24,4245,36819,What genre is Andre?,"[""comedy-drama"", ""dramedy"", ""comedic drama"", ""tragicomedy"", ""seriocomedy"", ""comedy drama"", ""dramatic comedy"", ""Comedy-drama, dramedy""]",,,,,0,-1,1,1
 1937,2026-01-05 14:24:25,4355,66527,What genre is Talk?,"[""progressive rock"", ""prog-rock"", ""prog"", ""classical rock"", ""symphonic rock"", ""art rock"", ""progressive pop"", ""prog rock"", ""Progressive Rock""]",Talk is a talk show (television talk show) — genre: talk show.,0.48,,,0,-1,0,1
 1938,2026-01-05 14:24:27,748,45932,What genre is Love Story?,"[""anthology series""]",Romance (romantic drama),0.98,,,0,-1,0,1
 1939,2026-01-05 14:24:28,64,42565,What genre is Reminiscences?,"[""documentary film"", ""documentary movie"", ""doc"", ""film documentary"", ""motion picture documentary"", ""documentary"", ""factual film""]",I don't know,,Poetry,0.25,0,-1,1,0
@@ -2186,7 +2186,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 2184,2026-01-05 14:30:24,1049,17650,What genre is Episode?,"[""power metal""]",Interactive storytelling / interactive narrative (often categorized as simulation/role-playing on mobile),0.43,,,0,-1,0,1
 2185,2026-01-05 14:30:26,833,105540,What genre is The Magician's Apprentice?,"[""fantasy"", ""fantasy fiction""]",Science fiction,0.24,,,0,-1,0,1
 2186,2026-01-05 14:30:27,656,106297,What genre is I Am I?,"[""heavy metal"", ""heavy metal music"", ""Heavy Metal"", ""Metal"", ""Metal music"", ""metal"", ""Heavy Metal Music""]",Rock (specifically British rock / hard rock),0.48,,,0,-1,0,1
-2187,2026-01-05 14:30:28,10175,43484,What genre is James?,"[""psychedelic rock"", ""acid rock"", ""psy rock"", ""psyrock"", ""psychedelia""]",,,,,0,-1,0,1
+2187,2026-01-05 14:30:28,10175,43484,What genre is James?,"[""psychedelic rock"", ""acid rock"", ""psy rock"", ""psyrock"", ""psychedelia""]",,,,,0,-1,1,1
 2188,2026-01-05 14:30:30,606,42565,What genre is Motherland?,"[""documentary film"", ""documentary movie"", ""doc"", ""film documentary"", ""motion picture documentary"", ""documentary"", ""factual film""]",Comedy-drama (British sitcom/black comedy-drama),0.85,,,0,-1,0,1
 2189,2026-01-05 14:30:31,167,10945,What genre is Maximiano de Sousa?,"[""fado""]",Fado singer,0.82,,,1,1,0,0
 2190,2026-01-05 14:30:33,200,61181,What genre is Empty Hands?,"[""romance film"", ""romance genre"", ""romantic film""]",Drama,0.72,,,0,-1,0,1
@@ -2338,7 +2338,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 2336,2026-01-05 14:34:06,329,286065,What genre is Marie Bergman?,"[""pop music"", ""pop"", ""Pop""]",Pop/folk (Swedish pop and folk singer),0.65,,,1,1,0,0
 2337,2026-01-05 14:34:08,457,144161,What genre is Seconds Apart?,"[""thriller"", ""suspense"", ""thriller television program"", ""thriller TV program"", ""thriller television show"", ""thriller TV show"", ""suspense television program"", ""suspense TV program"", ""suspense television show"", ""suspense TV show""]",Horror (specifically supernatural horror/thriller),0.88,,,1,1,0,0
 2338,2026-01-05 14:34:09,965,40906,What genre is Jail?,"[""reality television"", ""reality TV"", ""reality television program"", ""reality TV program"", ""reality television show"", ""television reality program"", ""television reality show"", ""TV reality program"", ""TV reality show""]",Crime drama / action (prison film),0.46,,,0,-1,0,1
-2339,2026-01-05 14:34:11,217,77084,What genre is Will?,"[""electronic music"", ""electrosonic""]",,,,,0,-1,0,1
+2339,2026-01-05 14:34:11,217,77084,What genre is Will?,"[""electronic music"", ""electrosonic""]",,,,,0,-1,1,1
 2340,2026-01-05 14:34:12,201934,18371,What genre is Yoko Ono?,"[""Fluxus"", ""Neo-Dada"", ""Fluxus Collective"", ""rock music"", ""rock and roll"", ""rock"", ""Rock"", ""experimental music"", ""Experimental"", ""pop music"", ""pop"", ""Pop""]","Yoko Ono is primarily associated with avant-garde and experimental music, as well as Fluxus, art rock, and performance art.",0.92,,,1,1,0,0
 2341,2026-01-05 14:34:13,518,60371,What genre is The Tunnel?,"[""short story"", ""tale"", ""pripovijetka""]",Thriller / Drama,0.61,,,0,-1,0,1
 2342,2026-01-05 14:34:15,12597,36816,What genre is North?,"[""comedy film"", ""comedy movie""]",I don't know,,"If referring to the 1994 film ""North"" directed by Rob Reiner, the genre is comedy-drama / family comedy.",0.3467,0,-1,1,0
@@ -2357,9 +2357,9 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 2355,2026-01-05 14:34:32,10092,63319,What genre is Bones?,"[""horror film"", ""horror movie"", ""blaxploitation"", ""blacksploitation""]",Bones is an American crime procedural drama television series (procedural crime drama with elements of mystery and forensic procedural).,0.92,,,0,-1,0,1
 2356,2026-01-05 14:34:33,80,7369,What genre is The Mark Waters Story?,"[""docudrama"", ""documentary drama"", ""Docudrama"", ""Drama-documentary""]",I don't know,,Documentary,0.25,1,1,1,0
 2357,2026-01-05 14:34:34,5227,66000,What genre is Will to Power?,"[""dance-pop"", ""dance pop""]",Pop rock / dance-pop (with strong elements of synthpop and freestyle),0.1465,,,1,1,0,0
-2358,2026-01-05 14:34:35,2457,47889,What genre is Billy?,"[""sitcom"", ""situational comedy"", ""situation comedy""]",,,,,0,-1,0,1
+2358,2026-01-05 14:34:35,2457,47889,What genre is Billy?,"[""sitcom"", ""situational comedy"", ""situation comedy""]",,,,,0,-1,1,1
 2359,2026-01-05 14:34:36,138,100802,What genre is Dominic Duval?,"[""jazz"", ""jazz music"", ""jass"", ""jas"", ""jaz"", ""Jazz""]",Jazz (free jazz / avant-garde jazz musician),0.9444,,,1,1,0,0
-2360,2026-01-05 14:34:37,10783,90942,What genre is Martin?,"[""horror film"", ""horror movie""]",,,,,0,-1,0,1
+2360,2026-01-05 14:34:37,10783,90942,What genre is Martin?,"[""horror film"", ""horror movie""]",,,,,0,-1,1,1
 2361,2026-01-05 14:34:39,808,17737,What genre is Beyond Civilization?,"[""non-fiction"", ""nonfiction"", ""non fiction""]",Strategy video game,0.8321,,,0,-1,0,1
 2362,2026-01-05 14:34:40,281,7649,What genre is Rugby League?,"[""sports video game"", ""sports game"", ""sports video games"", ""sport video game""]",Sport (team sport; specifically a form of rugby football),0.9999,,,0,-1,0,1
 2363,2026-01-05 14:34:41,1567,2183,What genre is Buck and the Preacher?,"[""Western film"", ""western film"", ""western genre"", ""Western""]",Western (specifically a revisionist/Spaghetti-influenced Western with elements of action and drama),0.82,,,1,1,0,0
@@ -2415,7 +2415,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 2413,2026-01-05 14:35:53,135,40751,What genre is Seed?,"[""massively multiplayer online role-playing game"", ""MMORPG"", ""MMO"", ""RPG"", ""mmorpg""]",The genre is science fiction (Seed is a science fiction film/novel/game depending on context).,0.2,,,0,-1,0,1
 2414,2026-01-05 14:35:54,12248,36816,What genre is Analyze This?,"[""comedy film"", ""comedy movie""]",Comedy-drama (crime comedy),0.86,,,0,-1,0,1
 2415,2026-01-05 14:35:55,137,40906,What genre is The Shot?,"[""reality television"", ""reality TV"", ""reality television program"", ""reality TV program"", ""reality television show"", ""television reality program"", ""television reality show"", ""TV reality program"", ""TV reality show""]",Crime film,0.54,,,0,-1,0,1
-2416,2026-01-05 14:35:56,304,144161,What genre is ID A?,"[""thriller"", ""suspense"", ""thriller television program"", ""thriller TV program"", ""thriller television show"", ""thriller TV show"", ""suspense television program"", ""suspense TV program"", ""suspense television show"", ""suspense TV show""]",,,,,0,-1,0,1
+2416,2026-01-05 14:35:56,304,144161,What genre is ID A?,"[""thriller"", ""suspense"", ""thriller television program"", ""thriller TV program"", ""thriller television show"", ""thriller TV show"", ""suspense television program"", ""suspense TV program"", ""suspense television show"", ""suspense TV show""]",,,,,0,-1,1,1
 2417,2026-01-05 14:35:57,21978,291,What genre is Christine?,"[""horror literature""]",Horror,0.72,,,1,1,0,0
 2418,2026-01-05 14:35:59,1365,140450,What genre is Ball?,"[""rock music"", ""rock and roll"", ""rock"", ""Rock""]",I don't know,,,,0,-1,1,0
 2419,2026-01-05 14:36:00,3345,2952,What genre is Little Things?,"[""traditional music"", ""traditional folk music"", ""popular melody"", ""folk music"", ""music traditions"", ""musical folklore"", ""pop music"", ""pop"", ""Pop""]",Romantic drama,0.7423,,,0,-1,0,1
@@ -2902,7 +2902,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 2900,2026-01-05 14:48:18,350,389,Who is the father of Ariarathes VI of Cappadocia?,"[""Ariarathes V of Cappadocia""]",Ariarathes V Eusebes,0.92,,,0,-1,0,1
 2901,2026-01-05 14:48:19,6845,10229,Who is the father of Leo VI the Wise?,"[""Basil I"", ""the Macedonian"", ""Basil the Macedonian"", ""Emperor of the East Basilio I"", ""Emperor Basil I"", ""Emperor of the East Basilius I Macedo"", ""Emperor of the East Basil I"", ""Emperor of the East Basileios I""]",Basil I the Macedonian,0.67,,,1,1,0,0
 2902,2026-01-05 14:48:20,169,480,Who is the father of Zhuozi?,"[""Duke Xian of Jin""]",I don't know,,,,0,-1,1,0
-2903,2026-01-05 14:48:22,44,165,Who is the father of Donor?,"[""Challedon""]",,,,,0,-1,0,1
+2903,2026-01-05 14:48:22,44,165,Who is the father of Donor?,"[""Challedon""]",,,,,0,-1,1,1
 2904,2026-01-05 14:48:23,12367,3942,Who is the father of Willie Geist?,"[""Bill Geist"", ""William Geist""]",Bill Geist,0.78,,,1,1,0,0
 2905,2026-01-05 14:48:25,3878,18439,Who is the father of Theodoric I?,"[""Alaric I"", ""Alaric""]","Theodoric I (also Theodoric I of Champagne / Theodoric I, Duke of Lorraine?) — need disambiguation. Commonly, Theodoric I, King of the Ostrogoths? Theodoric I, King of the Visigoths?",0.58,,,0,-1,0,1
 2906,2026-01-05 14:48:26,28617,23036,Who is the father of Prince Nikolai of Denmark?,"[""Prince Joachim of Denmark"", ""Joachim Holger Waldemar Christian"", ""Joachim Holger Valdemar Christian, Prince of Denmark"", ""Prince Joachim of Denmark, Count of Monpezat""]",Crown Prince Frederik of Denmark,0.95,,,0,-1,0,1
@@ -2956,7 +2956,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 2954,2026-01-05 14:49:31,1043,1161,Who is the father of Ram?,"[""Hezron""]",Rama (often called Ram) is a central figure in Hinduism; his father is King Dasharatha.,0.92,,,0,-1,0,1
 2955,2026-01-05 14:49:33,4711,9397,Who is the father of Edward I of Portugal?,"[""John I of Portugal"", ""João I de Portugal""]","King Peter I of Portugal (Peter I, also known as Pedro I)",0.98,,,0,-1,0,1
 2956,2026-01-05 14:49:35,4912,16645,Who is the father of Josie Ho?,"[""Stanley Ho"", ""Ho Hung Sun"", ""Stanley Ho Hung Sun"", ""He Hongshen"", ""Stanley Ho Hung-sun""]",Stanley Ho,0.88,,,1,1,0,0
-2957,2026-01-05 14:49:36,5694,111751,Who is the father of Nathan?,"[""David"", ""King David"", ""sweet singer of Israel""]",,,,,0,-1,0,1
+2957,2026-01-05 14:49:36,5694,111751,Who is the father of Nathan?,"[""David"", ""King David"", ""sweet singer of Israel""]",,,,,0,-1,1,1
 2958,2026-01-05 14:49:37,37489,2325,Who is the father of Jason?,"[""Aeson""]",I don't know,,Aeson,0.25,1,1,1,0
 2959,2026-01-05 14:49:39,28599,6315,"Who is the father of St. James the Elder, Apostle?","[""Zebedee""]",Zebedee,0.98,,,1,1,0,0
 2960,2026-01-05 14:49:40,130744,5051,Who is the father of George S. Patton?,"[""George S. Patton"", ""George Smith Patton"", ""George Smith Patton Jr."", ""George Smith Patton II""]",George Smith Patton Jr.'s father was Lieutenant Colonel George S. Patton (George Smith Patton Sr.),0.95,,,1,1,0,0
@@ -3133,7 +3133,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 3131,2026-01-05 14:53:17,394926,10017,Who is the father of Abraham Lincoln?,"[""Thomas Lincoln""]",Thomas Lincoln,0.98,,,1,1,0,0
 3132,2026-01-05 14:53:20,424,893,Who is the father of Dawit III?,"[""Iyasu I"", ""Iyasu the Great"", ""Adyam Sagad""]",Iyasu I,0.43,,,1,1,0,0
 3133,2026-01-05 14:53:21,131,146,"Who is the father of Edward Lloyd-Mostyn, 2nd Baron Mostyn?","[""Edward Lloyd, 1st Baron Mostyn""]","Edward Mostyn Lloyd-Mostyn, 2nd Baron Mostyn's father was Edward Lloyd-Mostyn, 1st Baron Mostyn (born Edward Lloyd) — often cited as Edward Lloyd-Mostyn, 1st Baron Mostyn.",0.46,,,0,-1,0,1
-3134,2026-01-05 14:53:22,58,619,Who is the father of George?,"[""Constantine I of Georgia"", ""Constantine I Bagrationi, King of Georgia""]",,,,,0,-1,0,1
+3134,2026-01-05 14:53:22,58,619,Who is the father of George?,"[""Constantine I of Georgia"", ""Constantine I Bagrationi, King of Georgia""]",,,,,0,-1,1,1
 3135,2026-01-05 14:53:24,2224,60775,Who is the father of Princess Marie Adélaïde of France?,"[""Louis XV of France"", ""Louis the Well beloved"", ""Louis XV"", ""roi de France Louis XV"", ""re di Francia Louis XV"", ""Louis the Beloved"", ""koning van Frankrijk Louis XV"", ""Louis le bien aimé"", ""King of France Louis XV""]",King Louis XV of France,0.95,,,1,1,0,0
 3136,2026-01-05 14:53:25,939,10338,Who is the father of Amber Marks?,"[""Howard Marks"", ""Dennis Howard Marks"", ""Mr Nice"", ""Marco Polo"", ""D. H. Marks"", ""Albi"", ""Mr Tetley"", ""Not"", ""Mr McCarhy"", ""41526-004 all""]",I don't know,,,,0,-1,1,0
 3137,2026-01-05 14:53:26,1448,24405,Who is the father of Adad?,"[""Anu"", ""Enlil"", ""Elil"", ""Nunamnir"", ""Bel"", ""Lord Storm""]",Hadad (also rendered as Haddad),0.15,,,0,-1,0,1
@@ -3163,19 +3163,19 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 3161,2026-01-05 14:53:55,18207,200189,Who is the father of Julia the Elder?,"[""Augustus"", ""Caesar Augustus"", ""Gaius Julius Caesar"", ""Gaius Julius Caesar Augustus"", ""Gaius Octavius Thurinus"", ""Emperor of Rome Octavius Caesar"", ""Emperor of Rome Augustus"", ""Emperor of Rome Octavian"", ""Emperor of Rome Gaius Julius Caesar Octavianus"", ""Octavian"", ""Imperator Gaius Julius Caesar Octavianus Divi Filius Augustus"", ""Gaius Octavius"", ""Gaius Octavian"", ""Caesar Octavianus"", ""Octavianus"", ""Gaius Julius Caesar Octavianus Augustus"", ""Gaius Julius Caesar Octavianus"", ""Gaius Octavius Caepias"", ""Augustus Caesar"", ""Octavius Caesar""]","Augustus (Gaius Octavius Thurinus, also known as Octavian)",0.98,,,1,1,0,0
 3162,2026-01-05 14:53:56,48496,76739,Who is the father of Joseph?,"[""Jacob"", ""Israel"", ""Ya'akov"", ""Ya'aqov"", ""Yaakov"", ""Yisrael""]",Jacob,0.65,,,1,1,0,0
 3163,2026-01-05 14:53:57,55331,57543,Who is the father of Alexander I of Russia?,"[""Paul I of Russia"", ""Pavel I"", ""Emperor of Russia Paul I"", ""zar di Russia Pavel I"", ""Zar Paul I. Russland"", ""emperor of Russia Paul"", ""empereur de Russie Paul I"", ""Pablo Primero"", ""tsaar van Rusland Pavel I"", ""Emperor of Russia Pavel Petrovich"", ""Paul the First of Russia"", ""Emperor of Russia Pavel I"", ""Emperor of Russia Paul Petrovitch"", ""Paul I""]",Paul I of Russia,0.98,,,1,1,0,0
-3164,2026-01-05 14:53:58,20300,2740,Who is the father of Rebecca?,"[""Bethuel""]",,,,,0,-1,0,1
+3164,2026-01-05 14:53:58,20300,2740,Who is the father of Rebecca?,"[""Bethuel""]",,,,,0,-1,1,1
 3165,2026-01-05 14:53:59,1162,604,Who is the father of Ahimelech?,"[""Ahitub""]",Ahitub,0.9,,,1,1,0,0
 3166,2026-01-05 14:54:02,103,45,Who is the father of John Shaw-Lefevre?,"[""Charles Shaw-Lefevre"", ""Charles Shaw Lefevre""]","Charles Shaw-Lefevre, 1st Viscount Eversley",0.72,,,1,1,0,0
 3167,2026-01-05 14:54:03,1713,2283,Who is the father of Solomon?,"[""Andrew I of Hungary"", ""Andrew I""]",David,0.82,,,0,-1,0,1
 3168,2026-01-05 14:54:05,30449,546,"Who is the father of Charles Cornwallis, 1st Marquess Cornwallis?","[""Charles Cornwallis, 1st Earl Cornwallis"", ""Charles Cornwallis"", ""Charles Cornwallis, 5th Baron Cornwallis""]","Charles Cornwallis, 1st Marquess Cornwallis was the son of the Hon. James Cornwallis.",0.93,,,1,1,0,0
 3169,2026-01-05 14:54:06,28082,250,Who is the father of Madame de Pompadour?,"[""Charles François Paul Le Normant de Tournehem""]",Her father was Jean François de Nattier.,0.74,,,0,-1,0,1
 3170,2026-01-05 14:54:07,3966,695,Who is the father of Gediminas?,"[""Butvydas""]",Vytenis,0.25,,,0,-1,0,1
-3171,2026-01-05 14:54:08,2945,76739,Who is the father of Dan?,"[""Jacob"", ""Israel"", ""Ya'akov"", ""Ya'aqov"", ""Yaakov"", ""Yisrael""]",,,,,0,-1,0,1
+3171,2026-01-05 14:54:08,2945,76739,Who is the father of Dan?,"[""Jacob"", ""Israel"", ""Ya'akov"", ""Ya'aqov"", ""Yaakov"", ""Yisrael""]",,,,,0,-1,1,1
 3172,2026-01-05 14:54:10,378,2137,Who is the father of Ghazan Marri?,"[""Khair Bakhsh Marri"", ""Nawab Khair Bakhsh Marri""]",Khair Bakhsh Marri,0.81,,,1,1,0,0
 3173,2026-01-05 14:54:11,1930,1216,Who is the father of Azazel Jacobs?,"[""Ken Jacobs"", ""Kenneth Jacobs""]",Ken Jacobs,0.83,,,1,1,0,0
 3174,2026-01-05 14:54:13,59,122,Who is the father of Now What?,"[""Chance Play""]",I don't know,,"The father of ""Now What?"" is the artist or author associated with the work; if referring to the song ""Now What?"" by the band Lightning Seeds, the father would be producer/lead singer Ian Broudie. Best Guess Confidence: 0.1200",,0,-1,1,0
 3175,2026-01-05 14:54:14,487,136,"Who is the father of Thomas Fane, 8th Earl of Westmorland?","[""Henry Fane of Brympton"", ""Henry Fane of Bristol"", ""Henry Fane""]","John Fane, 7th Earl of Westmorland",0.73,,,0,-1,0,1
-3176,2026-01-05 14:54:15,3759,34975,Who is the father of Robert?,"[""Louis IX of France"", ""Saint Louis"", ""Louis IX"", ""King of France Louis IX"", ""Louis IX the Saint"", ""Saint Louis IX of France""]",,,,,0,-1,0,1
+3176,2026-01-05 14:54:15,3759,34975,Who is the father of Robert?,"[""Louis IX of France"", ""Saint Louis"", ""Louis IX"", ""King of France Louis IX"", ""Louis IX the Saint"", ""Saint Louis IX of France""]",,,,,0,-1,1,1
 3177,2026-01-05 14:54:17,13479,7213,Who is the father of Yeonsangun of Joseon?,"[""Seongjong of Joseon"", ""Li Hyeol"", ""Xuanling"", ""Kangjingrenwenxianwuqinshenggongxiaodaiwang"", ""Chengzong""]",King Seongjong of Joseon,0.92,,,1,1,0,0
 3178,2026-01-05 14:54:18,436,7859,Who is the father of Arabia?,"[""Justin II"", ""Iustinus II""]",Ibrāhīm (Abraham),0.62,,,0,-1,0,1
 3179,2026-01-05 14:54:19,248,539,Who is the father of Parakramabahu VII of Kotte?,"[""Bhuvanekabahu VI of Kotte"", ""Bhuvaneka Bãhu VI"", ""Sapumal Kumaraya"", ""Chempaha Perumal""]",Bhuvanaikabahu VI,0.72,,,0,-1,0,1
@@ -3210,7 +3210,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 3208,2026-01-05 14:54:56,24526,28218,Who is the father of Legion?,"[""Professor X"", ""Charles Xavier"", ""Professor Charles Xavier""]","Professor Charles Xavier (father figure: in Marvel Comics, David Haller / Legion is the mutant son of Charles Xavier)",0.732,,,1,1,0,0
 3209,2026-01-05 14:54:57,238,389,Who is the father of Macrianus Minor?,"[""Macrianus Major"", ""Titus Fulvius Macrianus""]",Macrianus Minor's father was Macrianus Major (Macrianus the Elder).,0.73,,,1,1,0,0
 3210,2026-01-05 14:54:58,76944,223466,Who is the father of Ronan Farrow?,"[""Woody Allen"", ""Allan Stewart Konigsberg"", ""Allen Stewart Konigsberg"", ""Heywood Allen""]",Woody Allen,0.81,,,1,1,0,0
-3211,2026-01-05 14:54:59,5400,34478,Who is the father of Jonathan?,"[""Saul"", ""Shaul""]",,,,,0,-1,0,1
+3211,2026-01-05 14:54:59,5400,34478,Who is the father of Jonathan?,"[""Saul"", ""Shaul""]",,,,,0,-1,1,1
 3212,2026-01-05 14:55:00,527244,50897,"Who is the father of Diana, Princess of Wales?","[""John Spencer, 8th Earl Spencer"", ""John Spencer"", ""Edward John Spencer, 8th Earl Spencer""]","John Spencer, 8th Earl Spencer",0.995,,,1,1,0,0
 3213,2026-01-05 14:55:02,263,6956,Who is the father of Aydın Menderes?,"[""Adnan Menderes""]",Adnan Menderes,0.992,,,1,1,0,0
 3214,2026-01-05 14:55:03,201,1366,Who is the father of Mihailo II of Duklja?,"[""Constantine Bodin""]",Constantine Bodin (also known as Bodin),0.71,,,1,1,0,0
@@ -3218,7 +3218,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 3216,2026-01-05 14:55:05,227,5738,Who is the father of Demetrios Palaiologos?,"[""Andronikos II Palaiologos"", ""Andronicus II Palaeologus"", ""Andronicus II""]",Manuel II Palaiologos,0.95,,,0,-1,0,1
 3217,2026-01-05 14:55:07,34853,10376,Who is the father of Maximilian I of Mexico?,"[""Archduke Franz Karl of Austria"", ""Franz Karl"", ""Archduke Franz Karl Joseph of Austria""]","Ferdinand I, Emperor of Austria (Ferdinand I of Austria)",0.92,,,0,-1,0,1
 3218,2026-01-05 14:55:08,10951,3260,"Who is the father of Cosimo I de' Medici, Grand Duke of Tuscany?","[""Giovanni delle Bande Nere"", ""Giovanni de Medici""]",Giovanni dalle Bande Nere (Giovanni de' Medici),0.95,,,1,1,0,0
-3219,2026-01-05 14:55:09,491,1282,Who is the father of John?,"[""Rupert"", ""Ruprecht""]",,,,,0,-1,0,1
+3219,2026-01-05 14:55:09,491,1282,Who is the father of John?,"[""Rupert"", ""Ruprecht""]",,,,,0,-1,1,1
 3220,2026-01-05 14:55:10,651,10069,Who is the father of Edmund of Scotland?,"[""Malcolm III of Scotland"", ""Malcolm Canmore""]",Malcolm III of Scotland (Malcolm Canmore),0.81,,,1,1,0,0
 3221,2026-01-05 14:55:12,574,221,Who is the father of Elliott Nugent?,"[""J. C. Nugent"", ""John Charles Nugent""]",J. C. Nugent,0.84,,,1,1,0,0
 3222,2026-01-05 14:55:13,98451,33762,Who is the father of Lily Allen?,"[""Keith Allen"", ""Keith Philip George Allen"", ""Keith Howell Charles Allen""]",Keith Allen,0.92,,,1,1,0,0
@@ -3243,9 +3243,9 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 3241,2026-01-05 14:55:41,111751,12636,Who is the father of David?,"[""Isaí"", ""Yishai"", ""Isai"", ""Issai""]",I don't know,,Jesse,0.25,0,-1,1,0
 3242,2026-01-05 14:55:42,131794,6864,Who is the father of Moses?,"[""Amram"", ""Imran"", ""Amran""]",Amram,0.98,,,1,1,0,0
 3243,2026-01-05 14:55:44,639,1296,Who is the father of Gwladys?,"[""Brychan Brycheiniog""]",I don't know,,"If the question refers to Gwladys (Welsh name) in literature or history, a common notable Gwladys is Gwladys ferch Rhiwallon (daughter of Rhiwallon), but without context I guess her father is Rhiwallon.",0.15,0,-1,1,0
-3244,2026-01-05 14:55:45,310,2283,Who is the father of George?,"[""Andrew I of Hungary"", ""Andrew I""]",,,,,0,-1,0,1
+3244,2026-01-05 14:55:45,310,2283,Who is the father of George?,"[""Andrew I of Hungary"", ""Andrew I""]",,,,,0,-1,1,1
 3245,2026-01-05 14:55:46,1996,83464,Who is the father of Eryx?,"[""Poseidon"", ""Posidon""]",Poseidon,0.64,,,1,1,0,0
-3246,2026-01-05 14:55:47,72,519,Who is the father of Louis?,"[""Rorgon I, Count of Maine""]",,,,,0,-1,0,1
+3246,2026-01-05 14:55:47,72,519,Who is the father of Louis?,"[""Rorgon I, Count of Maine""]",,,,,0,-1,1,1
 3247,2026-01-05 14:55:48,6904,111751,Who is the father of Tamar?,"[""David"", ""King David"", ""sweet singer of Israel""]",Judah,0.45,,,0,-1,0,1
 3248,2026-01-05 14:55:49,2849,11727,Who is the father of Robert I of Burgundy?,"[""Robert II of France"", ""Robert II""]",Robert I of Burgundy (Robert the Old) was the son of King Robert II of France.,0.94,,,1,1,0,0
 3249,2026-01-05 14:55:50,5992,2701,Who is the father of Karyn Kupcinet?,"[""Irv Kupcinet""]",Irv Kupcinet,0.95,,,1,1,0,0
@@ -3302,30 +3302,30 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 3300,2026-01-05 14:56:57,5794,5027,Who is the father of Jalal Agha?,"[""Agha""]",Agha,0.64,,,1,1,0,0
 3301,2026-01-05 14:56:58,377,2866,Who is the father of Bridget Bendish?,"[""Henry Ireton"", ""Lieut. Gen. Henry Ireton""]",Oliver Cromwell,0.85,,,0,-1,0,1
 3302,2026-01-05 14:56:59,7230,76739,Who is the father of Asher?,"[""Jacob"", ""Israel"", ""Ya'akov"", ""Ya'aqov"", ""Yaakov"", ""Yisrael""]",Jacob,0.97,,,1,1,0,0
-3303,2026-01-05 14:57:00,117,108,Who is the father of Tanya?,"[""Meddler""]",,,,,0,-1,0,1
+3303,2026-01-05 14:57:00,117,108,Who is the father of Tanya?,"[""Meddler""]",,,,,0,-1,1,1
 3304,2026-01-05 14:57:01,3157,6430,Who is the father of Iphicles?,"[""Amphitryon""]",Amphitryon,0.91,,,1,1,0,0
 3305,2026-01-05 14:57:02,40,1629691,"In what country is Union State Bank, Wisconsin?","[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",United States,0.96,,,1,1,0,0
 3306,2026-01-05 14:57:03,221772,1629691,In what country is Snapchat?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",United States,0.95,,,1,1,0,0
-3307,2026-01-05 14:57:04,50,1629691,In what country is Tina?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",,,,,0,-1,0,1
+3307,2026-01-05 14:57:04,50,1629691,In what country is Tina?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",,,,,0,-1,1,1
 3308,2026-01-05 14:57:05,259,403188,In what country is Cave?,"[""Italy"", ""Italia"", ""Italian Republic"", ""IT"", ""🇮🇹"", ""ITA""]",I don't know,,,,0,-1,1,0
 3309,2026-01-05 14:57:06,37,317291,In what country is Dasht Jeyhun?,"[""Iran"", ""Islamic Republic of Iran"", ""Persia"", ""ir"", ""Islamic Rep. Iran"", ""🇮🇷""]",Afghanistan,0.81,,,0,-1,0,1
 3310,2026-01-05 14:57:07,8809,416350,In what country is The Goldfinch?,"[""Netherlands"", ""Holland"", ""the Netherlands"", ""NL"", ""NED"", ""Nederland"", ""nl"", ""🇳🇱"", ""Netherlands (after 1945)""]",United States,0.82,,,0,-1,0,1
 3311,2026-01-05 14:57:08,6135,1629691,In what country is Bethel?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",United States,0.12,,,1,1,0,0
 3312,2026-01-05 14:57:10,367,1629691,In what country is Baker?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",I don't know,,United States,0.25,1,1,1,0
 3313,2026-01-05 14:57:11,638,1301086,"In what country is Church of Our Lady of Light, Chennai?","[""India"", ""Bharat"", ""Hindustan"", ""Bharatvarsh"", ""in"", ""IN"", ""Republic of India"", ""🇮🇳"", ""IND"", ""Aryavratt""]",India,0.96,,,1,1,0,0
-3314,2026-01-05 14:57:12,121,317291,In what country is Markin?,"[""Iran"", ""Islamic Republic of Iran"", ""Persia"", ""ir"", ""Islamic Rep. Iran"", ""🇮🇷""]",,,,,0,-1,0,1
+3314,2026-01-05 14:57:12,121,317291,In what country is Markin?,"[""Iran"", ""Islamic Republic of Iran"", ""Persia"", ""ir"", ""Islamic Rep. Iran"", ""🇮🇷""]",,,,,0,-1,1,1
 3315,2026-01-05 14:57:14,337,328810,In what country is Imperatriz Airport?,"[""Brazil"", ""Federative Republic of Brazil"", ""BR"", ""BRA"", ""br"", ""🇧🇷""]",Brazil,0.9365,,,1,1,0,0
 3316,2026-01-05 14:57:16,36,317291,In what country is Sar Giz?,"[""Iran"", ""Islamic Republic of Iran"", ""Persia"", ""ir"", ""Islamic Rep. Iran"", ""🇮🇷""]",Iran,0.74,,,1,1,0,0
 3317,2026-01-05 14:57:17,55586,1629691,In what country is Chrysler?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",United States,0.95,,,1,1,0,0
 3318,2026-01-05 14:57:18,2838,1629691,In what country is Marathon?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",Greece,0.84,,,0,-1,0,1
-3319,2026-01-05 14:57:19,212,1629691,In what country is Cliff?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",,,,,0,-1,0,1
+3319,2026-01-05 14:57:19,212,1629691,In what country is Cliff?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",,,,,0,-1,1,1
 3320,2026-01-05 14:57:20,49,317291,In what country is Pir Hayati?,"[""Iran"", ""Islamic Republic of Iran"", ""Persia"", ""ir"", ""Islamic Rep. Iran"", ""🇮🇷""]",Pakistan,0.72,,,0,-1,0,1
 3321,2026-01-05 14:57:21,38,1629691,In what country is Dell?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",United States,0.95,,,1,1,0,0
 3322,2026-01-05 14:57:22,56,1301086,In what country is Bandrakottai?,"[""India"", ""Bharat"", ""Hindustan"", ""Bharatvarsh"", ""in"", ""IN"", ""Republic of India"", ""🇮🇳"", ""IND"", ""Aryavratt""]",India,0.92,,,1,1,0,0
 3323,2026-01-05 14:57:23,402,1629691,In what country is Riva?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",Italy,0.26,,,0,-1,0,1
 3324,2026-01-05 14:57:25,154,80775,In what country is Mali?,"[""Guinea"", ""Guinea-Conakry"", ""Republic of Guinea"", ""République de Guinée"", ""gn"", ""🇬🇳"", ""Republique de Guinee"", ""GUI""]",Mali is a country in West Africa.,0.996,,,0,-1,0,1
 3325,2026-01-05 14:57:26,78,1629691,In what country is Fairview Outdoor School?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",United States,0.84,,,1,1,0,0
-3326,2026-01-05 14:57:27,372,816653,In what country is Andrew?,"[""Canada"", ""Dominion of Canada"", ""British North America"", ""CAN"", ""CA"", ""ca"", ""can"", ""Can.""]",,,,,0,-1,0,1
+3326,2026-01-05 14:57:27,372,816653,In what country is Andrew?,"[""Canada"", ""Dominion of Canada"", ""British North America"", ""CAN"", ""CA"", ""ca"", ""can"", ""Can.""]",,,,,0,-1,1,1
 3327,2026-01-05 14:57:28,195,56765,In what country is Afutara Airport?,"[""Solomon Islands"", ""sb"", ""🇸🇧"", ""SOL""]",Solomon Islands,0.83,,,1,1,0,0
 3328,2026-01-05 14:57:30,149,713574,In what country is One Mile?,"[""Australia"", ""Commonwealth of Australia"", ""AU"", ""AUS"", ""au"", ""British Colony of Australia"", ""🇦🇺"", ""Straya"", ""Aussieland""]",United Kingdom,0.15,,,0,-1,0,1
 3329,2026-01-05 14:57:31,156,354820,In what country is Wynau?,"[""Switzerland"", ""Swiss Confederation"", ""SUI"", ""Suisse"", ""Schweiz"", ""Svizzera"", ""Swiss"", ""CHE"", ""CH"", ""Confoederatio Helvetica""]",Switzerland,0.92,,,1,1,0,0
@@ -3337,7 +3337,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 3335,2026-01-05 14:57:38,22,454969,In what country is Kılıçlı Kavlaklı?,"[""Turkey"", ""Republic of Turkey"", ""🇹🇷"", ""TUR"", ""TR""]",Turkey,0.92,,,1,1,0,0
 3336,2026-01-05 14:57:39,85860,403188,In what country is Ferrari?,"[""Italy"", ""Italia"", ""Italian Republic"", ""IT"", ""🇮🇹"", ""ITA""]",Italy,0.99,,,1,1,0,0
 3337,2026-01-05 14:57:40,61,702414,In what country is Ago?,"[""Japan"", ""State of Japan"", ""Land of the Rising Sun"", ""Nihon"", ""Nippon"", ""JP"", ""Nippon-koku"", ""Nihon-koku"", ""JA"", ""JPN"", ""jp"", ""JAP"", ""Ja"", ""Jap""]",Japan,0.31,,,1,1,0,0
-3338,2026-01-05 14:57:41,159,1629691,In what country is Ruth?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",,,,,0,-1,0,1
+3338,2026-01-05 14:57:41,159,1629691,In what country is Ruth?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",,,,,0,-1,1,1
 3339,2026-01-05 14:57:43,913,1629691,In what country is Chester?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",England,0.53,,,0,-1,0,1
 3340,2026-01-05 14:57:45,446,328810,In what country is Christian Democracy?,"[""Brazil"", ""Federative Republic of Brazil"", ""BR"", ""BRA"", ""br"", ""🇧🇷""]","Christian Democracy is a political ideology, not a single country; if the question asks where the political party named ""Christian Democracy"" exists, multiple countries have parties named ""Christian Democracy"" (e.g., Italy had Democrazia Cristiana). Interpreting simply: Christian Democracy as an ideology is present in many countries worldwide — notably in European countries like Germany, Italy, the Netherlands, etc.",0.19,,,0,-1,0,1
 3341,2026-01-05 14:57:46,59,486947,In what country is Égligny?,"[""France"", ""fr"", ""FR"", ""République française"", ""La France"", ""Republic of France"", ""French Republic"", ""FRA"", ""the Hexagon""]",France,0.88,,,1,1,0,0
@@ -3370,7 +3370,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 3368,2026-01-05 14:58:19,298,1629691,In what country is Dublin?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",Ireland,0.95,,,0,-1,0,1
 3369,2026-01-05 14:58:20,2859,293715,In what country is Mo i Rana?,"[""Norway"", ""Kingdom of Norway"", ""Norge"", ""Norvège‏"", ""NO"", ""NOR"", ""no"", ""Noreg"", ""Norwegen‏"", ""🇳🇴""]",Norway,0.9999,,,1,1,0,0
 3370,2026-01-05 14:58:21,713,1629691,In what country is Haw River?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",United States,0.92,,,1,1,0,0
-3371,2026-01-05 14:58:22,37,486947,In what country is Mary?,"[""France"", ""fr"", ""FR"", ""République française"", ""La France"", ""Republic of France"", ""French Republic"", ""FRA"", ""the Hexagon""]",,,,,0,-1,0,1
+3371,2026-01-05 14:58:22,37,486947,In what country is Mary?,"[""France"", ""fr"", ""FR"", ""République française"", ""La France"", ""Republic of France"", ""French Republic"", ""FRA"", ""the Hexagon""]",,,,,0,-1,1,1
 3372,2026-01-05 14:58:23,3492,1629691,In what country is Giant Food?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",United States,0.82,,,1,1,0,0
 3373,2026-01-05 14:58:25,125,403188,In what country is Boca?,"[""Italy"", ""Italia"", ""Italian Republic"", ""IT"", ""🇮🇹"", ""ITA""]",I don't know,,Argentina,0.25,0,-1,1,0
 3374,2026-01-05 14:58:26,5839,194249,In what country is Belavia?,"[""Belarus"", ""🇧🇾"", ""White Russia"", ""White Ruthenia"", ""Republic of Belarus"", ""by"", ""Byeloruss"", ""BLR"", ""Bielorussia"", ""Belorussia"", ""Byelorussia""]",Belarus,0.99,,,1,1,0,0
@@ -3435,7 +3435,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 3433,2026-01-05 14:59:40,108,1629691,In what country is Seminary?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",United States,0.2,,,1,1,0,0
 3434,2026-01-05 14:59:42,81,1629691,In what country is West Wyomissing?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",United States,0.91,,,1,1,0,0
 3435,2026-01-05 14:59:43,78,1301086,In what country is Tigra?,"[""India"", ""Bharat"", ""Hindustan"", ""Bharatvarsh"", ""in"", ""IN"", ""Republic of India"", ""🇮🇳"", ""IND"", ""Aryavratt""]",India,0.74,,,1,1,0,0
-3436,2026-01-05 14:59:46,907,1629691,In what country is King?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",,,"The question is incomplete — cannot determine which ""King"" is meant without more context. If the intended reference is ""King County,"" possibilities include the United States (e.g., King County, Washington). If the intended reference is ""King"" as a place name, many countries have locations called ""King.""",0.25,0,-1,0,1
+3436,2026-01-05 14:59:46,907,1629691,In what country is King?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",,,"The question is incomplete — cannot determine which ""King"" is meant without more context. If the intended reference is ""King County,"" possibilities include the United States (e.g., King County, Washington). If the intended reference is ""King"" as a place name, many countries have locations called ""King.""",0.25,0,-1,1,1
 3437,2026-01-05 14:59:47,449,486947,In what country is Volvic?,"[""France"", ""fr"", ""FR"", ""République française"", ""La France"", ""Republic of France"", ""French Republic"", ""FRA"", ""the Hexagon""]",France,0.95,,,1,1,0,0
 3438,2026-01-05 14:59:48,48,486947,In what country is Jauldes?,"[""France"", ""fr"", ""FR"", ""République française"", ""La France"", ""Republic of France"", ""French Republic"", ""FRA"", ""the Hexagon""]",France,0.93,,,1,1,0,0
 3439,2026-01-05 14:59:49,120,1629691,In what country is Main Street Square?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",United States,0.81,,,1,1,0,0
@@ -3476,7 +3476,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 3474,2026-01-05 15:00:35,136,1629691,In what country is Page?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",United States,0.62,,,1,1,0,0
 3475,2026-01-05 15:00:36,2719,173146,In what country is Ghana Navy?,"[""Ghana"", ""Republic of Ghana"", ""gh"", ""GHA""]",Ghana Navy is in Ghana.,0.98,,,1,1,0,0
 3476,2026-01-05 15:00:38,99,1301086,In what country is Mavjinjava?,"[""India"", ""Bharat"", ""Hindustan"", ""Bharatvarsh"", ""in"", ""IN"", ""Republic of India"", ""🇮🇳"", ""IND"", ""Aryavratt""]",India,0.75,,,1,1,0,0
-3477,2026-01-05 15:00:39,72,1629691,In what country is Arthur?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",,,,,0,-1,0,1
+3477,2026-01-05 15:00:39,72,1629691,In what country is Arthur?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",,,,,0,-1,1,1
 3478,2026-01-05 15:00:40,711,724517,In what country is Central Cyberspace Affairs Commission?,"[""People's Republic of China"", ""China"", ""CN"", ""PR China"", ""PRC"", ""cn"", ""CHN"", ""🇨🇳"", ""China PR"", ""Mainland China""]",China,0.98,,,1,1,0,0
 3479,2026-01-05 15:00:41,597,1629691,In what country is Post Carbon Institute?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",United States,0.88,,,1,1,0,0
 3480,2026-01-05 15:00:42,228,1629691,In what country is Moore?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",United States,0.42,,,1,1,0,0
@@ -3501,13 +3501,13 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 3499,2026-01-05 15:01:08,1450,1629691,In what country is Patterson?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",United States,0.42,,,1,1,0,0
 3500,2026-01-05 15:01:09,22,317291,In what country is Eslamabad-e Mashayekh?,"[""Iran"", ""Islamic Republic of Iran"", ""Persia"", ""ir"", ""Islamic Rep. Iran"", ""🇮🇷""]",Iran,0.88,,,1,1,0,0
 3501,2026-01-05 15:01:10,35,317291,In what country is Kalu?,"[""Iran"", ""Islamic Republic of Iran"", ""Persia"", ""ir"", ""Islamic Rep. Iran"", ""🇮🇷""]",Nigeria,0.3,,,0,-1,0,1
-3502,2026-01-05 15:01:12,80,1629691,In what country is Pierce?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",,,United States,0.25,0,-1,0,1
+3502,2026-01-05 15:01:12,80,1629691,In what country is Pierce?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",,,United States,0.25,0,-1,1,1
 3503,2026-01-05 15:01:13,407,1629691,In what country is Milan?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",Italy,0.9999,,,0,-1,0,1
-3504,2026-01-05 15:01:14,547,1629691,In what country is Holly?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",,,,,0,-1,0,1
+3504,2026-01-05 15:01:14,547,1629691,In what country is Holly?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",,,,,0,-1,1,1
 3505,2026-01-05 15:01:15,779,486947,In what country is Orthez?,"[""France"", ""fr"", ""FR"", ""République française"", ""La France"", ""Republic of France"", ""French Republic"", ""FRA"", ""the Hexagon""]",France,0.9865,,,1,1,0,0
 3506,2026-01-05 15:01:17,22,136982,In what country is Chalhuacocha?,"[""Peru"", ""pe"", ""Republic of Peru"", ""República del Perú"", ""🇵🇪"", ""Republica del Peru""]",Peru,0.86,,,1,1,0,0
 3507,2026-01-05 15:01:19,54,1629691,In what country is Footes?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",I don't know,,Footes is in England.,0.25,0,-1,1,0
-3508,2026-01-05 15:01:20,35,1629691,In what country is Oscar?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",,,,,0,-1,0,1
+3508,2026-01-05 15:01:20,35,1629691,In what country is Oscar?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",,,,,0,-1,1,1
 3509,2026-01-05 15:01:21,559,816653,In what country is Manitoba Museum?,"[""Canada"", ""Dominion of Canada"", ""British North America"", ""CAN"", ""CA"", ""ca"", ""can"", ""Can.""]",Canada,0.9999,,,1,1,0,0
 3510,2026-01-05 15:01:22,79,1629691,In what country is Cora?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",Canada,0.72,,,0,-1,0,1
 3511,2026-01-05 15:01:24,57,235075,In what country is Madan Kundari?,"[""Nepal"", ""NPL"", ""Federal Democratic Republic of Nepal"", ""NEP"", ""NP"", ""🇳🇵""]",India,0.7,,,0,-1,0,1
@@ -3525,7 +3525,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 3523,2026-01-05 15:01:43,156,113951,In what country is Roman Catholic Diocese of Kasana–Luweero?,"[""Uganda"", ""Republic of Uganda"", ""ug"", ""🇺🇬"", ""UGA""]",Uganda,0.92,,,1,1,0,0
 3524,2026-01-05 15:01:45,212,1629691,In what country is Camden?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]","There are multiple places named Camden; the most prominent are Camden, London in England (United Kingdom) and Camden, New Jersey in the United States — without more context, I cannot determine which is intended.",0.08,,,1,1,0,0
 3525,2026-01-05 15:01:46,82,230720,In what country is Idlorpait?,"[""Greenland"", ""gl"", ""🇬🇱""]",Canada,0.42,,,0,-1,0,1
-3526,2026-01-05 15:01:47,240,1629691,In what country is Avery?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",,,,,0,-1,0,1
+3526,2026-01-05 15:01:47,240,1629691,In what country is Avery?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",,,,,0,-1,1,1
 3527,2026-01-05 15:01:49,255,407517,In what country is Randfontein Local Municipality?,"[""South Africa"", ""Republic of South Africa"", ""RSA"", ""SA"", ""za"", ""🇿🇦"", ""zaf""]",South Africa,0.98,,,1,1,0,0
 3528,2026-01-05 15:01:51,44,173799,"In what country is Barice, Donji Vakuf?","[""Bosnia and Herzegovina"", ""Bosnia-Herzegovina"", ""Bosnia"", ""BiH"", ""Bosnia & Herzegovina"", ""B&H"", ""🇧🇦"", ""ba"", ""BIH""]",Bosnia and Herzegovina,0.9,,,1,1,0,0
 3529,2026-01-05 15:01:52,10212,293715,In what country is Rong?,"[""Norway"", ""Kingdom of Norway"", ""Norge"", ""Norvège‏"", ""NO"", ""NOR"", ""no"", ""Noreg"", ""Norwegen‏"", ""🇳🇴""]",Nepal,0.72,,,0,-1,0,1
@@ -3542,7 +3542,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 3540,2026-01-05 15:02:12,697,368537,In what country is International Islamic Fiqh Academy?,"[""Saudi Arabia"", ""Kingdom of Saudi Arabia"", ""🇸🇦"", ""KSA"", ""sa""]",Saudi Arabia,0.86,,,1,1,0,0
 3541,2026-01-05 15:02:15,550,95387,In what country is Bank of Mozambique?,"[""Mozambique"", ""Moçambique"", ""República de Moçambique"", ""MZ"", ""MOZ"", ""mz"", ""🇲🇿"", ""Republic of Mozambique""]",Mozambique,0.97,,,1,1,0,0
 3542,2026-01-05 15:02:19,204,486947,In what country is Gy?,"[""France"", ""fr"", ""FR"", ""République française"", ""La France"", ""Republic of France"", ""French Republic"", ""FRA"", ""the Hexagon""]",France,0.48,,,1,1,0,0
-3543,2026-01-05 15:02:20,53,317291,In what country is Tad?,"[""Iran"", ""Islamic Republic of Iran"", ""Persia"", ""ir"", ""Islamic Rep. Iran"", ""🇮🇷""]",,,,,0,-1,0,1
+3543,2026-01-05 15:02:20,53,317291,In what country is Tad?,"[""Iran"", ""Islamic Republic of Iran"", ""Persia"", ""ir"", ""Islamic Rep. Iran"", ""🇮🇷""]",,,,,0,-1,1,1
 3544,2026-01-05 15:02:22,144,1629691,In what country is New Standard Aircraft Company?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",United States,0.7723,,,1,1,0,0
 3545,2026-01-05 15:02:23,1185,271047,In what country is Komerční banka?,"[""Czech Republic"", ""CZR"", ""cz"", ""Česko"", ""Česká republika"", ""ČR"", ""cze"", ""CZE"", ""Czechia""]",Czech Republic,0.9987,,,1,1,0,0
 3546,2026-01-05 15:02:25,47480,383128,In what country is Malay?,"[""Indonesia"", ""Republic of Indonesia"", ""id"", ""ID"", ""INA"", ""IDN""]",Malaysia,0.97,,,0,-1,0,1
@@ -3559,21 +3559,21 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 3557,2026-01-05 15:02:43,77,256529,In what country is Panaitoliko?,"[""Greece"", ""Hellenic Republic"", ""Hellas"", ""gr"", ""el"", ""🇬🇷"", ""Greek Republic"", ""GRE"", ""Ellada"", ""Greek""]",Greece,0.91,,,1,1,0,0
 3558,2026-01-05 15:02:44,93,377325,In what country is Villalcampo?,"[""Spain"", ""España"", ""Kingdom of Spain"", ""ES"", ""ESP""]",Spain,0.95,,,1,1,0,0
 3559,2026-01-05 15:02:46,672,1629691,In what country is Kansas?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",United States of America,0.98,,,1,1,0,0
-3560,2026-01-05 15:02:47,1376,1629691,In what country is Ava?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",,,,,0,-1,0,1
+3560,2026-01-05 15:02:47,1376,1629691,In what country is Ava?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",,,,,0,-1,1,1
 3561,2026-01-05 15:02:49,552,131414,In what country is River Cess County?,"[""Liberia"", ""Republic of Liberia"", ""lr"", ""🇱🇷"", ""LBR""]",Liberia,0.97,,,1,1,0,0
 3562,2026-01-05 15:02:50,360,556493,In what country is Delton AG?,"[""Germany"", ""FRG"", ""BRD"", ""Bundesrepublik Deutschland"", ""Federal Republic of Germany"", ""de"", ""Deutschland"", ""GER"", ""BR Deutschland"", ""DE""]",Switzerland,0.74,,,0,-1,0,1
 3563,2026-01-05 15:02:52,106,486947,In what country is Roybon?,"[""France"", ""fr"", ""FR"", ""République française"", ""La France"", ""Republic of France"", ""French Republic"", ""FRA"", ""the Hexagon""]",France,0.96,,,1,1,0,0
 3564,2026-01-05 15:02:56,2994,1629691,In what country is Bell?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",I don't know,,"If the question refers to the town named Bell in Germany (Bell, Rhein-Hunsrück), then the country is Germany.",0.25,0,-1,1,0
 3565,2026-01-05 15:02:57,568,713574,In what country is Davidson?,"[""Australia"", ""Commonwealth of Australia"", ""AU"", ""AUS"", ""au"", ""British Colony of Australia"", ""🇦🇺"", ""Straya"", ""Aussieland""]",United States,0.32,,,0,-1,0,1
 3566,2026-01-05 15:02:59,129,76651,In what country is Lima?,"[""Paraguay"", ""Republic of Paraguay"", ""py"", ""🇵🇾"", ""Heart of South America""]",Peru,0.9975,,,0,-1,0,1
-3567,2026-01-05 15:03:00,165,1629691,In what country is Alpha?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",,,,,0,-1,0,1
+3567,2026-01-05 15:03:00,165,1629691,In what country is Alpha?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",,,,,0,-1,1,1
 3568,2026-01-05 15:03:02,363,816653,In what country is Warner?,"[""Canada"", ""Dominion of Canada"", ""British North America"", ""CAN"", ""CA"", ""ca"", ""can"", ""Can.""]",I don't know,,United States,0.25,0,-1,1,0
 3569,2026-01-05 15:03:03,523,816653,In what country is Pacific Academy?,"[""Canada"", ""Dominion of Canada"", ""British North America"", ""CAN"", ""CA"", ""ca"", ""can"", ""Can.""]",Canada,0.21,,,1,1,0,0
 3570,2026-01-05 15:03:04,76,556493,In what country is Scheidt?,"[""Germany"", ""FRG"", ""BRD"", ""Bundesrepublik Deutschland"", ""Federal Republic of Germany"", ""de"", ""Deutschland"", ""GER"", ""BR Deutschland"", ""DE""]",Germany,0.89,,,1,1,0,0
 3571,2026-01-05 15:03:06,113,556493,In what country is Plate?,"[""Germany"", ""FRG"", ""BRD"", ""Bundesrepublik Deutschland"", ""Federal Republic of Germany"", ""de"", ""Deutschland"", ""GER"", ""BR Deutschland"", ""DE""]",I don't know,,China,0.12,0,-1,1,0
 3572,2026-01-05 15:03:08,86,816653,In what country is Toronto Northwest?,"[""Canada"", ""Dominion of Canada"", ""British North America"", ""CAN"", ""CA"", ""ca"", ""can"", ""Can.""]",Canada,0.99,,,1,1,0,0
 3573,2026-01-05 15:03:09,24,173799,In what country is Gornji Davidovići?,"[""Bosnia and Herzegovina"", ""Bosnia-Herzegovina"", ""Bosnia"", ""BiH"", ""Bosnia & Herzegovina"", ""B&H"", ""🇧🇦"", ""ba"", ""BIH""]",Bosnia and Herzegovina,0.88,,,1,1,0,0
-3574,2026-01-05 15:03:11,978,1629691,In what country is Roy?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",,,,,0,-1,0,1
+3574,2026-01-05 15:03:11,978,1629691,In what country is Roy?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",,,,,0,-1,1,1
 3575,2026-01-05 15:03:13,79,713574,In what country is Hobbledehoy Record Co.?,"[""Australia"", ""Commonwealth of Australia"", ""AU"", ""AUS"", ""au"", ""British Colony of Australia"", ""🇦🇺"", ""Straya"", ""Aussieland""]",Australia,0.82,,,1,1,0,0
 3576,2026-01-05 15:03:14,498,1629691,In what country is Idalou?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",United States,0.92,,,1,1,0,0
 3577,2026-01-05 15:03:15,1291,282017,In what country is Istedgade?,"[""Denmark"", ""DK"", ""Danmark"", ""DNK"", ""DEK"", ""dk"", ""Denmark proper"", ""metropolitan Denmark"", ""🇩🇰"", ""DEN"", ""TAN"", ""Realm of Denmark"", ""Kingdom of Denmark""]",Denmark,0.91,,,1,1,0,0
@@ -3607,7 +3607,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 3605,2026-01-05 15:03:58,44,355720,In what country is Cześniki-Kolonia Górna?,"[""Poland"", ""POL"", ""Republic of Poland"", ""PL"", ""Polska""]",Poland,0.86,,,1,1,0,0
 3606,2026-01-05 15:03:59,91,1629691,In what country is Awe?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",Nigeria,0.8,,,0,-1,0,1
 3607,2026-01-05 15:04:01,45,271047,In what country is Mrákotín?,"[""Czech Republic"", ""CZR"", ""cz"", ""Česko"", ""Česká republika"", ""ČR"", ""cze"", ""CZE"", ""Czechia""]",Czech Republic,0.98,,,1,1,0,0
-3608,2026-01-05 15:04:03,165,816653,In what country is Francis?,"[""Canada"", ""Dominion of Canada"", ""British North America"", ""CAN"", ""CA"", ""ca"", ""can"", ""Can.""]",,,France,0.25,0,-1,0,1
+3608,2026-01-05 15:04:03,165,816653,In what country is Francis?,"[""Canada"", ""Dominion of Canada"", ""British North America"", ""CAN"", ""CA"", ""ca"", ""can"", ""Can.""]",,,France,0.25,0,-1,1,1
 3609,2026-01-05 15:04:05,270,196468,In what country is Agveran?,"[""Armenia"", ""Republic of Armenia"", ""🇦🇲"", ""ARM"", ""AM""]",Armenia,0.54,,,1,1,0,0
 3610,2026-01-05 15:04:06,2273,522202,In what country is University of Cebu?,"[""Philippines"", ""Republic of the Philippines"", ""PH"", ""ph"", ""the Philippines"", ""Philippine Islands"", ""PHL"", ""RP"", ""🇵🇭"", ""PHI"", ""Pinas""]",Philippines,0.995,,,1,1,0,0
 3611,2026-01-05 15:04:08,148,816653,"In what country is Kavanagh, Alberta?","[""Canada"", ""Dominion of Canada"", ""British North America"", ""CAN"", ""CA"", ""ca"", ""can"", ""Can.""]",Canada,0.98,,,1,1,0,0
@@ -3617,7 +3617,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 3615,2026-01-05 15:04:14,775,816653,In what country is Durham?,"[""Canada"", ""Dominion of Canada"", ""British North America"", ""CAN"", ""CA"", ""ca"", ""can"", ""Can.""]",England,0.92,,,0,-1,0,1
 3616,2026-01-05 15:04:17,455,271405,In what country is Ministry of Transportation?,"[""Egypt"", ""Republic of Egypt"", ""eg"", ""EGY"", ""🇪🇬"", ""Arab Republic of Egypt"", ""Arab Rep. Egypt"", ""Rep. Egypt""]",I don't know,,The Ministry of Transportation is a government department name used in many countries; a common example is Canada (Ministry of Transportation of Ontario) — so: Canada,0.25,0,-1,1,0
 3617,2026-01-05 15:04:18,470,1629691,In what country is Wellington?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",New Zealand,0.99,,,0,-1,0,1
-3618,2026-01-05 15:04:20,192,1629691,In what country is Henry?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",,,,,0,-1,0,1
+3618,2026-01-05 15:04:20,192,1629691,In what country is Henry?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",,,,,0,-1,1,1
 3619,2026-01-05 15:04:21,141,232782,In what country is Zemun railway station?,"[""Serbia"", ""🇷🇸"", ""Republic of Serbia"", ""Republika Srbija"", ""rs"", ""Srbija"", ""SRB"", ""RS""]",Serbia,0.99,,,1,1,0,0
 3620,2026-01-05 15:04:24,45,271047,In what country is pero?,"[""Czech Republic"", ""CZR"", ""cz"", ""Česko"", ""Česká republika"", ""ČR"", ""cze"", ""CZE"", ""Czechia""]",I don't know,,Peru,0.25,0,-1,1,0
 3621,2026-01-05 15:04:26,82,317291,In what country is Khafr County?,"[""Iran"", ""Islamic Republic of Iran"", ""Persia"", ""ir"", ""Islamic Rep. Iran"", ""🇮🇷""]",Iran,0.88,,,1,1,0,0
@@ -3637,7 +3637,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 3635,2026-01-05 15:04:47,183,1629691,In what country is Rockcastle River?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",United States,0.89,,,1,1,0,0
 3636,2026-01-05 15:04:48,1109,1629691,In what country is Home?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",I don't know,,,,0,-1,1,0
 3637,2026-01-05 15:04:49,161,83376,In what country is Cové?,"[""Benin"", ""Republic of Benin"", ""Dahomey"", ""bj"", ""🇧🇯"", ""BEN""]",Benin,0.94,,,1,1,0,0
-3638,2026-01-05 15:04:51,345,713574,In what country is Gregory?,"[""Australia"", ""Commonwealth of Australia"", ""AU"", ""AUS"", ""au"", ""British Colony of Australia"", ""🇦🇺"", ""Straya"", ""Aussieland""]",,,,,0,-1,0,1
+3638,2026-01-05 15:04:51,345,713574,In what country is Gregory?,"[""Australia"", ""Commonwealth of Australia"", ""AU"", ""AUS"", ""au"", ""British Colony of Australia"", ""🇦🇺"", ""Straya"", ""Aussieland""]",,,,,0,-1,1,1
 3639,2026-01-05 15:04:52,46,317291,In what country is Eshkevar-e Sofla Rural District?,"[""Iran"", ""Islamic Republic of Iran"", ""Persia"", ""ir"", ""Islamic Rep. Iran"", ""🇮🇷""]",Iran,0.95,,,1,1,0,0
 3640,2026-01-05 15:04:55,736,1629691,In what country is Philadelphia?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",United States of America,0.98,,,1,1,0,0
 3641,2026-01-05 15:04:57,125,1629691,In what country is Winner?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",South Africa,0.81,,,0,-1,0,1
@@ -3717,7 +3717,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 3715,2026-01-05 15:06:56,328,1629691,In what country is Excel?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",I don't know,,,,0,-1,1,0
 3716,2026-01-05 15:06:57,106956,1066107,In what country is Royal Navy?,"[""United Kingdom"", ""🇬🇧"", ""UK"", ""United Kingdom of Great Britain and Northern Ireland"", ""U.K."", ""GBR"", ""GB"", ""U. K."", ""U K"", ""G.B."", ""G. B."", ""G B"", ""Great Britain"", ""G.B.R."", ""G B R"", ""Britain"", ""Great Britain and Northern Ireland""]",The Royal Navy is in the United Kingdom.,0.9,,,1,1,0,0
 3717,2026-01-05 15:06:59,74,816653,In what country is Francis?,"[""Canada"", ""Dominion of Canada"", ""British North America"", ""CAN"", ""CA"", ""ca"", ""can"", ""Can.""]",I don't know,,France,0.15,0,-1,1,0
-3718,2026-01-05 15:07:00,163,1629691,In what country is Elizabeth?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",,,,,0,-1,0,1
+3718,2026-01-05 15:07:00,163,1629691,In what country is Elizabeth?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",,,,,0,-1,1,1
 3719,2026-01-05 15:07:02,492,403188,In what country is 2001–02 Serie B?,"[""Italy"", ""Italia"", ""Italian Republic"", ""IT"", ""🇮🇹"", ""ITA""]",Italy,0.992,,,1,1,0,0
 3720,2026-01-05 15:07:03,240,328810,In what country is Leme?,"[""Brazil"", ""Federative Republic of Brazil"", ""BR"", ""BRA"", ""br"", ""🇧🇷""]",Brazil,0.95,,,1,1,0,0
 3721,2026-01-05 15:07:05,30,355720,"In what country is Łazy, Sierpc County?","[""Poland"", ""POL"", ""Republic of Poland"", ""PL"", ""Polska""]",Poland,0.96,,,1,1,0,0
@@ -3811,7 +3811,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 3809,2026-01-05 15:09:11,823,1629691,In what country is Northland Communications?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",United States,0.87,,,1,1,0,0
 3810,2026-01-05 15:09:12,2744,522202,In what country is Iloilo International Airport?,"[""Philippines"", ""Republic of the Philippines"", ""PH"", ""ph"", ""the Philippines"", ""Philippine Islands"", ""PHL"", ""RP"", ""🇵🇭"", ""PHI"", ""Pinas""]",Philippines,0.93,,,1,1,0,0
 3811,2026-01-05 15:09:13,92,1629691,In what country is Tupper-Barnett House?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",United States,0.96,,,1,1,0,0
-3812,2026-01-05 15:09:14,11306,1629691,In what country is Pierre?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",,,,,0,-1,0,1
+3812,2026-01-05 15:09:14,11306,1629691,In what country is Pierre?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",,,,,0,-1,1,1
 3813,2026-01-05 15:09:18,229,1629691,In what country is Morning Sun?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",United States,0.91,,,1,1,0,0
 3814,2026-01-05 15:09:19,119,1629691,In what country is Springwood High School?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",England (United Kingdom),0.35,,,0,-1,0,1
 3815,2026-01-05 15:09:21,398,713574,In what country is Logan?,"[""Australia"", ""Commonwealth of Australia"", ""AU"", ""AUS"", ""au"", ""British Colony of Australia"", ""🇦🇺"", ""Straya"", ""Aussieland""]",I don't know,,,,0,-1,1,0
@@ -3830,7 +3830,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 3828,2026-01-05 15:09:41,473,1301086,In what country is Ashta?,"[""India"", ""Bharat"", ""Hindustan"", ""Bharatvarsh"", ""in"", ""IN"", ""Republic of India"", ""🇮🇳"", ""IND"", ""Aryavratt""]",India,0.85,,,1,1,0,0
 3829,2026-01-05 15:09:42,1487,1629691,In what country is Turners Falls?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",United States,0.95,,,1,1,0,0
 3830,2026-01-05 15:09:44,61,556493,In what country is Riethnordhausen?,"[""Germany"", ""FRG"", ""BRD"", ""Bundesrepublik Deutschland"", ""Federal Republic of Germany"", ""de"", ""Deutschland"", ""GER"", ""BR Deutschland"", ""DE""]",Germany,0.93,,,1,1,0,0
-3831,2026-01-05 15:09:45,394,713574,In what country is Linda?,"[""Australia"", ""Commonwealth of Australia"", ""AU"", ""AUS"", ""au"", ""British Colony of Australia"", ""🇦🇺"", ""Straya"", ""Aussieland""]",,,United States,0.25,0,-1,0,1
+3831,2026-01-05 15:09:45,394,713574,In what country is Linda?,"[""Australia"", ""Commonwealth of Australia"", ""AU"", ""AUS"", ""au"", ""British Colony of Australia"", ""🇦🇺"", ""Straya"", ""Aussieland""]",,,United States,0.25,0,-1,1,1
 3832,2026-01-05 15:09:47,28,233709,In what country is Tervola Radio and TV-Mast?,"[""Finland"", ""Republic of Finland"", ""Finnia"", ""Land of Thousand Lakes"", ""fi"", ""Suomi"", ""Suomen tasavalta"", ""Republiken Finland"", ""🇫🇮"", ""FIN""]",Finland,0.935,,,1,1,0,0
 3833,2026-01-05 15:09:48,58,407891,In what country is Abdul Mannan Bhuiyan Stadium?,"[""Bangladesh"", ""bd"", ""🇧🇩"", ""BAN"", ""People's Republic of Bangladesh""]",Bangladesh,0.76,,,1,1,0,0
 3834,2026-01-05 15:09:49,292,209021,In what country is Medveščak?,"[""Croatia"", ""Republic of Croatia"", ""HR"", ""HRV"", ""hr"", ""🇭🇷"", ""CRO""]",Croatia,0.93,,,1,1,0,0
@@ -3953,11 +3953,11 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 3951,2026-01-05 15:12:23,78,151926,In what country is Bārta?,"[""Latvia"", ""Republic of Latvia"", ""Latvian Republic"", ""lv"", ""Latvija"", ""🇱🇻"", ""LAT"", ""LVA""]",Latvia,0.98,,,1,1,0,0
 3952,2026-01-05 15:12:24,1855,1629691,In what country is 77th United States Congress?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",United States,0.93,,,1,1,0,0
 3953,2026-01-05 15:12:25,77,169786,In what country is Urge?,"[""Estonia"", ""Republic of Estonia"", ""Estland"", ""Eesti"", ""ee"", ""EST"", ""🇪🇪""]",India,0.12,,,0,-1,0,1
-3954,2026-01-05 15:12:26,268,1629691,In what country is George?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",,,,,0,-1,0,1
+3954,2026-01-05 15:12:26,268,1629691,In what country is George?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",,,,,0,-1,1,1
 3955,2026-01-05 15:12:27,1767,492668,In what country is Iksan?,"[""South Korea"", ""Republic of Korea"", ""ROK"", ""kr"", ""Rep. Korea"", ""S. Korea"", ""Korea Republic"", ""🇰🇷"", ""KOR""]",South Korea,0.92,,,1,1,0,0
 3956,2026-01-05 15:12:29,88,271047,In what country is Domašov?,"[""Czech Republic"", ""CZR"", ""cz"", ""Česko"", ""Česká republika"", ""ČR"", ""cze"", ""CZE"", ""Czechia""]",Czech Republic,0.88,,,1,1,0,0
 3957,2026-01-05 15:12:30,142,1629691,In what country is Magnolia Bible College?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",United States,0.86,,,1,1,0,0
-3958,2026-01-05 15:12:31,315,1629691,In what country is Christine?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",,,,,0,-1,0,1
+3958,2026-01-05 15:12:31,315,1629691,In what country is Christine?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",,,,,0,-1,1,1
 3959,2026-01-05 15:12:32,532,1629691,In what country is Mechanicsburg?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",United States,0.82,,,1,1,0,0
 3960,2026-01-05 15:12:33,98,41278,In what country is Vaiea?,"[""Niue"", ""Niuē"", ""nu"", ""🇳🇺""]",Niue,0.98,,,1,1,0,0
 3961,2026-01-05 15:12:35,112,173799,In what country is Dragočaj?,"[""Bosnia and Herzegovina"", ""Bosnia-Herzegovina"", ""Bosnia"", ""BiH"", ""Bosnia & Herzegovina"", ""B&H"", ""🇧🇦"", ""ba"", ""BIH""]",Bosnia and Herzegovina,0.86,,,1,1,0,0
@@ -4028,7 +4028,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 4026,2026-01-05 15:13:56,80,702414,In what country is Tōhoku History Museum?,"[""Japan"", ""State of Japan"", ""Land of the Rising Sun"", ""Nihon"", ""Nippon"", ""JP"", ""Nippon-koku"", ""Nihon-koku"", ""JA"", ""JPN"", ""jp"", ""JAP"", ""Ja"", ""Jap""]",Japan,0.97,,,1,1,0,0
 4027,2026-01-05 15:13:58,549,454969,In what country is Tire?,"[""Turkey"", ""Republic of Turkey"", ""🇹🇷"", ""TUR"", ""TR""]",Turkey,0.86,,,1,1,0,0
 4028,2026-01-05 15:13:59,1619,416350,In what country is St. Martin's Cathedral?,"[""Netherlands"", ""Holland"", ""the Netherlands"", ""NL"", ""NED"", ""Nederland"", ""nl"", ""🇳🇱"", ""Netherlands (after 1945)""]",Slovakia,0.92,,,0,-1,0,1
-4029,2026-01-05 15:14:00,40,1629691,In what country is Neal?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",,,,,0,-1,0,1
+4029,2026-01-05 15:14:00,40,1629691,In what country is Neal?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",,,,,0,-1,1,1
 4030,2026-01-05 15:14:01,360,702414,In what country is Ena?,"[""Japan"", ""State of Japan"", ""Land of the Rising Sun"", ""Nihon"", ""Nippon"", ""JP"", ""Nippon-koku"", ""Nihon-koku"", ""JA"", ""JPN"", ""jp"", ""JAP"", ""Ja"", ""Jap""]",Japan,0.92,,,1,1,0,0
 4031,2026-01-05 15:14:02,275,1629691,In what country is New Home?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",United States,0.89,,,1,1,0,0
 4032,2026-01-05 15:14:04,123,354820,In what country is Reppisch?,"[""Switzerland"", ""Swiss Confederation"", ""SUI"", ""Suisse"", ""Schweiz"", ""Svizzera"", ""Swiss"", ""CHE"", ""CH"", ""Confoederatio Helvetica""]",Switzerland,0.91,,,1,1,0,0
@@ -4036,7 +4036,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 4034,2026-01-05 15:14:06,1482,1629691,In what country is U.S. Route 7?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",United States,0.9837,,,1,1,0,0
 4035,2026-01-05 15:14:08,32,492668,In what country is Korean Magazine Museum?,"[""South Korea"", ""Republic of Korea"", ""ROK"", ""kr"", ""Rep. Korea"", ""S. Korea"", ""Korea Republic"", ""🇰🇷"", ""KOR""]",South Korea,0.92,,,1,1,0,0
 4036,2026-01-05 15:14:09,2118,1629691,In what country is Parker?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",I don't know,,United States,0.4,1,1,1,0
-4037,2026-01-05 15:14:10,2178,1629691,In what country is Christopher?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",,,,,0,-1,0,1
+4037,2026-01-05 15:14:10,2178,1629691,In what country is Christopher?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",,,,,0,-1,1,1
 4038,2026-01-05 15:14:12,52,486947,In what country is Francheville Aerodrome?,"[""France"", ""fr"", ""FR"", ""République française"", ""La France"", ""Republic of France"", ""French Republic"", ""FRA"", ""the Hexagon""]",Canada,0.63,,,0,-1,0,1
 4039,2026-01-05 15:14:13,113,1629691,In what country is Utica?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",United States,0.89,,,1,1,0,0
 4040,2026-01-05 15:14:14,521,1629691,In what country is Brooks?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",Canada,0.42,,,0,-1,0,1
@@ -4046,7 +4046,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 4044,2026-01-05 15:14:19,34691,1629691,In what country is Radio Free Asia?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",United States,0.84,,,1,1,0,0
 4045,2026-01-05 15:14:20,47,232782,In what country is Kijevac?,"[""Serbia"", ""🇷🇸"", ""Republic of Serbia"", ""Republika Srbija"", ""rs"", ""Srbija"", ""SRB"", ""RS""]",Serbia,0.84,,,1,1,0,0
 4046,2026-01-05 15:14:21,3629,713574,In what country is The Star?,"[""Australia"", ""Commonwealth of Australia"", ""AU"", ""AUS"", ""au"", ""British Colony of Australia"", ""🇦🇺"", ""Straya"", ""Aussieland""]",Australia,0.25,,,1,1,0,0
-4047,2026-01-05 15:14:22,114,486947,In what country is Billy?,"[""France"", ""fr"", ""FR"", ""République française"", ""La France"", ""Republic of France"", ""French Republic"", ""FRA"", ""the Hexagon""]",,,,,0,-1,0,1
+4047,2026-01-05 15:14:22,114,486947,In what country is Billy?,"[""France"", ""fr"", ""FR"", ""République française"", ""La France"", ""Republic of France"", ""French Republic"", ""FRA"", ""the Hexagon""]",,,,,0,-1,1,1
 4048,2026-01-05 15:14:23,524,293715,In what country is Ona?,"[""Norway"", ""Kingdom of Norway"", ""Norge"", ""Norvège‏"", ""NO"", ""NOR"", ""no"", ""Noreg"", ""Norwegen‏"", ""🇳🇴""]",Norway,0.42,,,1,1,0,0
 4049,2026-01-05 15:14:25,741,202201,In what country is Waterfall?,"[""Ireland"", ""Éire"", ""IE"", ""IRL"", ""Republic of Ireland"", ""Hibernia"", ""Ireland, Republic of"", ""ie"", ""ireland"", ""🇮🇪"", ""Eire"", ""Southern Ireland""]",I don't know,,"Waterfall is a locality in New South Wales, Australia.",0.42,0,-1,1,0
 4050,2026-01-05 15:14:26,47,1629691,"In what country is Iron River (CDP), Wisconsin?","[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",United States,0.98,,,1,1,0,0
@@ -4065,10 +4065,10 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 4063,2026-01-05 15:14:42,16613,1629691,In what country is Space Shuttle program?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",The Space Shuttle program was in the United States.,0.9999,,,1,1,0,0
 4064,2026-01-05 15:14:43,57,486947,In what country is Saint-Antonin?,"[""France"", ""fr"", ""FR"", ""République française"", ""La France"", ""Republic of France"", ""French Republic"", ""FRA"", ""the Hexagon""]",France,0.61,,,1,1,0,0
 4065,2026-01-05 15:14:45,47,1629691,In what country is Peterson?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",I don't know,,United States,0.25,1,1,1,0
-4066,2026-01-05 15:14:46,160,816653,In what country is Scott?,"[""Canada"", ""Dominion of Canada"", ""British North America"", ""CAN"", ""CA"", ""ca"", ""can"", ""Can.""]",,,,,0,-1,0,1
+4066,2026-01-05 15:14:46,160,816653,In what country is Scott?,"[""Canada"", ""Dominion of Canada"", ""British North America"", ""CAN"", ""CA"", ""ca"", ""can"", ""Can.""]",,,,,0,-1,1,1
 4067,2026-01-05 15:14:47,157,235075,In what country is Dharapani?,"[""Nepal"", ""NPL"", ""Federal Democratic Republic of Nepal"", ""NEP"", ""NP"", ""🇳🇵""]",Nepal,0.95,,,1,1,0,0
 4068,2026-01-05 15:14:48,120,1629691,In what country is Turin?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",Italy,0.99,,,0,-1,0,1
-4069,2026-01-05 15:14:49,63,1629691,In what country is Joy?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",,,,,0,-1,0,1
+4069,2026-01-05 15:14:49,63,1629691,In what country is Joy?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",,,,,0,-1,1,1
 4070,2026-01-05 15:14:51,3,278539,In what country is Valea Pleșii River?,"[""Romania"", ""Roumania"", ""Rumania"", ""România"", ""ro"", ""🇷🇴""]",Romania,0.93,,,1,1,0,0
 4071,2026-01-05 15:14:52,600,1629691,In what country is Alamo?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",United States,0.86,,,1,1,0,0
 4072,2026-01-05 15:14:55,307,1629691,In what country is Glendora?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",United States,0.59,,,1,1,0,0
@@ -4082,7 +4082,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 4080,2026-01-05 15:15:05,11488,232782,In what country is Rusyn?,"[""Ukraine"", ""UA"", ""UKR"", ""ua"", ""Ukrainia"", ""🇺🇦"", ""Ukr."", ""Ukraina"", ""Slovakia"", ""Slovak Republic"", ""sk"", ""🇸🇰"", ""SVK"", ""Romania"", ""Roumania"", ""Rumania"", ""România"", ""ro"", ""🇷🇴"", ""Poland"", ""POL"", ""Republic of Poland"", ""PL"", ""Polska"", ""Serbia"", ""🇷🇸"", ""Republic of Serbia"", ""Republika Srbija"", ""rs"", ""Srbija"", ""SRB"", ""RS""]",Ukraine,0.38,,,1,1,0,0
 4081,2026-01-05 15:15:06,239,131414,In what country is Hotel Africa?,"[""Liberia"", ""Republic of Liberia"", ""lr"", ""🇱🇷"", ""LBR""]",Liberia,0.84,,,1,1,0,0
 4082,2026-01-05 15:15:07,86,486947,In what country is Saint-Pierrevillers?,"[""France"", ""fr"", ""FR"", ""République française"", ""La France"", ""Republic of France"", ""French Republic"", ""FRA"", ""the Hexagon""]",France,0.98,,,1,1,0,0
-4083,2026-01-05 15:15:08,472,1629691,In what country is Raymond?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",,,,,0,-1,0,1
+4083,2026-01-05 15:15:08,472,1629691,In what country is Raymond?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",,,,,0,-1,1,1
 4084,2026-01-05 15:15:10,225,816653,In what country is Stanley?,"[""Canada"", ""Dominion of Canada"", ""British North America"", ""CAN"", ""CA"", ""ca"", ""can"", ""Can.""]","Falkland Islands (capital Stanley is in the Falkland Islands, a British Overseas Territory)",0.82,,,1,1,0,0
 4085,2026-01-05 15:15:11,275,256529,In what country is Velventos?,"[""Greece"", ""Hellenic Republic"", ""Hellas"", ""gr"", ""el"", ""🇬🇷"", ""Greek Republic"", ""GRE"", ""Ellada"", ""Greek""]",Greece,0.98,,,1,1,0,0
 4086,2026-01-05 15:15:12,105,486947,In what country is La Chapelle-en-Vercors?,"[""France"", ""fr"", ""FR"", ""République française"", ""La France"", ""Republic of France"", ""French Republic"", ""FRA"", ""the Hexagon""]",France,0.84,,,1,1,0,0
@@ -4117,7 +4117,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 4115,2026-01-05 15:15:52,432,702414,In what country is Kanmon Bridge?,"[""Japan"", ""State of Japan"", ""Land of the Rising Sun"", ""Nihon"", ""Nippon"", ""JP"", ""Nippon-koku"", ""Nihon-koku"", ""JA"", ""JPN"", ""jp"", ""JAP"", ""Ja"", ""Jap""]",Japan,0.9999,,,1,1,0,0
 4116,2026-01-05 15:15:53,1935,403188,In what country is province of Milan?,"[""Italy"", ""Italia"", ""Italian Republic"", ""IT"", ""🇮🇹"", ""ITA""]",Italy,0.98,,,1,1,0,0
 4117,2026-01-05 15:15:54,221,1629691,In what country is Houston?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",United States,0.98,,,1,1,0,0
-4118,2026-01-05 15:15:55,79,1629691,In what country is Robinson?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",,,,,0,-1,0,1
+4118,2026-01-05 15:15:55,79,1629691,In what country is Robinson?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",,,,,0,-1,1,1
 4119,2026-01-05 15:15:56,1375,486947,In what country is University of Burgundy?,"[""France"", ""fr"", ""FR"", ""République française"", ""La France"", ""Republic of France"", ""French Republic"", ""FRA"", ""the Hexagon""]",France,0.98,,,1,1,0,0
 4120,2026-01-05 15:15:58,1844,354820,In what country is Lugano Airport?,"[""Switzerland"", ""Swiss Confederation"", ""SUI"", ""Suisse"", ""Schweiz"", ""Svizzera"", ""Swiss"", ""CHE"", ""CH"", ""Confoederatio Helvetica""]",Switzerland,0.98,,,1,1,0,0
 4121,2026-01-05 15:15:59,187,1301086,In what country is Kottayam Institute of Technology & Science?,"[""India"", ""Bharat"", ""Hindustan"", ""Bharatvarsh"", ""in"", ""IN"", ""Republic of India"", ""🇮🇳"", ""IND"", ""Aryavratt""]",India,0.88,,,1,1,0,0
@@ -4133,12 +4133,12 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 4131,2026-01-05 15:16:12,34,355720,In what country is Gawarzec Dolny?,"[""Poland"", ""POL"", ""Republic of Poland"", ""PL"", ""Polska""]",Poland,0.92,,,1,1,0,0
 4132,2026-01-05 15:16:13,76,355720,"In what country is Studzianka, Podlaskie Voivodeship?","[""Poland"", ""POL"", ""Republic of Poland"", ""PL"", ""Polska""]",Poland,0.93,,,1,1,0,0
 4133,2026-01-05 15:16:14,231,262637,In what country is Ô Lâm?,"[""Vietnam"", ""Socialist Republic of Vietnam"", ""VN"", ""VIE"", ""🇻🇳"", ""Việt Nam"", ""Viet Nam"", ""SRV"", ""VNM""]",Vietnam,0.81,,,1,1,0,0
-4134,2026-01-05 15:16:15,394,1629691,In what country is Ava?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",,,,,0,-1,0,1
+4134,2026-01-05 15:16:15,394,1629691,In what country is Ava?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",,,,,0,-1,1,1
 4135,2026-01-05 15:16:16,8813,492668,In what country is Bank of Korea?,"[""South Korea"", ""Republic of Korea"", ""ROK"", ""kr"", ""Rep. Korea"", ""S. Korea"", ""Korea Republic"", ""🇰🇷"", ""KOR""]",South Korea,0.91,,,1,1,0,0
 4136,2026-01-05 15:16:17,542,1629691,In what country is Hamilton?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",Canada,0.35,,,0,-1,0,1
 4137,2026-01-05 15:16:19,49,486947,In what country is Gare de Rosporden?,"[""France"", ""fr"", ""FR"", ""République française"", ""La France"", ""Republic of France"", ""French Republic"", ""FRA"", ""the Hexagon""]",France,0.98,,,1,1,0,0
 4138,2026-01-05 15:16:20,4826,1066107,In what country is Joint European Torus?,"[""United Kingdom"", ""🇬🇧"", ""UK"", ""United Kingdom of Great Britain and Northern Ireland"", ""U.K."", ""GBR"", ""GB"", ""U. K."", ""U K"", ""G.B."", ""G. B."", ""G B"", ""Great Britain"", ""G.B.R."", ""G B R"", ""Britain"", ""Great Britain and Northern Ireland""]",United Kingdom,0.92,,,1,1,0,0
-4139,2026-01-05 15:16:22,83,1629691,In what country is Earl?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",,,United States,0.25,0,-1,0,1
+4139,2026-01-05 15:16:22,83,1629691,In what country is Earl?,"[""United States of America"", ""the United States of America"", ""America"", ""U.S.A."", ""USA"", ""U.S."", ""US"", ""the US"", ""the USA"", ""US of A"", ""the United States"", ""U. S. A."", ""U. S."", ""the States"", ""the U.S."", ""'Merica"", ""U.S"", ""United States"", ""'Murica""]",,,United States,0.25,0,-1,1,1
 4140,2026-01-05 15:16:23,78,232782,In what country is Donji Matejevac?,"[""Serbia"", ""🇷🇸"", ""Republic of Serbia"", ""Republika Srbija"", ""rs"", ""Srbija"", ""SRB"", ""RS""]",Serbia,0.98,,,1,1,0,0
 4141,2026-01-05 15:16:24,101,526066,In what country is Kireyevsky District?,"[""Russia"", ""Rossiya"", ""Rossija"", ""RU"", ""ru"", ""Rossijskaja Federatsija"", ""Russian Federation"", ""Rossiyskaya Federatsiya"", ""Rus"", ""RUS"", ""RF""]",Russia,0.98,,,1,1,0,0
 4142,2026-01-05 15:16:25,53,271047,In what country is Rozsochatec?,"[""Czech Republic"", ""CZR"", ""cz"", ""Česko"", ""Česká republika"", ""ČR"", ""cze"", ""CZE"", ""Czechia""]",Czech Republic,0.96,,,1,1,0,0
@@ -4534,7 +4534,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 4532,2026-01-05 15:24:57,1055,5348,Who was the producer of Point of Origin?,"[""Newton Thomas Sigel""]",Robert Evans,0.12,,,0,-1,0,1
 4533,2026-01-05 15:24:58,14173,1916,Who was the producer of The Grapes of Wrath?,"[""Nunnally Johnson"", ""Nunnally Hunter Johnson""]",Darryl F. Zanuck,0.62,,,0,-1,0,1
 4534,2026-01-05 15:24:59,72,932,Who was the producer of From Now On?,"[""Paulo Branco""]",I don't know,,,,0,-1,1,0
-4535,2026-01-05 15:25:00,3005,36041,Who was the producer of A?,"[""Ian Anderson"", ""Ian Scott Anderson""]",,,,,0,-1,0,1
+4535,2026-01-05 15:25:00,3005,36041,Who was the producer of A?,"[""Ian Anderson"", ""Ian Scott Anderson""]",,,,,0,-1,1,1
 4536,2026-01-05 15:25:01,3124,171679,Who was the producer of New Blood?,"[""Peter Gabriel"", ""Peter Brian Gabriel""]",The producer of New Blood was Spike Lee.,0.01,,,0,-1,0,1
 4537,2026-01-05 15:25:02,236,4487,Who was the producer of Ondu Kshanadalli?,"[""Jai Jagadish""]",Girija Panchappa,0.66,,,0,-1,0,1
 4538,2026-01-05 15:25:03,1396,22076,Who was the producer of Ekkees Toppon Ki Salaami?,"[""Abhinav Shukla""]",Sunil Lulla,0.832,,,0,-1,0,1
@@ -4802,7 +4802,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 4800,2026-01-05 15:30:40,75669,1310,Who was the producer of The Imitation Game?,"[""Teddy Schwarzman"", ""Edward Frank Schwarzman"", ""Edward Schwarzman"", ""Nora Grossman"", ""Ido Ostrowsky""]",Nora Grossman (co-producer: Ido Ostrowsky — lead producers: Nora Grossman and Ido Ostrowsky; executive producer: Teddy Schwarzman),0.52,,,1,1,0,0
 4801,2026-01-05 15:30:41,114,372,Who was the producer of One of the Best?,"[""Carlyle Blackwell""]",I don't know,,,,0,-1,1,0
 4802,2026-01-05 15:30:43,3620,61641,Who was the producer of The Ref?,"[""Jerry Bruckheimer"", ""Jerome Leon Bruckheimer"", ""Don Simpson"", ""Donald Clarence Simpson"", ""Donald Clarence \""Don\"" Simpson""]","Ted Demme and David Kessler (producers), with Ted Demme also credited as director — principal producer credited: David Kessler",0.21,,,0,-1,0,1
-4803,2026-01-05 15:30:44,2872,37866,Who was the producer of X?,"[""Roger Corman"", ""Roger William Corman""]",,,,,0,-1,0,1
+4803,2026-01-05 15:30:44,2872,37866,Who was the producer of X?,"[""Roger Corman"", ""Roger William Corman""]",,,,,0,-1,1,1
 4804,2026-01-05 15:30:45,9016,765,Who was the producer of El Cid?,"[""Samuel Bronston""]",Samuel Bronston,0.7685,,,1,1,0,0
 4805,2026-01-05 15:30:46,5958,1016,Who was the producer of On the Town?,"[""Roger Edens"", ""Metro-Goldwyn-Mayer"", ""MGM"", ""Arthur Freed"", ""Arthur Grossman""]",Arthur Freed,0.88,,,1,1,0,0
 4806,2026-01-05 15:30:48,22653,53563,Who was the producer of Shaolin Soccer?,"[""Stephen Chow"", ""Stephen Chow Sing Chi"", ""Chow Sing Chi"", ""Zhou Xingchi"", ""Stephen Chiau"", ""Stephen Chiau Sing-chi""]",Teddy Chan,0.5465,,,0,-1,0,1
@@ -4956,7 +4956,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 4954,2026-01-05 15:34:01,1775,16031,Who was the producer of Beautiful?,"[""Kim Ki-duk"", ""Ki-duk Kim"", ""Kim Gi-deok""]",I don't know,,,,0,-1,1,0
 4955,2026-01-05 15:34:04,1036,18757,Who was the producer of 1983?,"[""Flying Lotus"", ""Steven Ellison""]",I don't know,,,,0,-1,1,0
 4956,2026-01-05 15:34:05,148,2875,Who was the producer of Set Up?,"[""Wong Jing""]",Spike Lee,0.26,,,0,-1,0,1
-4957,2026-01-05 15:34:06,266,2076,Who was the producer of 2?,"[""Netsky"", ""Boris Daenen""]",,,,,0,-1,0,1
+4957,2026-01-05 15:34:06,266,2076,Who was the producer of 2?,"[""Netsky"", ""Boris Daenen""]",,,,,0,-1,1,1
 4958,2026-01-05 15:34:07,13104,5983,Who was the producer of The Other?,"[""Tom Tryon"", ""Thomas Tryon"", ""Robert Mulligan"", ""Robert Patrick Mulligan""]",William Castle,0.7386,,,0,-1,0,1
 4959,2026-01-05 15:34:08,865,436,Who was the producer of As You Like It?,"[""Paul Czinner""]",I don't know,,,,0,-1,1,0
 4960,2026-01-05 15:34:10,853,7437,Who was the producer of Desire?,"[""Ernst Lubitsch""]",I don't know,,David O. Selznick,0.31,0,-1,1,0
@@ -5786,7 +5786,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 5784,2026-01-06 14:41:38,23736,4328,Who was the director of The Time Machine?,"[""Simon Wells"", ""Simon Joseph Wells""]",George Pal,0.84,,,0,-1,0,1
 5785,2026-01-06 14:41:40,124,1773,Who was the director of The Lie?,"[""Allan Dwan""]",Sidney Lumet,0.23,,,0,-1,0,1
 5786,2026-01-06 14:41:41,15817,27565,Who was the director of Attarintiki Daredi?,"[""Trivikram Srinivas"", ""Akella Naga Srinivasa Sarma"", ""Akella Naga Srinivasa Sharma""]",Trivikram Srinivas,0.89,,,1,1,0,0
-5787,2026-01-06 14:41:43,130,587,Who was the director of Foreign Affairs?,"[""Pete Michels""]",,,,,0,-1,0,1
+5787,2026-01-06 14:41:43,130,587,Who was the director of Foreign Affairs?,"[""Pete Michels""]",,,,,0,-1,1,1
 5788,2026-01-06 14:41:44,216,596,Who was the director of The Secret?,"[""Robert Enrico""]",Rhonda Byrne,0.88,,,0,-1,0,1
 5789,2026-01-06 14:41:45,764,8304,Who was the director of Oru Pennum Randaanum?,"[""Adoor Gopalakrishnan"", ""Adoor""]",T. V. Chandran,0.82,,,0,-1,0,1
 5790,2026-01-06 14:41:46,2425,54323,Who was the director of Sleeping Dogs Lie?,"[""Bobcat Goldthwait"", ""Bob Goldthwait"", ""Robert Francis Goldthwait""]",I don't know,,Mike Newell,0.21,0,-1,1,0
@@ -5944,7 +5944,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 5942,2026-01-06 14:45:08,284,197,Who was the director of Safety First?,"[""Fred Paul""]",Hal Roach,0.21,,,0,-1,0,1
 5943,2026-01-06 14:45:09,610,245,Who was the director of National Security?,"[""Chung Ji-young"", ""Jeong Ji-yeong""]",I don't know,,Michael Flynn,0.25,0,-1,1,0
 5944,2026-01-06 14:45:10,316,12650,Who was the director of Victoria?,"[""Anna Karina"", ""Hanne Bayer"", ""Hanne Karin Bayer"", ""Hanne Karen Blarke Bayer"", ""Hanne Karin Blarke Bayer""]",Sebastian Schipper,0.82,,,0,-1,0,1
-5945,2026-01-06 14:45:12,856,2619,Who was the director of Police?,"[""Catherine Breillat"", ""Maurice Pialat""]",,,,,0,-1,0,1
+5945,2026-01-06 14:45:12,856,2619,Who was the director of Police?,"[""Catherine Breillat"", ""Maurice Pialat""]",,,,,0,-1,1,1
 5946,2026-01-06 14:45:13,128,89,Who was the director of Marina's Destiny?,"[""Viktor Ivchenko"", ""Viktor Illarionovich Ivchenko""]",Iosif Kheifits,0.64,,,0,-1,0,1
 5947,2026-01-06 14:45:14,284,2360,Who was the director of Impulse?,"[""Cy Endfield"", ""Cyril Raker Endfield""]",Steven Soderbergh,0.28,,,0,-1,0,1
 5948,2026-01-06 14:45:16,4701,1196,Who was the director of The Naked Time?,"[""Marc Daniels"", ""Danny Marcus""]",Joseph Pevney,0.8723,,,0,-1,0,1
@@ -5966,7 +5966,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 5964,2026-01-06 14:45:39,3811,55741,Who was the director of Walking and Talking?,"[""Nicole Holofcener""]",Nicole Holofcener,0.9,,,1,1,0,0
 5965,2026-01-06 14:45:40,1786,40023,Who was the director of Dolls?,"[""Takeshi Kitano"", ""Beat Takeshi"", ""Kitano Takeshi""]",Takeshi Kitano,0.72,,,1,1,0,0
 5966,2026-01-06 14:45:42,78,194,Who was the director of Me First?,"[""Fernando Ayala""]",Iain B. MacDonald,0.26,,,0,-1,0,1
-5967,2026-01-06 14:45:43,3867,3039,Who was the director of A?,"[""Michelle MacLaren"", ""Michelle Maxwell MacLaren""]",,,,,0,-1,0,1
+5967,2026-01-06 14:45:43,3867,3039,Who was the director of A?,"[""Michelle MacLaren"", ""Michelle Maxwell MacLaren""]",,,,,0,-1,1,1
 5968,2026-01-06 14:45:44,4140,339,Who was the director of The Wave?,"[""Alex Grasshoff"", ""Alexander Grasshoff""]",Dennis Gansel,0.75,,,0,-1,0,1
 5969,2026-01-06 14:45:45,3443,4747,Who was the director of Tamas?,"[""Govind Nihalani""]",Govind Nihalani,0.86,,,1,1,0,0
 5970,2026-01-06 14:45:46,204,203,Who was the director of Sunrise?,"[""Raymond Longford"", ""John Walter Longford""]",F. W. Murnau,0.69,,,0,-1,0,1
@@ -5986,7 +5986,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 5984,2026-01-06 14:46:04,1023,1064,Who was the director of The Incident?,"[""Jason Winer""]",Larry Peerce,0.76,,,0,-1,0,1
 5985,2026-01-06 14:46:05,19625,9477,Who was the director of Mud?,"[""Jeff Nichols""]",Jeff Nichols,0.98,,,1,1,0,0
 5986,2026-01-06 14:46:08,1081,3304,Who was the director of No Name on the Bullet?,"[""Jack Arnold"", ""John Arnold Waks""]",Joseph H. Lewis,0.84,,,0,-1,0,1
-5987,2026-01-06 14:46:09,212,129,Who was the director of H?,"[""Darrell Wasyk""]",,,,,0,-1,0,1
+5987,2026-01-06 14:46:09,212,129,Who was the director of H?,"[""Darrell Wasyk""]",,,,,0,-1,1,1
 5988,2026-01-06 14:46:10,194,316,Who was the director of Tomorrow?,"[""Francesca Archibugi""]",Cyril Garnett,0.12,,,0,-1,0,1
 5989,2026-01-06 14:46:11,1166,66424,Who was the director of Milan?,"[""Mahesh Bhatt""]",I don't know,,,,0,-1,1,0
 5990,2026-01-06 14:46:12,585,434,Who was the director of The End of Twerk?,"[""Wendey Stanzler""]",I don't know,,Kenny Hotz,0.15,0,-1,1,0
@@ -6325,7 +6325,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 6323,2026-01-06 14:53:30,233,2958,Who was the director of The First Time?,"[""Frank Tashlin"", ""Francis Fredrick von Taschlein"", ""Tish Tash""]",Jon Kasdan,0.6789,,,0,-1,0,1
 6324,2026-01-06 14:53:31,190,42965,Who was the director of A Boy... a Girl?,"[""John Derek""]",I don't know,,,,0,-1,1,0
 6325,2026-01-06 14:53:33,1606,7251,Who was the director of April 18?,"[""Balachandra Menon""]",I don't know,,,,0,-1,1,0
-6326,2026-01-06 14:53:33,143,468,Who was the director of A?,"[""Jan Lenica""]",,,,,0,-1,0,1
+6326,2026-01-06 14:53:33,143,468,Who was the director of A?,"[""Jan Lenica""]",,,,,0,-1,1,1
 6327,2026-01-06 14:53:35,6847,223466,Who was the director of Alice?,"[""Woody Allen"", ""Allan Stewart Konigsberg"", ""Allen Stewart Konigsberg"", ""Heywood Allen""]",Woody Allen,0.86,,,1,1,0,0
 6328,2026-01-06 14:53:36,709,27332,Who was the director of Family Life?,"[""Ken Loach"", ""Kenneth Loach"", ""Kenneth Charles Loach""]",Krzysztof Zanussi,0.7,,,0,-1,0,1
 6329,2026-01-06 14:53:37,99370,30967,Who was the director of The Omen?,"[""Richard Donner"", ""Richard Donald Schwartzberg""]",Richard Donner,0.95,,,1,1,0,0
@@ -6472,7 +6472,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 6470,2026-01-06 14:56:35,198,281,Who was the director of A Slave of Fashion?,"[""Hobart Henley"", ""Hobert Henley""]",Howard Hawks,0.35,,,0,-1,0,1
 6471,2026-01-06 14:56:37,12549,12963,Who was the director of How High?,"[""Jesse Dylan"", ""Davis"", ""Jesse Byron Dylan""]",Jesse Dylan,0.8667,,,1,1,0,0
 6472,2026-01-06 14:56:38,3595,3953,Who was the director of The Firm?,"[""Nick Love""]",Sydney Pollack,0.87,,,0,-1,0,1
-6473,2026-01-06 14:56:39,1667,8968,Who was the director of Acquisition?,"[""James Whitmore Jr."", ""James Allen Whitmore III""]",,,,,0,-1,0,1
+6473,2026-01-06 14:56:39,1667,8968,Who was the director of Acquisition?,"[""James Whitmore Jr."", ""James Allen Whitmore III""]",,,,,0,-1,1,1
 6474,2026-01-06 14:56:40,404,1053,Who was the director of Working It Out?,"[""Bill Persky""]",Jonathan Prince,0.22,,,0,-1,0,1
 6475,2026-01-06 14:56:41,414,2672,Who was the director of A New World?,"[""Tim Minear"", ""Timothy P. Minear""]",Amir Naderi,0.62,,,0,-1,0,1
 6476,2026-01-06 14:56:43,9814,55797,Who was the director of 201?,"[""Trey Parker"", ""Randolph Severn Parker"", ""Randolph Parker"", ""Randolph Severn Parker III""]",I don't know,,"If the question means the 2010 film ""201"" (a Tamil comedy film directed by Hari), best guess: Hari",0.12,0,-1,1,0
@@ -6770,7 +6770,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 6768,2026-01-06 15:03:17,687,734,Who was the director of Convicted?,"[""Henry Levin""]",I don't know,,Henry Levin,0.39,1,1,1,0
 6769,2026-01-06 15:03:18,125,578,Who was the director of Marriages?,"[""Cristina Comencini""]",I don't know,,,,0,-1,1,0
 6770,2026-01-06 15:03:20,132,3245,Who was the director of Empire?,"[""Alexander Sokurov"", ""Aleksandr Sokurov"", ""Aleksandr Sokoerov"", ""A. Sokurov"", ""Alexander Nikolayevich Sokurov""]",Peter Jackson,0.21,,,0,-1,0,1
-6771,2026-01-06 15:03:21,102,979,Who was the director of Competition?,"[""Tom Ricketts""]",,,,,0,-1,0,1
+6771,2026-01-06 15:03:21,102,979,Who was the director of Competition?,"[""Tom Ricketts""]",,,,,0,-1,1,1
 6772,2026-01-06 15:03:22,743,1190,Who was the director of Noise?,"[""Henry Bean""]",Iain Softley,0.12,,,0,-1,0,1
 6773,2026-01-06 15:03:23,716,451,Who was the director of The Balcony?,"[""Joseph Strick""]",Joseph Strick,0.65,,,1,1,0,0
 6774,2026-01-06 15:03:25,500,250,Who was the director of Midnight?,"[""Chester Erskine""]",Michael Curtiz,0.5823,,,0,-1,0,1
@@ -7046,7 +7046,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 7044,2026-01-06 15:09:44,3765,662,Who was the director of Oliver's Story?,"[""John Korty""]",John Korty,0.72,,,1,1,0,0
 7045,2026-01-06 15:09:45,83157,271420,Who was the director of Into the Wild?,"[""Sean Penn"", ""Sean Justin Penn"", ""Pappy Pariah""]",Sean Penn,0.9975,,,1,1,0,0
 7046,2026-01-06 15:09:47,953,1002,Who was the director of Common Ground?,"[""Donna Deitch""]",Aditya Vikram Sengupta,0.0746,,,0,-1,0,1
-7047,2026-01-06 15:09:48,2720,29244,Who was the director of F?,"[""Johannes Roberts""]",,,,,0,-1,0,1
+7047,2026-01-06 15:09:48,2720,29244,Who was the director of F?,"[""Johannes Roberts""]",,,,,0,-1,1,1
 7048,2026-01-06 15:09:49,87,308,Who was the director of Big Dreams Little Tokyo?,"[""Dave Boyle""]",Barry Michael Cooper,0.604,,,0,-1,0,1
 7049,2026-01-06 15:09:50,423,1752,Who was the director of On My Way?,"[""Emmanuelle Bercot""]",Emmanuelle Bercot,0.5225,,,1,1,0,0
 7050,2026-01-06 15:09:52,9052,33272,Who was the director of Postal?,"[""Uwe Boll""]",Uwe Boll,0.82,,,1,1,0,0
@@ -7059,7 +7059,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 7057,2026-01-06 15:10:02,640,6007,Who was the director of Barry McKenzie Holds His Own?,"[""Bruce Beresford""]",Bruce Beresford,0.87,,,1,1,0,0
 7058,2026-01-06 15:10:05,4109,1251,Who was the director of Plastic?,"[""Julian Gilbey"", ""Julian Sebastian Gilbey""]",Julian Gilbey,0.7765,,,1,1,0,0
 7059,2026-01-06 15:10:06,2429,86139,Who was the director of Cheech & Chong's The Corsican Brothers?,"[""Tommy Chong"", ""Thomas B. Kin Chong""]",Tommy Chong,0.88,,,1,1,0,0
-7060,2026-01-06 15:10:08,2686,2324,Who was the director of Chemistry?,"[""Viji Thampi""]",,,,,0,-1,0,1
+7060,2026-01-06 15:10:08,2686,2324,Who was the director of Chemistry?,"[""Viji Thampi""]",,,,,0,-1,1,1
 7061,2026-01-06 15:10:10,118,105,Who was the director of Crash 'n' Burn?,"[""Ross McLaren""]",Joel Coen and Ethan Coen (the Coen Brothers),0.42,,,0,-1,0,1
 7062,2026-01-06 15:10:12,10026,987,Who was the director of The Perfect Man?,"[""Mark Rosman""]",Mark Rosman,0.61,,,1,1,0,0
 7063,2026-01-06 15:10:13,2765,3237,Who was the director of Wink of an Eye?,"[""Jud Taylor"", ""Judson Taylor""]",Edward L. Cahn,0.8,,,0,-1,0,1
@@ -7332,7 +7332,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 7330,2026-01-06 15:16:24,1787,7796,Who was the director of I Want You?,"[""Michael Winterbottom""]",Michelangelo Antonioni,0.15,,,0,-1,0,1
 7331,2026-01-06 15:16:25,172,352,Who was the director of The Tough?,"[""Salah Abu Seif"", ""Salah Abou Seif"", ""Salah Abouseif""]",Pavel Chukhray,0.12,,,0,-1,0,1
 7332,2026-01-06 15:16:27,16989,8395,Who was the director of Cube?,"[""Vincenzo Natali""]",Vincenzo Natali,0.91,,,1,1,0,0
-7333,2026-01-06 15:16:28,367,517,Who was the director of Auditions?,"[""Harry Hurwitz""]",,,,,0,-1,0,1
+7333,2026-01-06 15:16:28,367,517,Who was the director of Auditions?,"[""Harry Hurwitz""]",,,,,0,-1,1,1
 7334,2026-01-06 15:16:29,81,1967,Who was the director of One of Those?,"[""Aldo Fabrizi"", ""Aldo Fabbrizi""]",I don't know,,Larry Gelbart,0.15,0,-1,1,0
 7335,2026-01-06 15:16:30,384,582,Who was the director of Che?,"[""Ebrahim Hatamikia"", ""Ebrahim Hatami-kia""]",Steven Soderbergh,0.91,,,0,-1,0,1
 7336,2026-01-06 15:16:32,309,393,Who was the director of Go Further?,"[""Ron Mann"", ""Ronald Mann""]",Ron Mann,0.51,,,1,1,0,0
@@ -7385,7 +7385,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 7383,2026-01-06 15:17:34,4369,929,Who was the director of Condorman?,"[""Charles Jarrott""]",Charles Jarrott,0.7564,,,1,1,0,0
 7384,2026-01-06 15:17:35,267,1084,Who was the director of Superstar?,"[""Xavier Giannoli""]",Neil �Donnell,0.0976,,,0,-1,0,1
 7385,2026-01-06 15:17:37,4153,6341,Who was the director of Star?,"[""Praveen Gandhi""]",I don't know,,,,0,-1,1,0
-7386,2026-01-06 15:17:38,755,4215,Who was the director of English?,"[""Shyamaprasad""]",,,,,0,-1,0,1
+7386,2026-01-06 15:17:38,755,4215,Who was the director of English?,"[""Shyamaprasad""]",,,,,0,-1,1,1
 7387,2026-01-06 15:17:39,73446,7496,Who was the director of Blade?,"[""Stephen Norrington""]",Stephen Norrington,0.95,,,1,1,0,0
 7388,2026-01-06 15:17:41,172,415,Who was the director of Like It Was?,"[""Larry Shaw""]",I don't know,,Richard C. Sarafian,0.25,0,-1,1,0
 7389,2026-01-06 15:17:42,364,1443,Who was the director of Live?,"[""Noboru Iguchi"", ""Iguchi Noboru""]",I don't know,,,,0,-1,1,0
@@ -9031,7 +9031,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 9029,2026-01-06 16:16:07,4,3815,Who was the screenwriter for Prototype?,"[""Bill Lawrence"", ""William Van Duzer Lawrence IV"", ""Gary David Goldberg""]",David Webb Peoples,0.12,,,0,-1,0,1
 9030,2026-01-06 16:16:08,309,2029,Who was the screenwriter for Container?,"[""Lukas Moodysson"", ""Karl Fredrik Lukas Moodysson""]",Noomi Rapace,0.1032,,,0,-1,0,1
 9031,2026-01-06 16:16:09,2540,7200,Who was the screenwriter for Cocktail?,"[""Anoop Menon""]",Heywood Gould,0.635,,,0,-1,0,1
-9032,2026-01-06 16:16:10,19789,759,Who was the screenwriter for ?,"[""Gregory Burke""]",,,,,0,-1,0,1
+9032,2026-01-06 16:16:10,19789,759,Who was the screenwriter for ?,"[""Gregory Burke""]",,,,,0,-1,1,1
 9033,2026-01-06 16:16:12,12850,1788,Who was the screenwriter for Sabotage?,"[""Skip Woods""]",The screenwriter for Sabotage (1936 Alfred Hitchcock film) was Joseph Conrad (author of the original novel) — screenplay by Charles Bennett and Ian Hay (with additional contributions by D.B. Wyndham-Lewis and others).,0.12,,,0,-1,0,1
 9034,2026-01-06 16:16:14,1852,5769,Who was the screenwriter for The Fight?,"[""Gene Stupnitsky"", ""Lee Eisenberg""]",David Seidler,0.12,,,0,-1,0,1
 9035,2026-01-06 16:16:15,2923,38110,Who was the screenwriter for The Night They Raided Minsky's?,"[""Norman Lear"", ""Norman Milton Lear""]",Joseph Stone,0.76,,,0,-1,0,1
@@ -10025,7 +10025,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 10023,2026-01-06 16:39:59,351,4759,Who was the screenwriter for Chicago?,"[""Nick Santora"", ""Matt Olmstead""]",Bill (William) K. Goldman,0.0,,,0,-1,0,1
 10024,2026-01-06 16:40:00,7166,29673,Who was the composer of The Burning Train?,"[""Rahul Dev Burman"", ""R. D. Burman"", ""Pancham""]",R. D. Burman,0.85,,,1,1,0,0
 10025,2026-01-06 16:40:03,965,108493,Who was the composer of Mexico?,"[""James Taylor"", ""James Vernon Taylor""]",I don't know,,"The composer of the patriotic song ""México Lindo y Querido"" is Chucho Monge (Jesús Monge Ramírez).",0.24,0,-1,1,0
-10026,2026-01-06 16:40:04,7444,97580,Who was the composer of 3?,"[""Max Martin"", ""Karl Martin Sandberg"", ""Martin White""]",,,,,0,-1,0,1
+10026,2026-01-06 16:40:04,7444,97580,Who was the composer of 3?,"[""Max Martin"", ""Karl Martin Sandberg"", ""Martin White""]",,,,,0,-1,1,1
 10027,2026-01-06 16:40:05,13171,9349,Who was the composer of The Express?,"[""Mark Isham"", ""Mark Ware Isham""]",Lionel Newman,0.36,,,0,-1,0,1
 10028,2026-01-06 16:40:06,40292,3659,Who was the composer of Hair?,"[""Galt MacDermot"", ""Arthur Terence Galt MacDermot""]",Galt MacDermot,0.99,,,1,1,0,0
 10029,2026-01-06 16:40:08,4996,71268,Who was the composer of Sukran?,"[""Vijay Antony""]",Iqbal Hussain Khan Bandanawazi,0.12,,,0,-1,0,1
@@ -10186,7 +10186,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 10184,2026-01-06 16:44:04,13147,6645,Who was the composer of Loud?,"[""Alex da Kid"", ""Alexander Grant"", ""Alex Grant"", ""Alexander Junior Grant""]","Rihanna (song ""Loud"" was composed by Rihanna along with co-writers including Ester Dean and Drake; primary credited composers include Mikkel S. Eriksen and Tor Erik Hermansen of Stargate and Ester Dean)",0.12,,,0,-1,0,1
 10185,2026-01-06 16:44:06,366,12089,Who was the composer of Mitti?,"[""Mika Singh"", ""King Mika Singh""]",Anu Malik,0.25,,,0,-1,0,1
 10186,2026-01-06 16:44:07,74050,10057,Who was the composer of Cloud Atlas?,"[""Tom Tykwer"", ""Reinhold Heil"", ""Reinhold E. Heil""]","Tom Tykwer, Jürgen Knieper, and Johnny Klimek (they jointly composed the score for the film Cloud Atlas)",0.63,,,1,1,0,0
-10187,2026-01-06 16:44:09,1728,29180,Who was the composer of Symphony No. 1?,"[""Sergei Prokofiev"", ""Sergei Sergeyevich Prokofiev"", ""Sergej Sergeevič Prokofʹev"", ""Sergey Prokofiev"", ""Sergej Prokofjev"", ""Sergiusz Prokofiew"", ""Serge Prokofiev"", ""Serge Sergevitch Prokofieff"", ""Serge Prokofieff""]",,,,,0,-1,0,1
+10187,2026-01-06 16:44:09,1728,29180,Who was the composer of Symphony No. 1?,"[""Sergei Prokofiev"", ""Sergei Sergeyevich Prokofiev"", ""Sergej Sergeevič Prokofʹev"", ""Sergey Prokofiev"", ""Sergej Prokofjev"", ""Sergiusz Prokofiew"", ""Serge Prokofiev"", ""Serge Sergevitch Prokofieff"", ""Serge Prokofieff""]",,,,,0,-1,1,1
 10188,2026-01-06 16:44:11,1347,471777,Who was the composer of Sue?,"[""Maria Schneider"", ""Maria Lynn Schneider"", ""David Bowie"", ""David Robert Jones"", ""David Jones"", ""Bowie"", ""Davy Jones"", ""Thin White Duke"", ""Halloween Jack""]",Frank Crumit,0.25,,,0,-1,0,1
 10189,2026-01-06 16:44:12,30036,187949,Who was the composer of To Die For?,"[""Danny Elfman"", ""Daniel Robert Elfman""]",Christopher Young,0.21,,,0,-1,0,1
 10190,2026-01-06 16:44:13,6215,46605,Who was the composer of Saagara Sangamam?,"[""Ilaiyaraaja"", ""Ilayaraja"", ""Ilaya Raja"", ""Raja""]",Ilaiyaraaja,0.92,,,1,1,0,0
@@ -10408,7 +10408,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 10406,2026-01-06 16:49:15,79,11900,Who was the composer of Famous?,"[""Tinchy Stryder"", ""The Star in the Hood""]",I don't know,,Kanye West,0.25,0,-1,1,0
 10407,2026-01-06 16:49:17,7570,1011,Who was the composer of Out Run?,"[""Hiroshi Kawaguchi"", ""Hiroshi Miyauchi""]",Hiroshi Kawaguchi,0.86,,,1,1,0,0
 10408,2026-01-06 16:49:19,148,173,Who was the composer of Desire?,"[""Philip Vella""]",Irving Berlin,0.35,,,0,-1,0,1
-10409,2026-01-06 16:49:20,4033,28688,Who was the composer of A?,"[""Gurukiran""]",,,,,0,-1,0,1
+10409,2026-01-06 16:49:20,4033,28688,Who was the composer of A?,"[""Gurukiran""]",,,,,0,-1,1,1
 10410,2026-01-06 16:49:21,478,455,Who was the composer of Paddle to the Sea?,"[""Louis Applebaum""]",Maurice Blackburn,0.62,,,0,-1,0,1
 10411,2026-01-06 16:49:22,14380,15478,Who was the composer of Final Fantasy III?,"[""Nobuo Uematsu""]",Nobuo Uematsu,0.9,,,1,1,0,0
 10412,2026-01-06 16:49:23,158,3131,Who was the composer of New Year?,"[""Michael Tippett"", ""Sir Michael Kemp Tippett""]",Iannis Xenakis,0.73,,,0,-1,0,1
@@ -11049,7 +11049,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 11047,2026-01-06 17:04:33,495298,46348,What is the religion of Bill Clinton?,"[""Baptists"", ""Baptist church"", ""Baptist""]",He is a Baptist (Southern Baptist; member of the Baptist denomination).,0.78,,,1,1,0,0
 11048,2026-01-06 17:04:34,373,233485,What is the religion of Qutaylah bint Abd-al-Uzza?,"[""Islam"", ""Islamic religion"", ""Mohammedanism"", ""Muslim religion"", ""al-’islām"", ""religion of the Muslims""]",Islam,0.62,,,1,1,0,0
 11049,2026-01-06 17:04:36,68901,233485,What is the religion of Muslim?,"[""Islam"", ""Islamic religion"", ""Mohammedanism"", ""Muslim religion"", ""al-’islām"", ""religion of the Muslims""]",Islam,0.98,,,1,1,0,0
-11050,2026-01-06 17:04:37,23541,213455,What is the religion of Stephen?,"[""Christianity"", ""Christian faith""]",,,,,0,-1,0,1
+11050,2026-01-06 17:04:37,23541,213455,What is the religion of Stephen?,"[""Christianity"", ""Christian faith""]",,,,,0,-1,1,1
 11051,2026-01-06 17:04:39,50623,213455,What is the religion of Dinesh D'Souza?,"[""Christianity"", ""Christian faith""]",Roman Catholic (Christian),0.86,,,0,-1,0,1
 11052,2026-01-06 17:04:41,554097,56744,What is the religion of Queen Victoria?,"[""Anglicanism"", ""Anglicanism, Anglican Church""]",Anglican (Church of England),0.95,,,0,-1,0,1
 11053,2026-01-06 17:04:42,92800,233485,What is the religion of Rumi?,"[""Islam"", ""Islamic religion"", ""Mohammedanism"", ""Muslim religion"", ""al-’islām"", ""religion of the Muslims""]",Islam (He was a 13th-century Persian Sufi Muslim poet and mystic),0.98,,,1,1,0,0
@@ -11088,7 +11088,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 11086,2026-01-06 17:05:33,112,195995,What is the religion of state?,"[""Catholic Church"", ""Roman Catholic Church"", ""Church"", ""Roman Apostolic Catholic Church""]",I don't know,,,,0,-1,1,0
 11087,2026-01-06 17:05:35,73,195995,What is the religion of Arturo Tabera Araoz?,"[""Catholic Church"", ""Roman Catholic Church"", ""Church"", ""Roman Apostolic Catholic Church""]",Roman Catholicism,0.86,,,0,-1,0,1
 11088,2026-01-06 17:05:36,84680,148018,What is the religion of L. Ron Hubbard?,"[""Scientology""]",Scientology,0.9999,,,1,1,0,0
-11089,2026-01-06 17:05:37,10501,195995,What is the religion of Matthias?,"[""Catholic Church"", ""Roman Catholic Church"", ""Church"", ""Roman Apostolic Catholic Church""]",,,,,0,-1,0,1
+11089,2026-01-06 17:05:37,10501,195995,What is the religion of Matthias?,"[""Catholic Church"", ""Roman Catholic Church"", ""Church"", ""Roman Apostolic Catholic Church""]",,,,,0,-1,1,1
 11090,2026-01-06 17:05:39,47789,195995,What is the religion of Claus Schenk Graf von Stauffenberg?,"[""Catholic Church"", ""Roman Catholic Church"", ""Church"", ""Roman Apostolic Catholic Church""]",Roman Catholic,0.938,,,1,1,0,0
 11091,2026-01-06 17:05:40,187,195995,What is the religion of Paul Shan Kuo-hsi?,"[""Catholic Church"", ""Roman Catholic Church"", ""Church"", ""Roman Apostolic Catholic Church""]",Roman Catholic (he was a Catholic bishop),0.92,,,0,-1,0,1
 11092,2026-01-06 17:05:41,4250,25243,What is the religion of Cornell College?,"[""United Methodist Church"", ""UMC""]",Cornell College is a private liberal arts college with no religious affiliation (nonsectarian).,0.9,,,0,-1,0,1
@@ -11122,9 +11122,9 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 11120,2026-01-06 17:06:21,635,195995,What is the religion of Edmund A. Walsh?,"[""Catholic Church"", ""Roman Catholic Church"", ""Church"", ""Roman Apostolic Catholic Church""]",Roman Catholic,0.93,,,1,1,0,0
 11121,2026-01-06 17:06:23,16893,81663,What is the religion of Swedes?,"[""Lutheranism"", ""Lutheran Church"", ""Lutherans""]","Historically and culturally, the majority religion among Swedes is Christianity — specifically Lutheranism (the Church of Sweden). However, Sweden today is broadly secular: many Swedes are non-practicing, non-religious, or identify as atheist/agnostic, with growing numbers of other faiths (Islam, Catholicism, Orthodoxy, Buddhism, etc.) due to immigration.",0.82,,,1,1,0,0
 11122,2026-01-06 17:06:24,468,82132,What is the religion of Lenni Brenner?,"[""atheism"", ""unbelief""]",Jewish,0.84,,,0,-1,0,1
-11123,2026-01-06 17:06:27,112141,213455,What is the religion of Peter?,"[""Christianity"", ""Christian faith""]",,,,,0,-1,0,1
+11123,2026-01-06 17:06:27,112141,213455,What is the religion of Peter?,"[""Christianity"", ""Christian faith""]",,,,,0,-1,1,1
 11124,2026-01-06 17:06:28,863,28634,What is the religion of Güshi Khan?,"[""Tibetan Buddhism"", ""Vajrayana"", ""Sutrayana"", ""Grand Lamaism"", ""Lamaism""]",Buddhism,0.86,,,1,1,0,0
-11125,2026-01-06 17:06:29,245,81663,What is the religion of St. John's Church?,"[""Lutheranism"", ""Lutheran Church"", ""Lutherans""]",,,,,0,-1,0,1
+11125,2026-01-06 17:06:29,245,81663,What is the religion of St. John's Church?,"[""Lutheranism"", ""Lutheran Church"", ""Lutherans""]",,,,,0,-1,1,1
 11126,2026-01-06 17:06:31,16332,81663,What is the religion of Kingdom of Hanover?,"[""Lutheranism"", ""Lutheran Church"", ""Lutherans""]",Protestant (predominantly Lutheran),0.88,,,0,-1,0,1
 11127,2026-01-06 17:06:32,398,195995,What is the religion of Robert J. Fox?,"[""Catholic Church"", ""Roman Catholic Church"", ""Church"", ""Roman Apostolic Catholic Church""]",Roman Catholic,0.82,,,1,1,0,0
 11128,2026-01-06 17:06:34,135900,213455,What is the religion of Paul?,"[""Christianity"", ""Christian faith"", ""Judaism"", ""Jewish"", ""Jewish religion""]",I don't know,,Christianity,0.25,1,1,1,0
@@ -11290,7 +11290,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 11288,2026-01-06 17:10:28,117,195995,What is the religion of Patrick Sheridan?,"[""Catholic Church"", ""Roman Catholic Church"", ""Church"", ""Roman Apostolic Catholic Church""]",Roman Catholic,0.25,,,1,1,0,0
 11289,2026-01-06 17:10:30,146014,82132,What is the religion of Mark Twain?,"[""atheism"", ""unbelief""]",Unitarian (raised Presbyterian; later described himself as a religious skeptic/agnostic but affiliated with Unitarianism),0.7,,,0,-1,0,1
 11290,2026-01-06 17:10:31,6005,17217,What is the religion of Kingdom of Kent?,"[""Anglo-Saxon paganism"", ""Anglo-Saxon religion""]",Christianity,0.72,,,0,-1,0,1
-11291,2026-01-06 17:10:32,286991,195995,What is the religion of Francis?,"[""Catholic Church"", ""Roman Catholic Church"", ""Church"", ""Roman Apostolic Catholic Church""]",,,,,0,-1,0,1
+11291,2026-01-06 17:10:32,286991,195995,What is the religion of Francis?,"[""Catholic Church"", ""Roman Catholic Church"", ""Church"", ""Roman Apostolic Catholic Church""]",,,,,0,-1,1,1
 11292,2026-01-06 17:10:34,12551,28387,What is the religion of Loa?,"[""Haitian Vodou"", ""Vaudou"", ""Vodun"", ""Vodoun"", ""Voodoo"", ""Louisiana Voodoo"", ""New Orleans Voodoo"", ""Voodoo"", ""Vodun""]",I don't know,,,,0,-1,1,0
 11293,2026-01-06 17:10:35,5617,25243,What is the religion of Southwestern University?,"[""United Methodist Church"", ""UMC""]",Southwestern University is affiliated with the Presbyterian Church (Presbyterianism).,0.76,,,0,-1,0,1
 11294,2026-01-06 17:10:36,87289,12392,What is the religion of Carl Linnaeus?,"[""Church of Sweden"", ""Svenska kyrkan""]",Lutheran (Church of Sweden),0.82,,,1,1,0,0
@@ -11470,7 +11470,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 11468,2026-01-06 17:24:41,384,197767,What sport does Adílson Batista play?,"[""association football"", ""football"", ""soccer""]",Football (soccer),0.87,,,1,1,0,0
 11469,2026-01-06 17:24:42,28,197767,What sport does Vladislav Matviyenko play?,"[""association football"", ""football"", ""soccer""]",Football (soccer),0.82,,,1,1,0,0
 11470,2026-01-06 17:24:44,45,197767,What sport does Vyacheslav Chadov play?,"[""association football"", ""football"", ""soccer""]",Football (soccer),0.82,,,1,1,0,0
-11471,2026-01-06 17:24:45,129,197767,What sport does Ito play?,"[""association football"", ""football"", ""soccer""]",,,,,0,-1,0,1
+11471,2026-01-06 17:24:45,129,197767,What sport does Ito play?,"[""association football"", ""football"", ""soccer""]",,,,,0,-1,1,1
 11472,2026-01-06 17:24:46,46,53595,What sport does Koumiba Djossouvi play?,"[""rugby union"", ""rugby""]",Judo,0.58,,,0,-1,0,1
 11473,2026-01-06 17:24:47,86,197767,What sport does 2010–11 South West Peninsula League play?,"[""association football"", ""football"", ""soccer""]",Association football (soccer),0.93,,,1,1,0,0
 11474,2026-01-06 17:24:49,168,19912,What sport does Angela Maxwell play?,"[""figure skating""]",Figure skating,0.42,,,1,1,0,0
@@ -11530,7 +11530,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 11528,2026-01-06 17:26:01,1534,27553,What sport does John Muse play?,"[""polo"", ""equestrian polo""]",Ice hockey (goaltender),0.94,,,0,-1,0,1
 11529,2026-01-06 17:26:03,58,197767,What sport does Ramón Rodríguez play?,"[""association football"", ""football"", ""soccer""]",I don't know,,,,0,-1,1,0
 11530,2026-01-06 17:26:04,57,197767,What sport does Leonardo Torres play?,"[""association football"", ""football"", ""soccer""]",I don't know,,Football (soccer),0.25,1,1,1,0
-11531,2026-01-06 17:26:06,14892,197767,What sport does Anderson play?,"[""association football"", ""football"", ""soccer""]",,,,,0,-1,0,1
+11531,2026-01-06 17:26:06,14892,197767,What sport does Anderson play?,"[""association football"", ""football"", ""soccer""]",,,,,0,-1,1,1
 11532,2026-01-06 17:26:07,12986,197767,What sport does Olympique Lyonnais Féminin play?,"[""association football"", ""football"", ""soccer""]",Football (soccer),0.95,,,1,1,0,0
 11533,2026-01-06 17:26:08,260,197767,What sport does 1994–95 Belgian First Division play?,"[""association football"", ""football"", ""soccer""]",Association football (soccer),0.986,,,1,1,0,0
 11534,2026-01-06 17:26:09,141,197767,What sport does Mark Jonas play?,"[""association football"", ""football"", ""soccer""]",Soccer (association football),0.58,,,1,1,0,0
@@ -11672,7 +11672,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 11670,2026-01-06 17:29:16,29,197767,What sport does Juan López Hita play?,"[""association football"", ""football"", ""soccer""]",Football (soccer),0.82,,,1,1,0,0
 11671,2026-01-06 17:29:18,96,59363,What sport does Livia Altmann play?,"[""ice hockey""]",Ice hockey,0.9285,,,1,1,0,0
 11672,2026-01-06 17:29:20,73,149108,What sport does Granada Lions play?,"[""American football"", ""gridiron football"", ""🏈"", ""football"", ""American rules football""]",American football,0.78,,,1,1,0,0
-11673,2026-01-06 17:29:21,60,197767,What sport does Francis play?,"[""association football"", ""football"", ""soccer""]",,,,,0,-1,0,1
+11673,2026-01-06 17:29:21,60,197767,What sport does Francis play?,"[""association football"", ""football"", ""soccer""]",,,,,0,-1,1,1
 11674,2026-01-06 17:29:22,35,197767,What sport does José Luis Contaja play?,"[""association football"", ""football"", ""soccer""]",I don't know,,,,0,-1,1,0
 11675,2026-01-06 17:29:23,29,197767,What sport does Luis Eduardo Maldonado play?,"[""association football"", ""football"", ""soccer""]",Football (soccer),0.86,,,1,1,0,0
 11676,2026-01-06 17:29:25,359,197767,What sport does Alexis Mendoza play?,"[""association football"", ""football"", ""soccer""]",Football (soccer),0.86,,,1,1,0,0
@@ -11703,7 +11703,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 11701,2026-01-06 17:30:02,208,197767,What sport does Kabinburi F.C. play?,"[""association football"", ""football"", ""soccer""]",Football (soccer),0.86,,,1,1,0,0
 11702,2026-01-06 17:30:04,27,197767,What sport does 1995 Cook Islands Round Cup play?,"[""association football"", ""football"", ""soccer""]",Association football (soccer),0.88,,,1,1,0,0
 11703,2026-01-06 17:30:05,319,197767,What sport does Mario Rigamonti play?,"[""association football"", ""football"", ""soccer""]",Football (soccer),0.8723,,,1,1,0,0
-11704,2026-01-06 17:30:07,139,197767,What sport does Kuki play?,"[""association football"", ""football"", ""soccer""]",,,,,0,-1,0,1
+11704,2026-01-06 17:30:07,139,197767,What sport does Kuki play?,"[""association football"", ""football"", ""soccer""]",,,,,0,-1,1,1
 11705,2026-01-06 17:30:08,23539,149108,What sport does Cris Carter play?,"[""American football"", ""gridiron football"", ""🏈"", ""football"", ""American rules football""]",American football (former NFL wide receiver),0.98,,,1,1,0,0
 11706,2026-01-06 17:30:10,200,197767,What sport does Gregor Balažic play?,"[""association football"", ""football"", ""soccer""]",Football (soccer),0.98,,,1,1,0,0
 11707,2026-01-06 17:30:11,57,12053,What sport does Hans Pieren play?,"[""alpine skiing""]",Alpine skiing (Swiss alpine ski racer),0.88,,,1,1,0,0
@@ -11847,7 +11847,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 11845,2026-01-06 17:43:21,72,197767,What sport does 1920–21 Northern Football League play?,"[""association football"", ""football"", ""soccer""]",Association football (soccer),0.87,,,1,1,0,0
 11846,2026-01-06 17:43:22,227,146961,What sport does Larissa Volpert play?,"[""chess"", ""International Chess"", ""Modern European Chess"", ""Western Chess"", ""chess game""]",Chess (she is a chess player),0.875,,,1,1,0,0
 11847,2026-01-06 17:43:23,188,111668,What sport does Damla Çakıroğlu play?,"[""volleyball""]",Volleyball,0.96,,,1,1,0,0
-11848,2026-01-06 17:43:25,4466,7423,What sport does Madison play?,"[""track cycling"", ""Track bike""]",,,,,0,-1,0,1
+11848,2026-01-06 17:43:25,4466,7423,What sport does Madison play?,"[""track cycling"", ""Track bike""]",,,,,0,-1,1,1
 11849,2026-01-06 17:43:26,23,197767,What sport does Nelson Semperena play?,"[""association football"", ""football"", ""soccer""]",Football (soccer),0.8,,,1,1,0,0
 11850,2026-01-06 17:43:27,103,59363,What sport does Waltteri Immonen play?,"[""ice hockey""]",Ice hockey (he is an ice hockey player),0.95,,,1,1,0,0
 11851,2026-01-06 17:43:29,151571,197767,What sport does James Rodríguez play?,"[""association football"", ""football"", ""soccer""]",Association football (soccer),0.96,,,1,1,0,0
@@ -11917,7 +11917,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 11915,2026-01-06 17:44:51,9081,149310,What sport does Bob Lanier play?,"[""basketball"", ""hoops"", ""b-ball"", ""basket ball"", ""BB"", ""Basketball""]",Basketball,0.84,,,1,1,0,0
 11916,2026-01-06 17:44:53,82,197767,What sport does Barrie Aitchison play?,"[""association football"", ""football"", ""soccer""]",I don't know,,Football (soccer),0.25,1,1,1,0
 11917,2026-01-06 17:44:54,25844,197767,What sport does Leyton Orient F.C. play?,"[""association football"", ""football"", ""soccer""]",Association football (soccer),0.98,,,1,1,0,0
-11918,2026-01-06 17:44:55,316,197767,What sport does Jean play?,"[""association football"", ""football"", ""soccer""]",,,,,0,-1,0,1
+11918,2026-01-06 17:44:55,316,197767,What sport does Jean play?,"[""association football"", ""football"", ""soccer""]",,,,,0,-1,1,1
 11919,2026-01-06 17:44:56,261,197767,What sport does Wallidan F.C. play?,"[""association football"", ""football"", ""soccer""]",Football (soccer),0.98,,,1,1,0,0
 11920,2026-01-06 17:44:57,39,149310,What sport does Oyanaisis Gelis play?,"[""basketball"", ""hoops"", ""b-ball"", ""basket ball"", ""BB"", ""Basketball""]",Basketball,0.72,,,1,1,0,0
 11921,2026-01-06 17:44:59,101,527,Who is the author of The Story of the Daughters of Quchan?,"[""Afsaneh Najmabadi""]",Ebrahim Nabavi,0.27,,,0,-1,0,1
@@ -13363,7 +13363,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 13361,2026-01-06 18:39:24,71,1247,Who is the author of Corridor?,"[""Alfian Sa'at"", ""Alfian bin Sa'at""]",Greg Egan,0.28,,,0,-1,0,1
 13362,2026-01-06 18:39:26,1799,75523,Who is the author of The Broker?,"[""John Grisham"", ""John Ray Grisham, Jr."", ""John Ray Grisham Jr""]",John Grisham,0.95,,,1,1,0,0
 13363,2026-01-06 18:39:27,267,18717,Who is the author of First Family?,"[""David Baldacci""]",David Baldacci,0.84,,,1,1,0,0
-13364,2026-01-06 18:39:28,100,6399,Who is the author of Passage?,"[""Lois McMaster Bujold""]",,,,,0,-1,0,1
+13364,2026-01-06 18:39:28,100,6399,Who is the author of Passage?,"[""Lois McMaster Bujold""]",,,,,0,-1,1,1
 13365,2026-01-06 18:39:30,2743,3582,Who is the author of Ceremony?,"[""Leslie Marmon Silko""]",Leslie Marmon Silko,0.98,,,1,1,0,0
 13366,2026-01-06 18:39:31,178,11532,Who is the author of Easter?,"[""August Strindberg"", ""Johan August Strindberg"", ""A. Sṭrindberg"", ""Augusts Strindbergs"", ""August Johan Strindberg"", ""Sutorintoberuku""]",Jeanette Winterson,0.65,,,0,-1,0,1
 13367,2026-01-06 18:39:32,20940,9189,Who is the author of Holes?,"[""Louis Sachar""]",Louis Sachar,0.95,,,1,1,0,0
@@ -13459,7 +13459,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 13457,2026-01-06 18:41:47,4759,20647,Who is the mother of Liza Huber?,"[""Susan Lucci"", ""Susan Victoria Lucci""]",Susan Lucci,0.93,,,1,1,0,0
 13458,2026-01-06 18:41:48,311254,54897,Who is the mother of George W. Bush?,"[""Barbara Bush"", ""Barbara Pierce Bush"", ""Barbara Pierce""]",Barbara Pierce Bush,0.9999,,,1,1,0,0
 13459,2026-01-06 18:41:50,1379,674,"Who is the mother of Anna Russell, Duchess of Bedford?","[""Jane Stanhope, Countess of Harrington"", ""Jane Fleming""]",Lady Elizabeth Montagu,0.3,,,0,-1,0,1
-13460,2026-01-06 18:41:51,5694,29981,Who is the mother of Nathan?,"[""Bathsheba"", ""Bat Sheva"", ""Bathshua"", ""Bethsabe""]",,,,,0,-1,0,1
+13460,2026-01-06 18:41:51,5694,29981,Who is the mother of Nathan?,"[""Bathsheba"", ""Bat Sheva"", ""Bathshua"", ""Bethsabe""]",,,,,0,-1,1,1
 13461,2026-01-06 18:41:52,3726,5760,Who is the mother of Lucia Joyce?,"[""Nora Barnacle""]",Nora Barnacle,0.94,,,1,1,0,0
 13462,2026-01-06 18:41:54,35120,47540,Who is the mother of Eliot Sumner?,"[""Trudie Styler""]",Ellen (or Ely) Foley,0.08,,,0,-1,0,1
 13463,2026-01-06 18:41:55,93777,5842,Who is the mother of Rama?,"[""Kausalya""]",Kausalya,0.91,,,1,1,0,0
@@ -13555,7 +13555,7 @@ dataset_id,timestamp,s_pop,o_pop,question,possible_answers,first_answer,first_co
 13553,2026-01-06 18:44:12,42006,6225,Who is the mother of David Rockefeller?,"[""Abigail Greene Aldrich"", ""Abby Aldrich"", ""Abigail Aldrich"", ""Abby Greene Aldrich Rockefeller"", ""Abigail Greene Aldrich"", ""Abby Aldrich Rockefeller"", ""Mrs. J.D. Rockefeller Jr."", ""Abigail Greene Aldrich Rockefeller""]",Abby Aldrich Rockefeller,0.94,,,1,1,0,0
 13554,2026-01-06 18:44:14,181,1745,Who is the mother of Maria Alekseyevna of Russia?,"[""Maria Miloslavskaya""]",Maria Miloslavskaya,0.81,,,1,1,0,0
 13555,2026-01-06 18:44:15,2143,5631,Who is the mother of Theobald II of Champagne?,"[""Adela of Normandy"", ""Adela of Blois"", ""Adela of England""]",Ermensinde of Bar,0.9,,,0,-1,0,1
-13556,2026-01-06 18:44:16,72,707,Who is the mother of Louis?,"[""Rotrude"", ""Hruodrud""]",,,,,0,-1,0,1
+13556,2026-01-06 18:44:16,72,707,Who is the mother of Louis?,"[""Rotrude"", ""Hruodrud""]",,,,,0,-1,1,1
 13557,2026-01-06 18:44:18,12848,2402,Who is the mother of Emma of Normandy?,"[""Gunnora"", ""Gunnor""]","Ælfgifu of Northampton (also known as Aelfgifu), wife of Æthelred the Unready",0.75,,,0,-1,0,1
 13558,2026-01-06 18:44:19,644,210,Who is the mother of Pegah Ahangarani?,"[""Manijeh Hekmat""]",Golab Adineh,0.88,,,0,-1,0,1
 13559,2026-01-06 18:44:21,516,8193,"Who is the mother of Edgar Stuart, Duke of Cambridge?","[""Anne Hyde""]",Lady Anne Hyde,0.12,,,1,1,0,0

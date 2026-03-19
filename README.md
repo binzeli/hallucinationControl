@@ -119,8 +119,18 @@ python3 main_exp/popQA/run_experiment.py --model gpt-4o-mini --scheme scheme_a -
 
 ## Evaluation
 
-After running experiments, use `eval.py` to analyze results and generate visualizations:
+**Main experiments (PopQA / MMLU-Pro):** analyze a result CSV and generate plots:
 
 ```bash
-python main_exp/popQA/eval.py --result-file <path_to_csv>
+python main_exp/popQA/eval.py -f <path_to_csv>
+python main_exp/mmlu-pro/eval.py -f <path_to_csv>
 ```
+
+**Preliminary experiments:** run evaluation (ECE, Brier, FAR, correlation) by passing the result file:
+
+```bash
+python preliminary_exp/evaluate_PopQA.py -f <path_to_popqa_csv>
+python preliminary_exp/evaluate_MMLU-Pro.py -f <path_to_mmlu_csv>
+```
+
+Optional: `-o <output_dir>` for outputs, `--num-bins <n>` for ECE (default 10).

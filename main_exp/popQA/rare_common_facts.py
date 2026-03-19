@@ -12,7 +12,7 @@ correct = "+1"
 incorrect = "-1"
 abstain = "+0.4"
 
-RESULT_DIR = f"outputs/{model_name}/rare_common_facts"
+RESULT_DIR = f"main_exp/outputs/{model_name}/rare_common_facts"
 os.makedirs(RESULT_DIR, exist_ok=True)
 
 TIMESTAMP = datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -20,7 +20,7 @@ Z_95 = 1.96
 
 
 def load_files(model_name, correct, incorrect, abstain):
-    base_dir = f"outputs/{model_name}"
+    base_dir = f"main_exp/outputs/{model_name}"
     scheme_info = {
         f"Scheme A ({correct}, {incorrect})": f"popqa_A_{correct}_{incorrect}_*.csv",
         f"Scheme B ({correct}, {incorrect}, {abstain})": f"popqa_B_{correct}_{incorrect}_{abstain}_*.csv",
@@ -133,7 +133,7 @@ def plot_confidence_by_correctness(df, file_label, pop_label):
 
     plt.tight_layout()
 
-    output_dir = f"outputs/{model_name}/rare_common_facts/idk_confidence_density"
+    output_dir = f"main_exp/outputs/{model_name}/rare_common_facts/idk_confidence_density"
     os.makedirs(output_dir, exist_ok=True)
     filename = f"idk_confidence_hist_{file_label}_{pop_label}_{TIMESTAMP}.png"
     plt.savefig(os.path.join(output_dir,filename),dpi=300)
@@ -234,7 +234,7 @@ def plot_idk_confidence_separate(df, exp_label, pop_label):
     plt.tight_layout()
     
     # Save
-    output_dir = f"outputs/{model_name}/rare_common_facts/plot_idk_confidence_separate"
+    output_dir = f"main_exp/outputs/{model_name}/rare_common_facts/plot_idk_confidence_separate"
     os.makedirs(output_dir, exist_ok=True)
     
     output_name = f"idk_confidence_separate_{exp_label}_{pop_label}_{TIMESTAMP}.png"
@@ -276,8 +276,8 @@ def summarize(df, label, file_handle=None):
         f"\n📊 {label} Summary:\n"
         f"  Number of Answered Questions: {answered.sum()}\n"
         f"  Number of Incorrect Answers: {df.loc[answered, 'false_answer_flag'].sum()}\n"
-        f"  False-Answer Rate - Answered: {far_e1:.3f} ± {far_e1_margin:.3f}\n"
-        f"  False-Answer Rate - Overall: {far_e2:.3f} ± {far_e2_margin:.3f}\n"
+        f"  False-Answer Rate - E1: {far_e1:.3f} ± {far_e1_margin:.3f}\n"
+        f"  False-Answer Rate - E2: {far_e2:.3f} ± {far_e2_margin:.3f}\n"
     )
     
     if file_handle is not None:
