@@ -60,12 +60,12 @@ The project implements five experimental schemes:
 
 | Argument | Short | Type | Default | Description |
 |----------|-------|------|---------|-------------|
-| `--model` | `-m` | str | required | Model to use (gpt-4o-mini, gpt-5-mini) |
+| `--model` | `-m` | str | required | Model to use |
 | `--scheme` | `-s` | str | scheme_b | Experiment scheme |
 | `--samples` | `-n` | int | None | Number of samples (None = full dataset) |
-| `--reward-correct` | `-rc` | float | 1.0 | Reward for correct answer |
-| `--reward-abstain` | `-ra` | float | 0.4 | Reward for abstaining |
-| `--reward-incorrect` | `-ri` | float | -1.0 | Penalty for incorrect answer |
+| `--reward-correct` | `-rc` | float | 0.0 | Reward for correct answer |
+| `--reward-abstain` | `-ra` | float | 0.0 | Reward for abstaining |
+| `--reward-incorrect` | `-ri` | float | 0.0 | Penalty for incorrect answer |
 
 ### Examples
 
