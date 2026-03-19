@@ -2,26 +2,26 @@
 ===== Scheme A (+1, -1) =====
 
 📊 Scheme A (+1, -1) - Common Facts Summary:
-  Number of Answered Questions: 4126
-  Number of Incorrect Answers: 1405
-  False-Answer Rate - E1: 0.341 ± 0.015
+  Number of Answered Questions: 4066
+  Number of Incorrect Answers: 1345
+  False-Answer Rate - E1: 0.331 ± 0.015
   False-Answer Rate - E2: 0.403 ± 0.014
 
 📊 Scheme A (+1, -1) - Rare Facts Summary:
-  Number of Answered Questions: 3967
-  Number of Incorrect Answers: 2587
-  False-Answer Rate - E1: 0.652 ± 0.015
+  Number of Answered Questions: 3947
+  Number of Incorrect Answers: 2567
+  False-Answer Rate - E1: 0.650 ± 0.015
   False-Answer Rate - E2: 0.699 ± 0.013
 
 🏆 Scheme A (+1, -1) - Common Total Reward: 919.00
 🏆 Scheme A (+1, -1) - Rare Total Reward: -1895.00
 
-📉 Scheme A (+1, -1) - Common AER: 0.328
-📉 Scheme A (+1, -1) - Rare AER: 0.237
+📉 Scheme A (+1, -1) - Common AER: 0.359
+📉 Scheme A (+1, -1) - Rare AER: 0.243
 
 Scheme A (+1, -1) - Common facts:
 
-Brier Score (overall) = 0.1737 ± 0.0113
+Brier Score (overall) = 0.1736 ± 0.0112
 Brier Score (answered only) = 0.1720 ± 0.0116
 
 Scheme A (+1, -1) - Rare facts:
@@ -29,30 +29,30 @@ Scheme A (+1, -1) - Rare facts:
 Brier Score (overall) = 0.2139 ± 0.0120
 Brier Score (answered only) = 0.2294 ± 0.0132
 
-Scheme A (+1, -1) – COMMON - ANSWERED ECE: 0.0805
-Scheme A (+1, -1) – COMMON - OVERALL ECE: 0.0730
-Scheme A (+1, -1) – RARE - ANSWERED ECE: 0.2218
+Scheme A (+1, -1) – COMMON - ANSWERED ECE: 0.0817
+Scheme A (+1, -1) – COMMON - OVERALL ECE: 0.0727
+Scheme A (+1, -1) – RARE - ANSWERED ECE: 0.2229
 Scheme A (+1, -1) – RARE - OVERALL ECE: 0.2008
 
 ===== Scheme B (+1, -1, +0.4) =====
 
 📊 Scheme B (+1, -1, +0.4) - Common Facts Summary:
-  Number of Answered Questions: 3533
-  Number of Incorrect Answers: 969
-  False-Answer Rate - E1: 0.274 ± 0.015
+  Number of Answered Questions: 3461
+  Number of Incorrect Answers: 897
+  False-Answer Rate - E1: 0.259 ± 0.015
   False-Answer Rate - E2: 0.403 ± 0.014
 
 📊 Scheme B (+1, -1, +0.4) - Rare Facts Summary:
-  Number of Answered Questions: 3037
-  Number of Incorrect Answers: 1797
-  False-Answer Rate - E1: 0.592 ± 0.017
+  Number of Answered Questions: 3009
+  Number of Incorrect Answers: 1769
+  False-Answer Rate - E1: 0.588 ± 0.018
   False-Answer Rate - E2: 0.714 ± 0.013
 
-🏆 Scheme B (+1, -1, +0.4) - Common Total Reward: 2083.80
-🏆 Scheme B (+1, -1, +0.4) - Rare Total Reward: 130.20
+🏆 Scheme B (+1, -1, +0.4) - Common Total Reward: 2184.60
+🏆 Scheme B (+1, -1, +0.4) - Rare Total Reward: 169.40
 
-📉 Scheme B (+1, -1, +0.4) - Common AER: 0.638
-📉 Scheme B (+1, -1, +0.4) - Rare AER: 0.506
+📉 Scheme B (+1, -1, +0.4) - Common AER: 0.675
+📉 Scheme B (+1, -1, +0.4) - Rare AER: 0.514
 
 Scheme B (+1, -1, +0.4) - Common facts:
 
@@ -64,30 +64,30 @@ Scheme B (+1, -1, +0.4) - Rare facts:
 Brier Score (overall) = 0.2141 ± 0.0124
 Brier Score (answered only) = 0.2636 ± 0.0159
 
-Scheme B (+1, -1, +0.4) – COMMON - ANSWERED ECE: 0.0727
+Scheme B (+1, -1, +0.4) – COMMON - ANSWERED ECE: 0.0742
 Scheme B (+1, -1, +0.4) – COMMON - OVERALL ECE: 0.0570
-Scheme B (+1, -1, +0.4) – RARE - ANSWERED ECE: 0.2418
+Scheme B (+1, -1, +0.4) – RARE - ANSWERED ECE: 0.2440
 Scheme B (+1, -1, +0.4) – RARE - OVERALL ECE: 0.1957
 
 ===== Scheme B Norms (+1, -1, +0.4) =====
 
 📊 Scheme B Norms (+1, -1, +0.4) - Common Facts Summary:
-  Number of Answered Questions: 3051
-  Number of Incorrect Answers: 701
-  False-Answer Rate - E1: 0.230 ± 0.015
+  Number of Answered Questions: 2981
+  Number of Incorrect Answers: 631
+  False-Answer Rate - E1: 0.212 ± 0.015
   False-Answer Rate - E2: 0.395 ± 0.014
 
 📊 Scheme B Norms (+1, -1, +0.4) - Rare Facts Summary:
-  Number of Answered Questions: 2269
-  Number of Incorrect Answers: 1209
-  False-Answer Rate - E1: 0.533 ± 0.021
+  Number of Answered Questions: 2233
+  Number of Incorrect Answers: 1173
+  False-Answer Rate - E1: 0.525 ± 0.021
   False-Answer Rate - E2: 0.714 ± 0.013
 
-🏆 Scheme B Norms (+1, -1, +0.4) - Common Total Reward: 2330.60
-🏆 Scheme B Norms (+1, -1, +0.4) - Rare Total Reward: 845.40
+🏆 Scheme B Norms (+1, -1, +0.4) - Common Total Reward: 2428.60
+🏆 Scheme B Norms (+1, -1, +0.4) - Rare Total Reward: 895.80
 
-📉 Scheme B Norms (+1, -1, +0.4) - Common AER: 0.907
-📉 Scheme B Norms (+1, -1, +0.4) - Rare AER: 0.732
+📉 Scheme B Norms (+1, -1, +0.4) - Common AER: 0.945
+📉 Scheme B Norms (+1, -1, +0.4) - Rare AER: 0.742
 
 Scheme B Norms (+1, -1, +0.4) - Common facts:
 
@@ -99,7 +99,7 @@ Scheme B Norms (+1, -1, +0.4) - Rare facts:
 Brier Score (overall) = 0.1947 ± 0.0115
 Brier Score (answered only) = 0.2765 ± 0.0186
 
-Scheme B Norms (+1, -1, +0.4) – COMMON - ANSWERED ECE: 0.0760
+Scheme B Norms (+1, -1, +0.4) – COMMON - ANSWERED ECE: 0.0778
 Scheme B Norms (+1, -1, +0.4) – COMMON - OVERALL ECE: 0.0709
-Scheme B Norms (+1, -1, +0.4) – RARE - ANSWERED ECE: 0.2509
+Scheme B Norms (+1, -1, +0.4) – RARE - ANSWERED ECE: 0.2550
 Scheme B Norms (+1, -1, +0.4) – RARE - OVERALL ECE: 0.1794

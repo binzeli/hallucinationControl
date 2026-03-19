@@ -18,7 +18,7 @@ correct = "+1"
 incorrect = "-1"
 abstain = "+0.4"
 
-RESULT_DIR = f"outputs/{model_name}/cfar_plots"
+RESULT_DIR = f"main_exp/outputs/{model_name}/cfar_plots"
 os.makedirs(RESULT_DIR, exist_ok=True)
 
 TIMESTAMP = datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -30,7 +30,7 @@ ALPHA = DELTA / NUM_THRESHOLDS # Bonferroni correction
 RISK_TARGETS = [0.1, 0.2, 0.3, 0.4]
 
 def load_files(model_name, correct, incorrect, abstain):
-    base_dir = f"example_output/{model_name}"
+    base_dir = f"main_exp/example_output/{model_name}"
     scheme_info = {
         f"Scheme A ({correct}, {incorrect})": f"popqa_A_{correct}_{incorrect}_*.csv",
         f"Scheme B ({correct}, {incorrect}, {abstain})": f"popqa_B_{correct}_{incorrect}_{abstain}_*.csv",

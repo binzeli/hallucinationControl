@@ -1,5 +1,5 @@
 experiment,category,metric,value,total_samples,num_bins,bin_range,bin_count,avg_predicted_prob,empirical_frequency,calibration_gap
-"Scheme A (+1, -1)_RARE",ANSWERED,ECE,0.2218065792790522,3967,10,,,,,
+"Scheme A (+1, -1)_RARE",ANSWERED,ECE,0.22293050418039018,3947,10,,,,,
 "Scheme A (+1, -1)_RARE",ANSWERED,bin_detail,,,,"[0.00, 0.10]",158,0.04349367088607595,0.056962025316455694,0.013468354430379748
 "Scheme A (+1, -1)_RARE",ANSWERED,bin_detail,,,,"[0.10, 0.20]",513,0.13727407407407408,0.07992202729044834,0.05735204678362574
 "Scheme A (+1, -1)_RARE",ANSWERED,bin_detail,,,,"[0.20, 0.30]",429,0.24084568764568764,0.10023310023310024,0.14061258741258742

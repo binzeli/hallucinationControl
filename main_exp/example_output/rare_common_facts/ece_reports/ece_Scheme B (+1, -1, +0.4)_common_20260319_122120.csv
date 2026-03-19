@@ -1,5 +1,5 @@
 experiment,category,metric,value,total_samples,num_bins,bin_range,bin_count,avg_predicted_prob,empirical_frequency,calibration_gap
-"Scheme B (+1, -1, +0.4)_COMMON",ANSWERED,ECE,0.07267492216246822,3533,10,,,,,
+"Scheme B (+1, -1, +0.4)_COMMON",ANSWERED,ECE,0.07418679572377931,3461,10,,,,,
 "Scheme B (+1, -1, +0.4)_COMMON",ANSWERED,bin_detail,,,,"[0.00, 0.10]",28,0.04291785714285715,0.07142857142857142,0.02851071428571427
 "Scheme B (+1, -1, +0.4)_COMMON",ANSWERED,bin_detail,,,,"[0.10, 0.20]",77,0.14535584415584413,0.2987012987012987,0.15334545454545456
 "Scheme B (+1, -1, +0.4)_COMMON",ANSWERED,bin_detail,,,,"[0.20, 0.30]",90,0.24441666666666662,0.24444444444444444,2.7777777777820978e-05
