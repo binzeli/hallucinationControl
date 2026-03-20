@@ -60,6 +60,9 @@ def plot_idk_confidence_separate(df, file_label, reward_setting, output_dir):
     plt.rcParams['xtick.major.width'] = 1
     plt.rcParams['ytick.major.width'] = 1
 
+    # Strip "Scheme " prefix from the display label used in plot titles
+    display_label = file_label[7:] if file_label.lower().startswith('scheme ') else file_label
+
     df_plot = df.copy()
     
     # Check if this is baseline data (no idk_flag column or 'Baseline' in label)
@@ -110,7 +113,7 @@ def plot_idk_confidence_separate(df, file_label, reward_setting, output_dir):
             ax.bar(bin_centers, hist_incorrect_norm, width=width, bottom=hist_correct_norm,
                    label='Incorrect', color=color_incorrect, alpha=0.85, edgecolor='white', linewidth=0.5)
         
-        ax.set_title(f'Confidence Distribution ({file_label}; {reward_setting})', fontsize=14, fontweight='bold', pad=12)
+        ax.set_title(f'Confidence Distribution ({display_label}; {reward_setting})', fontsize=14, fontweight='bold', pad=12)
         ax.set_xlabel('Confidence', fontweight='bold', fontsize=14)
         ax.set_ylabel('Proportion of Dataset', fontweight='bold', fontsize=14)
         ax.set_ylim(0, 0.3)
@@ -158,7 +161,7 @@ def plot_idk_confidence_separate(df, file_label, reward_setting, output_dir):
         ax1.bar(bin_centers, hist_0_incorrect_norm, width=width, bottom=hist_0_correct_norm,
                label='Incorrect', color=color_incorrect, alpha=0.85, edgecolor='white', linewidth=0.5)
         
-        ax1.set_title(f'Answered ({file_label}; {reward_setting})', fontsize=14, fontweight='bold', pad=12)
+        ax1.set_title(f'Answered ({display_label}; {reward_setting})', fontsize=14, fontweight='bold', pad=12)
         ax1.set_xlabel('Confidence', fontweight='bold', fontsize=14)
         ax1.set_ylabel('Proportion of Dataset', fontweight='bold', fontsize=14)
         ax1.set_ylim(0, 0.3)
@@ -197,7 +200,7 @@ def plot_idk_confidence_separate(df, file_label, reward_setting, output_dir):
         ax2.bar(bin_centers, hist_1_incorrect_norm, width=width, bottom=hist_1_correct_norm,
                label='Incorrect', color=color_incorrect_light, alpha=0.85, edgecolor='white', linewidth=0.5)
         
-        ax2.set_title(f'Best Guess (after saying IDK) ({file_label}; {reward_setting})', fontsize=14, fontweight='bold', pad=12)
+        ax2.set_title(f'Best Guess (after saying IDK) ({display_label}; {reward_setting})', fontsize=14, fontweight='bold', pad=12)
         ax2.set_xlabel('Confidence', fontweight='bold', fontsize=14)
         ax2.set_xticks(np.linspace(0, 1, 11))
         ax2.set_xticklabels([f'{x:.1f}' for x in np.linspace(0, 1, 11)])
@@ -585,10 +588,11 @@ def main():
     # Parse filename to get model name, scheme and reward settings
     model_name, scheme_name, r_correct, r_incorrect, r_abstain = parse_filename(filepath)
     
-    # Build reward setting string
+    # Build reward setting string (exclude abstain reward for scheme_a)
     reward_parts = [r_correct, r_incorrect]
-    if r_abstain != "N/A":
+    if scheme_name.lower().startswith("scheme_b"):
         reward_parts.append(r_abstain)
+    reward_setting = ", ".join(reward_parts)
 
     reward_setting = ", ".join(reward_parts)
     
