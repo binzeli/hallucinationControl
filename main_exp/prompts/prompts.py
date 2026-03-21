@@ -19,7 +19,7 @@ def get_experiment_prompt(reward_correct, reward_abstain, reward_incorrect, ques
     # For pure_eval, use minimal prompt with no rewards or confidence
     if exp_type == "pure_eval":
         prompt = (
-            "Answer the following question. If the question requires more knowledge beyond your current scope, it is appropriate to say \"I don't know\".\n"
+            "Answer the following question. \n"
             "Format your response as below such that you must begin your response by saying \"Answer:\"\n"
             "Answer: <your first answer>\n\n"
             f"Question: {question}"
