@@ -611,7 +611,17 @@ def main():
         file_label = f"{scheme_name.replace('_', ' ').title()}"
         analysis_label = "A_Baseline"
     else:
-        file_label = f"{scheme_name.replace('_', ' ').title()}"
+        label = scheme_name.lower()
+
+        if "b_norm" in label:
+            file_label = "Scheme B w/ norms"
+        elif "scheme_b" in label:
+            file_label = "Scheme B"
+        elif "scheme_a" in label:
+            file_label = "Scheme A"
+        else:
+            file_label = scheme_name.replace('_', ' ').title()
+    
         analysis_label = scheme_name.upper().replace('SCHEME_', '')
     
     # Track all output files
