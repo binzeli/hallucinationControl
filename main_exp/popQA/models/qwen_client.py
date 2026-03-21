@@ -43,6 +43,11 @@ class QwenClient:
             "batch_size": 40,
             "short_name": "qwen3-8b"
         },
+        "qwen-3-4b": {
+            "full_name": "Qwen/Qwen3-4B-Instruct-2507",
+            "batch_size": 40,
+            "short_name": "qwen3-4b"
+        },
         "qwen-3.5": {
             "full_name": "Qwen/Qwen3.5-9B",
             "batch_size": 40,
@@ -123,10 +128,11 @@ class QwenClient:
         text = text.replace("<think>", "").replace("</think>", "")
         return text.strip()
 
-    def generate_response(self, prompt, temperature=0, max_tokens=5000):
+    def generate_response(self, prompt, exp_type=None, temperature=0, max_tokens=5000):
         """Generate a single response from the model."""
+        use_system_prompt = self.experiments.get(exp_type, {}).get("use_system_prompt", False)
         messages = []
-        if SYSTEM_PROMPT:
+        if use_system_prompt and SYSTEM_PROMPT:
             messages.append({"role": "system", "content": SYSTEM_PROMPT})
         messages.append({"role": "user", "content": prompt})
         
@@ -158,12 +164,13 @@ class QwenClient:
         return self.strip_think_tags(response)  # Commented out to see full response with think tags
 
 
-    def generate_responses_batch(self, prompts, temperature=0, max_tokens=5000):
+    def generate_responses_batch(self, prompts, exp_type=None, temperature=0, max_tokens=5000):
         """Generate responses for a batch of prompts in one call."""
+        use_system_prompt = self.experiments.get(exp_type, {}).get("use_system_prompt", False)
         messages_list = []
         for prompt in prompts:
             messages = []
-            if SYSTEM_PROMPT:
+            if use_system_prompt and SYSTEM_PROMPT:
                 messages.append({"role": "system", "content": SYSTEM_PROMPT})
             messages.append({"role": "user", "content": prompt})
             messages_list.append(messages)
@@ -239,7 +246,7 @@ class QwenClient:
 
             try:
                 print(f"      🤖 Generating responses for {len(prompts)} examples...")
-                outputs = self.generate_responses_batch(prompts, temperature=0)
+                outputs = self.generate_responses_batch(prompts, exp_type=exp_type, temperature=0)
                 print(f"      ✅ Responses generated successfully")
             except Exception as e:
                 print(f"⚠️  Error processing batch {i // model_config['batch_size']}: {str(e)}")

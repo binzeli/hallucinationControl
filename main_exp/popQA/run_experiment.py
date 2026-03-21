@@ -24,6 +24,7 @@ AVAILABLE_MODELS = {
     "gpt-4o-mini": "gpt",
     "gpt-5-mini": "gpt",
     "qwen-3": "qwen",
+    "qwen-3-4b": "qwen",
     "qwen-3.5": "qwen",
     "llama-3": "llama",
     "gemini-3.1-flash-lite": "gemini",
