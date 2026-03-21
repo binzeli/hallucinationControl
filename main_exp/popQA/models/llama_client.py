@@ -22,6 +22,7 @@ import json
 import time
 from transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
+from huggingface_hub import login
 
 from prompts.prompts import get_experiment_prompt, SYSTEM_PROMPT
 from utils.abstain_parser import parse_csv
@@ -38,14 +39,14 @@ class LlamaClient:
 
     # Model configurations
     MODEL_CONFIGS = {
-        "llama-3-8b": {
-            "full_name": "meta-llama/Meta-Llama-3-8B",
+        "llama-3": {
+            "full_name": "meta-llama/Meta-Llama-3-8B-Instruct",
             "batch_size": 40,
             "short_name": "llama3-8b"
         }
     }
 
-    def __init__(self, experiments, model_name="llama-3-8b"):
+    def __init__(self, experiments, model_name="llama-3"):
         """
         Initialize LLaMA experiment runner.
 
@@ -62,14 +63,19 @@ class LlamaClient:
         model_config = self.MODEL_CONFIGS[model_name]
         self.model_full_name = model_config["full_name"]
 
+        hf_token = os.getenv("HF_TOKEN")
+        if hf_token:
+            login(token=hf_token)
+
         print(f"🔧 Loading model: {self.model_full_name}")
-        self.tokenizer = AutoTokenizer.from_pretrained(self.model_full_name)
+        self.tokenizer = AutoTokenizer.from_pretrained(self.model_full_name, token=hf_token)
         self.tokenizer.padding_side = "left"
 
         self.model = AutoModelForCausalLM.from_pretrained(
             self.model_full_name,
             torch_dtype=torch.float16,
-            device_map="auto"
+            device_map="auto",
+            token=hf_token
         )
         self.model.eval()
         if self.tokenizer.pad_token is None:
@@ -108,10 +114,11 @@ class LlamaClient:
     # GENERATION FUNCTIONS
     # ------------------------
 
-    def generate_response(self, prompt, temperature=0, max_tokens=5000):
+    def generate_response(self, prompt, exp_type=None, temperature=0, max_tokens=500):
         """Generate a single response from the model."""
+        use_system_prompt = self.experiments.get(exp_type, {}).get("use_system_prompt", False)
         messages = []
-        if SYSTEM_PROMPT:
+        if use_system_prompt and SYSTEM_PROMPT:
             messages.append({"role": "system", "content": SYSTEM_PROMPT})
         messages.append({"role": "user", "content": prompt})
 
@@ -142,16 +149,16 @@ class LlamaClient:
 
         return response
 
-    def generate_responses_batch(self, prompts, temperature=0, max_tokens=5000):
+    def generate_responses_batch(self, prompts, exp_type=None, temperature=0, max_tokens=500):
         """Generate responses for a batch of prompts in one call."""
+        use_system_prompt = self.experiments.get(exp_type, {}).get("use_system_prompt", False)
         messages_list = []
         for prompt in prompts:
             messages = []
-            if SYSTEM_PROMPT:
+            if use_system_prompt and SYSTEM_PROMPT:
                 messages.append({"role": "system", "content": SYSTEM_PROMPT})
             messages.append({"role": "user", "content": prompt})
             messages_list.append(messages)
-        print("messages_list[0]:", messages_list[0])  # Debug: print first message structure
         texts = [
             self.tokenizer.apply_chat_template(
                 messages,
@@ -161,6 +168,7 @@ class LlamaClient:
             for messages in messages_list
         ]
 
+        print("messages_list:", messages_list[:2])  # Debug: print first 2 message lists
         model_inputs = self.tokenizer(
             texts, return_tensors="pt", padding=True
         ).to(self.model.device)
@@ -185,6 +193,8 @@ class LlamaClient:
             for output_ids, input_len in zip(generated_ids, input_lengths)
         ]
         responses = self.tokenizer.batch_decode(trimmed, skip_special_tokens=True)
+
+        print("Generated responses:", responses[:2])  # Debug: print first 2 responses
         return responses
 
     def run_batch(self, dataset, start_idx, end_idx, exp_type, reward_correct, reward_abstain,
@@ -222,7 +232,7 @@ class LlamaClient:
 
             try:
                 print(f"      🤖 Generating responses for {len(prompts)} examples...")
-                outputs = self.generate_responses_batch(prompts, temperature=0)
+                outputs = self.generate_responses_batch(prompts, exp_type=exp_type, temperature=0)
                 print(f"      ✅ Responses generated successfully")
             except Exception as e:
                 print(f"⚠️  Error processing batch {i // model_config['batch_size']}: {str(e)}")

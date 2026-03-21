@@ -17,6 +17,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from models.gpt_client import GPTClient
 from models.qwen_client import QwenClient
 from models.llama_client import LlamaClient
+from models.gemini_client import GeminiClient
 
 
 AVAILABLE_MODELS = {
@@ -25,9 +26,9 @@ AVAILABLE_MODELS = {
     "qwen-3": "qwen",
     "qwen-3.5": "qwen",
     "llama-3": "llama",
+    "gemini-3.1-flash-lite": "gemini",
     # Future models can be added here:
     # "claude-3-5-sonnet": "claude",
-    # "gemini-2.0-flash": "gemini",
 }
 
 EXPERIMENTS = {
@@ -170,11 +171,18 @@ Examples:
             reward_abstain=args.reward_abstain,
             reward_incorrect=args.reward_incorrect
         )
+    elif model_type == "gemini":
+        runner = GeminiClient(experiments=EXPERIMENTS, model_name=args.model)
+        runner.run_experiment(
+            dataset=dataset,
+            exp_type=args.scheme,
+            reward_correct=args.reward_correct,
+            reward_abstain=args.reward_abstain,
+            reward_incorrect=args.reward_incorrect
+        )
     # Future model types can be added here:
     # elif model_type == "claude":
     #     run_claude_experiment(...)
-    # elif model_type == "gemini":
-    #     run_gemini_experiment(...)
     else:
         print(f"❌ Model type '{model_type}' not yet implemented")
         sys.exit(1)
