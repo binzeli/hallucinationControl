@@ -43,6 +43,11 @@ class QwenClient:
             "batch_size": 40,
             "short_name": "qwen3-8b"
         },
+        "qwen-3-4b": {
+            "full_name": "Qwen/Qwen3-4B-Instruct-2507",
+            "batch_size": 40,
+            "short_name": "qwen3-4b"
+        },
         "qwen-3.5": {
             "full_name": "Qwen/Qwen3.5-9B",
             "batch_size": 40,
@@ -67,7 +72,7 @@ class QwenClient:
         model_config = self.MODEL_CONFIGS[model_name]
         self.model_full_name = model_config["full_name"]
 
-        print(f"\ud83d\udd27 Loading model: {self.model_full_name}")
+        print(f" Loading model: {self.model_full_name}")
         self.tokenizer = AutoTokenizer.from_pretrained(self.model_full_name, trust_remote_code=True)
         self.tokenizer.padding_side = "left"
 
@@ -82,7 +87,7 @@ class QwenClient:
             self.tokenizer.pad_token = self.tokenizer.eos_token
         if self.model.config.pad_token_id is None:
             self.model.config.pad_token_id = self.tokenizer.pad_token_id
-        print(f"\u2705 Model loaded successfully")
+        print(f" Model loaded successfully")
 
     # ------------------------
     # HELPER FUNCTIONS
@@ -150,10 +155,11 @@ class QwenClient:
         text = text.replace("<think>", "").replace("</think>", "")
         return text.strip()
 
-    def generate_response(self, prompt, temperature=0, max_tokens=5000):
+    def generate_response(self, prompt, exp_type=None, temperature=0, max_tokens=5000):
         """Generate a single response from the model."""
+        use_system_prompt = self.experiments.get(exp_type, {}).get("use_system_prompt", False)
         messages = []
-        if SYSTEM_PROMPT:
+        if use_system_prompt and SYSTEM_PROMPT:
             messages.append({"role": "system", "content": SYSTEM_PROMPT})
         messages.append({"role": "user", "content": prompt})
         
@@ -185,12 +191,13 @@ class QwenClient:
         return self.strip_think_tags(response)  # Commented out to see full response with think tags
 
 
-    def generate_responses_batch(self, prompts, temperature=0, max_tokens=5000):
+    def generate_responses_batch(self, prompts, exp_type=None, temperature=0, max_tokens=5000):
         """Generate responses for a batch of prompts in one call."""
+        use_system_prompt = self.experiments.get(exp_type, {}).get("use_system_prompt", False)
         messages_list = []
         for prompt in prompts:
             messages = []
-            if SYSTEM_PROMPT:
+            if use_system_prompt and SYSTEM_PROMPT:
                 messages.append({"role": "system", "content": SYSTEM_PROMPT})
             messages.append({"role": "user", "content": prompt})
             messages_list.append(messages)
@@ -239,13 +246,13 @@ class QwenClient:
         results = []
 
         indices = list(range(start_idx, end_idx))
-        print(f"\ud83d\udcca Total indices to process: {len(indices)}")
+        print(f"Total indices to process: {len(indices)}")
 
         for i in tqdm(range(0, len(indices), model_config["batch_size"]),
                       desc=f"Processing batch [{start_idx}-{end_idx}]"):
             batch_indices = indices[i:i + model_config["batch_size"]]
             print(
-                f"\n   \ud83d\udd04 Sub-batch {i // model_config['batch_size'] + 1}: "
+                f"\n  Sub-batch {i // model_config['batch_size'] + 1}: "
                 f"Processing {len(batch_indices)} examples (indices {batch_indices[0]}-{batch_indices[-1]})"
             )
 
@@ -266,14 +273,14 @@ class QwenClient:
                 examples.append((idx, q, gold))
 
             try:
-                print(f"      \ud83e\udd16 Generating responses for {len(prompts)} examples...")
-                outputs = self.generate_responses_batch(prompts, temperature=0)
-                print(f"      \u2705 Responses generated successfully")
+                print(f"     Generating responses for {len(prompts)} examples...")
+                outputs = self.generate_responses_batch(prompts, exp_type=exp_type, temperature=0)
+                print(f"      Responses generated successfully")
             except Exception as e:
-                print(f"\u26a0\ufe0f  Error processing batch {i // model_config['batch_size']}: {str(e)}")
+                print(f"  Error processing batch {i // model_config['batch_size']}: {str(e)}")
                 continue
 
-            print(f"      \ud83d\udcdd Processing results...")
+            print(f"      Processing results...")
             processed_count = 0
             for (idx, q, gold), out, prompt in zip(examples, outputs, prompts):
                 try:
@@ -282,7 +289,7 @@ class QwenClient:
                     print("         response:", out[:100] + "..." if len(out) > 100 else out)
 
                     if not out:
-                        print(f"\u26a0\ufe0f  Could not generate response for index {idx}")
+                        print(f" Could not generate response for index {idx}")
                         continue
 
                     ans, conf, best, best_conf = extract_fields(out)
@@ -321,13 +328,12 @@ class QwenClient:
                         "false_answer_flag": false_flag
                     })
                     processed_count += 1
-                    print(f"         \u2705 Example {idx} processed (correct: {correct}, idk: {idk_flag})")
+                    print(f"         Example {idx} processed (correct: {correct}, idk: {idk_flag})")
                 except Exception as e:
-                    print(f"\u26a0\ufe0f  Error processing index {idx}: {str(e)}")
+                    print(f"  Error processing index {idx}: {str(e)}")
                     continue
 
-            print(f"      \ud83c\udfaf Sub-batch complete: {processed_count}/{len(examples)} examples processed\n")
-
+            print(f"      Sub-batch complete: {processed_count}/{len(examples)} examples processed\n")
         return pd.DataFrame(results)
 
     def run_multi_batch_experiment(self, dataset, exp_type, reward_correct, reward_abstain, reward_incorrect,
@@ -358,12 +364,12 @@ class QwenClient:
 
             if results_df is not None and len(results_df) > 0:
                 all_results.append(results_df)
-                print(f"\u2705 Batch {i+1}/{num_batches} processed successfully ({len(results_df)} results)")
+                print(f" Batch {i+1}/{num_batches} processed successfully ({len(results_df)} results)")
             else:
-                print(f"\u26a0\ufe0f  Batch {i+1}/{num_batches} produced no results")
+                print(f"  Batch {i+1}/{num_batches} produced no results")
 
             if i < num_batches - 1:
-                print(f"\n\u23f3 Brief pause before next batch...\n")
+                print(f"\n Brief pause before next batch...\n")
                 time.sleep(2)
 
         # Combine all results
@@ -388,20 +394,20 @@ class QwenClient:
             # Post-process for scheme_a_baseline and pure_eval
             if exp_type in ["scheme_a_baseline", "pure_eval"]:
                 print(f"\n{'='*80}")
-                print(f"\ud83d\udcdd Post-processing {exp_type} results...")
+                print(f" Post-processing {exp_type} results...")
                 print(f"{'='*80}")
                 combined_df = parse_csv(final_file, final_file)
 
             print(f"\n{'='*80}")
-            print(f"\ud83c\udf89 All batches processed successfully!")
-            print(f"\ud83d\udcca Total results: {len(combined_df)}")
-            print(f"\ud83d\udcb0 Final results saved to: {final_file}")
-            print(f"\ud83d\udcdd Batch tracking saved to: {tracking_file}")
+            print(f" All batches processed successfully!")
+            print(f" Total results: {len(combined_df)}")
+            print(f" Final results saved to: {final_file}")
+            print(f" Batch tracking saved to: {tracking_file}")
             print(f"{'='*80}")
 
             return combined_df
         else:
-            print("\n\u274c No results to combine")
+            print("\n❌ No results to combine")
             return None
 
     def run_experiment(self, dataset, exp_type, reward_correct, reward_abstain, reward_incorrect):
@@ -421,7 +427,7 @@ class QwenClient:
 
         model_config = self.MODEL_CONFIGS[self.model_name]
 
-        print(f"\n\ud83d\ude80 Running {exp_type.upper()} experiment with Qwen...")
+        print(f"\n Running {exp_type.upper()} experiment with Qwen...")
         print("   Processing batches sequentially\n")
 
         try:
