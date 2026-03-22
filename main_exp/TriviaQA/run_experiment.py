@@ -16,6 +16,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 # Models are now in the same directory
 from models.gpt_client_no_batch import GPTClient
 from models.qwen_client import QwenClient
+from models.llama_client import LlamaClient
 
 
 AVAILABLE_MODELS = {
@@ -23,6 +24,7 @@ AVAILABLE_MODELS = {
     "gpt-5-mini": "gpt",
     "qwen-3": "qwen",
     "qwen-3.5": "qwen",
+    "llama-3": "llama",
     # Future models can be added here:
     # "claude-3-5-sonnet": "claude",
     # "gemini-2.0-flash": "gemini",
@@ -151,6 +153,15 @@ Examples:
         )
     elif model_type == "qwen":
         runner = QwenClient(experiments=EXPERIMENTS, model_name=args.model)
+        runner.run_experiment(
+            dataset=dataset,
+            exp_type=args.scheme,
+            reward_correct=args.reward_correct,
+            reward_abstain=args.reward_abstain,
+            reward_incorrect=args.reward_incorrect
+        )
+    elif model_type == "llama":
+        runner = LlamaClient(experiments=EXPERIMENTS, model_name=args.model)
         runner.run_experiment(
             dataset=dataset,
             exp_type=args.scheme,
