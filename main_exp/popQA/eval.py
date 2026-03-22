@@ -508,11 +508,24 @@ def parse_filename(filename):
     
     # Extract reward values (format: +1_-1_+0.4 or +1_0_+0.4)
     # Rewards are between _results_ and timestamp (8 digits)
-    reward_match = re.search(r'_results_([+-]?\d+(?:\.\d+)?)_([+-]?\d+(?:\.\d+)?)_([+-]?\d+(?:\.\d+)?)_\d{8}', basename)
-    if reward_match:
-        reward_correct = reward_match.group(1)
-        reward_incorrect = reward_match.group(2)
-        reward_abstain = reward_match.group(3)
+    reward_match_3 = re.search(
+        r'_results_([+-]?\d+(?:\.\d+)?)_([+-]?\d+(?:\.\d+)?)_([+-]?\d+(?:\.\d+)?)',
+        basename
+    )
+
+    reward_match_2 = re.search(
+        r'_results_([+-]?\d+(?:\.\d+)?)_([+-]?\d+(?:\.\d+)?)',
+        basename
+    )
+
+    if reward_match_3:
+        reward_correct = reward_match_3.group(1)
+        reward_incorrect = reward_match_3.group(2)
+        reward_abstain = reward_match_3.group(3)
+    elif reward_match_2:
+        reward_correct = reward_match_2.group(1)
+        reward_incorrect = reward_match_2.group(2)
+        reward_abstain = None
     else:
         reward_correct = "+1"
         reward_incorrect = "-1"
@@ -591,9 +604,10 @@ def main():
     
     # Build reward setting string (exclude abstain reward for scheme_a)
     reward_parts = [r_correct, r_incorrect]
-    if scheme_name.lower().startswith("scheme_b"):
+    if scheme_name.lower().startswith("scheme_b") and r_abstain is not None:
         reward_parts.append(r_abstain)
-    reward_setting = ", ".join(reward_parts)
+
+    reward_setting = ", ".join(map(str, reward_parts))
     
     print(f"\n{'='*80}")
     print(f"Processing: {scheme_name}")
