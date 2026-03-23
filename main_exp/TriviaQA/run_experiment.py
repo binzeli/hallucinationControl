@@ -17,14 +17,17 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from models.gpt_client_no_batch import GPTClient
 from models.qwen_client import QwenClient
 from models.gemini_client import GeminiClient
+from models.llama_client import LlamaClient
 
 
 AVAILABLE_MODELS = {
     "gpt-4o-mini": "gpt",
     "gpt-5-mini": "gpt",
     "qwen-3": "qwen",
+    "qwen-3-4b": "qwen",
     "qwen-3.5": "qwen",
     "gemini-3.1-flash-lite": "gemini",
+    "llama-3": "llama",
     # Future models can be added here:
     # "claude-3-5-sonnet": "claude",
 }
@@ -161,6 +164,15 @@ Examples:
         )
     elif model_type == "gemini":
         runner = GeminiClient(experiments=EXPERIMENTS, model_name=args.model)
+        runner.run_experiment(
+            dataset=dataset,
+            exp_type=args.scheme,
+            reward_correct=args.reward_correct,
+            reward_abstain=args.reward_abstain,
+            reward_incorrect=args.reward_incorrect
+        )
+    elif model_type == "llama":
+        runner = LlamaClient(experiments=EXPERIMENTS, model_name=args.model)
         runner.run_experiment(
             dataset=dataset,
             exp_type=args.scheme,
