@@ -12,12 +12,18 @@ import os
 # Add main_exp directory to path so imports work correctly
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
+from datasets import load_dataset
+import random
+import numpy as np
+
 from models.gpt_client_no_batch import GPTClientSimpleQAVerifiedNoBatch
+from models.llama_client import LlamaClientSimpleQAVerified
 
 
 AVAILABLE_MODELS = {
     "gpt-4o-mini": "gpt",
     "gpt-5-mini": "gpt",
+    "llama-3": "llama",
 }
 
 EXPERIMENTS = {
@@ -53,6 +59,7 @@ Examples:
   python3 main_exp/simpleQA-verified/run_experiment.py --model gpt-4o-mini --scheme scheme_b --samples 10 -rc 1 -ra 0.4 -ri -1
   python3 main_exp/simpleQA-verified/run_experiment.py -m gpt-5-mini -s pure_eval -n 500
   python3 main_exp/simpleQA-verified/run_experiment.py -m gpt-5-mini -s scheme_b -rc 1 -ra 0.4 -ri -1
+  python3 main_exp/simpleQA-verified/run_experiment.py -m llama-3 -s scheme_b -rc 1 -ra 0.4 -ri -1
         """,
     )
 
@@ -121,12 +128,42 @@ Examples:
     print(reward_str)
     print(f"{'='*80}\n")
 
+    # Load dataset
+    print("📚 Loading SimpleQA-Verified dataset...")
+    SEED = 42
+    random.seed(SEED)
+    np.random.seed(SEED)
+
+    dataset_dict = load_dataset("codelion/SimpleQA-Verified")
+    if "test" in dataset_dict:
+        split_name = "test"
+    elif "train" in dataset_dict:
+        split_name = "train"
+    else:
+        split_name = list(dataset_dict.keys())[0]
+    dataset = dataset_dict[split_name]
+
+    if args.samples:
+        print(f"⚙️  Running with {args.samples} samples only")
+        dataset = dataset.select(range(args.samples))
+
+    print(f"✅ Dataset loaded: {len(dataset)} samples\n")
+
     if model_type == "gpt":
         runner = GPTClientSimpleQAVerifiedNoBatch(experiments=EXPERIMENTS)
         runner.run_experiment(
             model_name=args.model,
             exp_type=args.scheme,
-            n_samples=args.samples,
+            n_samples=None,  # dataset already sliced above
+            reward_correct=args.reward_correct,
+            reward_abstain=args.reward_abstain,
+            reward_incorrect=args.reward_incorrect,
+        )
+    elif model_type == "llama":
+        runner = LlamaClientSimpleQAVerified(experiments=EXPERIMENTS, model_name=args.model)
+        runner.run_experiment(
+            dataset=dataset,
+            exp_type=args.scheme,
             reward_correct=args.reward_correct,
             reward_abstain=args.reward_abstain,
             reward_incorrect=args.reward_incorrect,
