@@ -40,8 +40,8 @@ abstention_1 = [1 - x / total_questions for x in answered_1]
 abstention_2 = [1 - x / total_questions for x in answered_2]
 
 # Add `Pure eval` data point
-pure_eval_answered = 13843
-pure_eval_far1 = 0.533
+pure_eval_answered = 13768
+pure_eval_far1 = 0.523
 pure_eval_abstention = 1 - pure_eval_answered / total_questions
 
 # Exclude certain labels from the plot (remove A baseline and B control)
@@ -87,7 +87,7 @@ ax = fig.add_subplot(111)
 # Color palette
 color_neg1 = '#0F2F4F'       # Deep navy (Setup 1)
 color_0 = '#D95428'          # Burnt sienna (Setup 2)
-color_pareto = '#8B1D25'     # Burgundy
+color_pareto = '#888EA0'     # Burgundy
 color_bg_light = '#faf8f5'
 color_text = '#1c1c1c'
 
@@ -135,7 +135,8 @@ ax.annotate('Pure eval', (pure_eval_abstention, pure_eval_far1),
 
 # ==================== PARETO FRONTIER ====================
 ax.plot(pareto_x, pareto_y, color=color_pareto, linewidth=2.2, 
-    label='_nolegend_', zorder=4, linestyle='-', alpha=0.95)
+    label='_nolegend_', zorder=4, linestyle='--', alpha=0.95)
+
 
 # ==================== INTELLIGENT ANNOTATIONS ====================
 annotation_style_1 = dict(
@@ -241,6 +242,6 @@ for label in ax.get_xticklabels() + ax.get_yticklabels():
 plt.tight_layout()
 
 # Save
-plt.savefig('far_vs_abstention.png', dpi=300, bbox_inches='tight', 
+plt.savefig('parento_frontier.png', dpi=300, bbox_inches='tight', 
            facecolor='#ffffff', edgecolor='none', pad_inches=0.4)
 print("Saved successfully.")
