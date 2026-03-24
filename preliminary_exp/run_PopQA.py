@@ -2,6 +2,10 @@
 PopQA Async API runner.
 Includes token-logprob aggregation (avg, min) and handles IDK -> Best Guess logic.
 
+To use another self-report range (e.g. 0–20), edit the prompts in get_prompt()
+below and set CONFIDENCE_SCALE in __main__ to match (e.g. 20 → values divided by 20
+into [0,1] for the CSV).
+
 Outputs CSV columns:
 dataset_id, timestamp, s_pop, o_pop, question, possible_answers, 
 first_answer, first_confidence, best_guess, best_guess_confidence,
@@ -33,7 +37,7 @@ from utils.api_caller import get_responses_concurrently_with_ids
 load_dotenv()
 
 # ============================================================================
-# PROMPT
+# PROMPT (edit this block if you change the confidence scale; set CONFIDENCE_SCALE in __main__ to match)
 # ============================================================================
 
 def get_prompt(q):
@@ -79,13 +83,16 @@ def extract_exp2_fields(text):
 
 def confidence_to_01(value, scale=1):
     """Map parsed confidence to [0, 1] for analysis.
-    scale: 1 = [0,1], 100 = [0,100], 'percent'/'pct' = 0%-100% (parsed as 0-100).
+    scale: 1 = [0,1], 20 = [0,20] → divide by 20,
+           100 = [0,100], 'percent'/'pct' = 0%-100% (parsed as 0-100).
     """
     if value is None or (isinstance(value, float) and (value != value)):  # NaN
         return None
     v = float(value)
     if scale == 1:
         pass
+    elif scale == 20:
+        v = v / 20.0
     elif scale == 100 or scale in ("percent", "pct"):
         v = v / 100.0
     else:
@@ -306,6 +313,8 @@ async def main(api_key, model, batch_size, confidence_scale, output_base, result
     """
     print("=" * 60)
     print("PopQA Experiment")
+    if confidence_scale == 20:
+        print("(Self-report scale 0–20; confidences stored in CSV as [0,1] after /20)")
     print("=" * 60)
 
     print("Loading PopQA dataset...")
@@ -334,10 +343,11 @@ if __name__ == "__main__":
     API_URL = "https://api.openai.com/v1/chat/completions"
     API_KEY_ENV = "API_KEY_PROJ"
     CONCURRENT_BATCH_SIZE = 10
-    CONFIDENCE_SCALE = 1  # 1 = [0,1], 100 = [0,100], 'percent'/'pct' = 0%-100% (parsed as 0-100). Stored in CSV as [0,1].
+    # Must match get_prompt(): 1 = model reports [0,1]; 20 = [0,20] then /20 into CSV; 100 or 'percent' = /100.
+    CONFIDENCE_SCALE = 20
     OUTPUT_BASE = "popQA"
     RESULTS_FOLDER = "preliminary_exp/outputs"
-    NUM_QUESTIONS = None  # Set to int to limit (e.g. 10 for testing)
+    NUM_QUESTIONS = 10  # Set to int to limit (e.g. 10 for testing)
 
     api_key = os.getenv(API_KEY_ENV)
     if not api_key:
