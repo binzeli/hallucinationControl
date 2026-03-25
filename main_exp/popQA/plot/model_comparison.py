@@ -58,7 +58,7 @@ brier_errs = {
 metrics = [
     ('FAR (Answered)', far_vals,   far_errs),
     ('AER',              aer_vals,   aer_errs),
-    ('ECE (Answered)',   ece_vals,   ece_errs),
+    ('Empirical ECE (Answered)',   ece_vals,   ece_errs),
     ('Brier Score (Answered)', brier_vals, brier_errs),
 ]
 

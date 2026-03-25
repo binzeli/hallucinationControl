@@ -18,12 +18,14 @@ import numpy as np
 
 from models.gpt_client_no_batch import GPTClientSimpleQAVerifiedNoBatch
 from models.llama_client import LlamaClientSimpleQAVerified
+from models.gemini_client import GeminiClientSimpleQAVerified
 
 
 AVAILABLE_MODELS = {
     "gpt-4o-mini": "gpt",
     "gpt-5-mini": "gpt",
     "llama-3": "llama",
+    "gemini-3.1-flash-lite": "gemini",
 }
 
 EXPERIMENTS = {
@@ -161,6 +163,15 @@ Examples:
         )
     elif model_type == "llama":
         runner = LlamaClientSimpleQAVerified(experiments=EXPERIMENTS, model_name=args.model)
+        runner.run_experiment(
+            dataset=dataset,
+            exp_type=args.scheme,
+            reward_correct=args.reward_correct,
+            reward_abstain=args.reward_abstain,
+            reward_incorrect=args.reward_incorrect,
+        )
+    elif model_type == "gemini":
+        runner = GeminiClientSimpleQAVerified(experiments=EXPERIMENTS, model_name=args.model)
         runner.run_experiment(
             dataset=dataset,
             exp_type=args.scheme,
