@@ -9,7 +9,9 @@ import glob
 from scipy.stats import norm, beta
 
 TARGET_cFAR = 0.3
-NUM_THRESHOLDS = 200
+THRESHOLDS = np.arange(0, 1.01, 0.01)  # {0,0.01,...,1.00}
+NUM_THRESHOLDS = len(THRESHOLDS)
+
 CALIBRATION_RATIO = 0.2 # 1 for full dataset
 RANDOM_SEED = 1
 
@@ -34,7 +36,7 @@ def load_files(model_name, correct, incorrect, abstain):
     scheme_info = {
         f"Scheme A ({correct}, {incorrect})": f"popqa_A_{correct}_{incorrect}_*.csv",
         f"Scheme B ({correct}, {incorrect}, {abstain})": f"popqa_B_{correct}_{incorrect}_{abstain}_*.csv",
-        f"Scheme B w/ Norms ({correct}, {incorrect}, {abstain})": f"popqa_B_norm_{correct}_{incorrect}_{abstain}_*.csv"
+        f"Scheme B w/ norms ({correct}, {incorrect}, {abstain})": f"popqa_B_norm_{correct}_{incorrect}_{abstain}_*.csv"
     }
     FILES = {}
     for scheme_name, pattern in scheme_info.items():
@@ -59,8 +61,8 @@ def wilson_ci(k, n, z=1.96):
     return center - margin, center + margin
 
 def clopper_pearson_upper(k, n, alpha):
-    if n == 0:
-        return np.nan
+    if n == 0 or k == n:
+        return 1.0
     return beta.ppf(1 - alpha, k + 1, n - k)
 
 def ci_to_pm(ci):
@@ -89,17 +91,17 @@ def compute_cfar(df_subset):
     return (1 - df_subset["correct"]).mean()
 
 def select_ucb_threshold(curve_df, target_cfar):
-    valid = curve_df.dropna(subset=["ucb"])
+    valid = curve_df
     valid = valid[valid["ucb"] <= target_cfar]
 
     if len(valid) == 0:
         print(f"[Warning] No certified threshold for target CFAR={target_cfar}")
-        return 0.0
+        return None
 
     return valid["threshold"].max()
 
 def construct_empirical_far_curve_calibration(df):
-    thresholds = np.linspace(0, 1, NUM_THRESHOLDS)
+    thresholds = THRESHOLDS.copy()
     records = []
 
     for t in thresholds:
@@ -111,7 +113,7 @@ def construct_empirical_far_curve_calibration(df):
         cfar = compute_cfar(accepted)
         
         if n_acc == 0:
-            ucb = np.nan
+            ucb = 1.0
         else:
             ucb = clopper_pearson_upper(k_false, n_acc, ALPHA)
 
@@ -126,7 +128,7 @@ def construct_empirical_far_curve_calibration(df):
     return pd.DataFrame(records)
 
 def construct_empirical_far_curve_validation(df):
-    thresholds = np.linspace(0, 1, NUM_THRESHOLDS)
+    thresholds = THRESHOLDS.copy()
     cfars = [compute_cfar(df[df["uncertainty"] <= t]) for t in thresholds]
     return thresholds, np.array(cfars)
 
@@ -155,12 +157,12 @@ def validate_with_ci(val_df, threshold):
 
 # Compute actual empirical CFAR curve (no bootstrap)
 def compute_true_curve(df):
-    thresholds = np.linspace(0, 1, NUM_THRESHOLDS)
+    thresholds = THRESHOLDS.copy()
     curve = [compute_cfar(df[df["uncertainty"] <= t]) for t in thresholds]
     return thresholds, np.array(curve)
 
 def compute_cfar_curve_with_ci(df):
-    thresholds = np.linspace(0, 1, NUM_THRESHOLDS)
+    thresholds = THRESHOLDS.copy()
 
     cfar_vals = []
     ci_low = []
@@ -172,9 +174,9 @@ def compute_cfar_curve_with_ci(df):
         n = len(accepted)
 
         if n == 0:
-            cfar_vals.append(np.nan)
-            ci_low.append(np.nan)
-            ci_high.append(np.nan)
+            cfar_vals.append(0.0)
+            ci_low.append(0.0)
+            ci_high.append(0.0)
             continue
 
         k = int((1 - accepted["correct"]).sum())
@@ -220,28 +222,31 @@ def run_all_schemes():
 
                 threshold_r = select_ucb_threshold(curve_df, r)
 
-                if CALIBRATION_RATIO < 1.0:
+                if threshold_r is None:
+                    calibration_coverage = 0.0
+                    val_coverage = 0.0
+                    cfar = np.nan
+                    val_coverage_pm = 0.0
+                    cfar_pm = np.nan
+                else:
+                    calibration_coverage = (calibration_df["uncertainty"] <= threshold_r).mean()
+
                     val_stats = validate_with_ci(val_df, threshold_r)
 
-                    coverage = val_stats["val_accept_rate"]
+                    val_coverage = val_stats["val_accept_rate"]
                     cfar = val_stats["validation_cfar"]
 
-                    coverage_pm = ci_to_pm(val_stats["val_accept_ci"])
+                    val_coverage_pm = ci_to_pm(val_stats["val_accept_ci"])
                     cfar_pm = ci_to_pm(val_stats["validation_cfar_ci"])
-
-                else:
-                    coverage = np.nan
-                    cfar = np.nan
-                    coverage_pm = np.nan
-                    cfar_pm = np.nan
 
                 results.append({
                     "risk_target": r,
-                    "threshold": threshold_r,
-                    "coverage": coverage,
-                    "coverage_pm": coverage_pm,
-                    "validation_cfar": cfar,
-                    "cfar_pm": cfar_pm
+                    "cal_threshold": threshold_r if threshold_r is not None else "reject-all",
+                    "cal_accept_rate": calibration_coverage, 
+                    "val_accept_rate": val_coverage,
+                    "val_accept_pm": val_coverage_pm,
+                    "val_cfar": cfar,
+                    "val_cfar_pm": cfar_pm
                 })
 
             results = pd.DataFrame(results)
@@ -250,7 +255,7 @@ def run_all_schemes():
         
         if scheme_name.startswith("Scheme A"):
             style = {"color": "#1f77b4", "marker": "s", "linestyle": "-"}
-        elif scheme_name.startswith("Scheme B w/ Norms"):
+        elif scheme_name.startswith("Scheme B w/ norms"):
             style = {"color": "#2ca02c", "marker": "^", "linestyle": "-"}
         else:
             style = {"color": "#ff7f0e", "marker": "o", "linestyle": "-"}
@@ -271,7 +276,7 @@ def run_all_schemes():
         )
 
         if CALIBRATION_RATIO < 1.0:
-            valid = curve_df.dropna(subset=["ucb"])
+            valid = curve_df
             plt.plot(
                 valid["threshold"],
                 valid["ucb"],
@@ -279,9 +284,9 @@ def run_all_schemes():
                 linewidth=1,
                 color=style["color"],
                 alpha=0.8,
-                label=f"{scheme_name} UCB"
+                label=f"{scheme_name} CP-UCB"
             )
-
+        if CALIBRATION_RATIO == 1.0:
             plt.fill_between(
                 th,
                 ci_low,
@@ -292,21 +297,27 @@ def run_all_schemes():
 
         if CALIBRATION_RATIO < 1.0:
             # ----- Empirical τ line and label -----
-            idx = np.abs(curve_df["threshold"] - threshold).argmin()
-            cfar_at_tau = curve_df.iloc[idx]["cfar"]
-            plt.vlines(threshold, 0, cfar_at_tau, linestyles="--", linewidth=1.8, color=style["color"])
+            if threshold is not None:
+                idx = np.abs(curve_df["threshold"] - threshold).argmin()
+                cfar_at_tau = curve_df.iloc[idx]["cfar"]
+                plt.vlines(threshold, 0, cfar_at_tau, linestyles="--", linewidth=1.8, color=style["color"])
 
             if "Scheme A" in scheme_name:
                 x_text, y_text, ha, va = threshold, -0.005, "center", "top"
-            elif "Scheme B w/ Norms" in scheme_name:
-                x_text, y_text, ha, va = threshold + 0.012, 0.01, "left", "bottom"
+            elif "Scheme B w/ norms" in scheme_name:
+                x_text, y_text, ha, va = threshold + 0.009, 0.01, "left", "bottom"
             else:
-                x_text, y_text, ha, va = threshold + 0.012, 0.05, "left", "bottom"
+                x_text, y_text, ha, va = threshold + 0.02, 0.05, "left", "bottom"
 
-            plt.text(x_text, y_text, f"{threshold:.3f}", color=style["color"], fontsize=10, ha=ha, va=va)
+            if threshold is not None:
+                plt.text(x_text, y_text, f"{threshold:.2f}", color=style["color"], fontsize=10, ha=ha, va=va)
 
         print(f"\n=== {scheme_name} ===")
-        print(f"selected_threshold: {threshold:.4f}")
+        if threshold is None:
+            print("selected_threshold: REJECT-ALL")
+        else:
+            print(f"selected_threshold: {threshold:.4f}")
+
         if CALIBRATION_RATIO == 1.0: 
             true_cfar = compute_cfar(calibration_df)
             print(f"CFAR for whole dataset: {true_cfar:.6f}")
@@ -314,17 +325,24 @@ def run_all_schemes():
         # ----- Validation info -----
         if CALIBRATION_RATIO < 1.0:
             val_th, val_cfars = construct_empirical_far_curve_validation(val_df)
-            idx = np.abs(val_th - threshold).argmin()
-            cfar_at_tau_val = val_cfars[idx]
-            val_points[scheme_name] = (threshold, cfar_at_tau_val)
+            if threshold is not None:
+                idx = np.abs(val_th - threshold).argmin()
+                cfar_at_tau_val = val_cfars[idx]
+                val_points[scheme_name] = (threshold, cfar_at_tau_val)
 
-            val_stats = validate_with_ci(val_df, threshold)
-            calibration_ar = (calibration_df["uncertainty"] <= threshold).mean()
-            val_ar_pm = ci_to_pm(val_stats["val_accept_ci"])
-            val_cfar_pm = ci_to_pm(val_stats["validation_cfar_ci"])
-            print(f"calibration_accept_rate   : {calibration_ar:.4f}")
-            print(f"val_accept_rate     : {val_stats['val_accept_rate']:.4f} ± {val_ar_pm:.4f}")
-            print(f"validation_cfar     : {val_stats['validation_cfar']:.4f} ± {val_cfar_pm:.4f}")
+            if threshold is None:
+                print("reject-all → no validation stats")
+                calibration_ar = 0.0
+            else:
+                val_stats = validate_with_ci(val_df, threshold)
+
+                calibration_ar = (calibration_df["uncertainty"] <= threshold).mean()
+                val_ar_pm = ci_to_pm(val_stats["val_accept_ci"])
+                val_cfar_pm = ci_to_pm(val_stats["validation_cfar_ci"])
+
+                print(f"calibration_accept_rate   : {calibration_ar:.4f}")
+                print(f"val_accept_rate     : {val_stats['val_accept_rate']:.4f} ± {val_ar_pm:.4f}")
+                print(f"validation_cfar     : {val_stats['validation_cfar']:.4f} ± {val_cfar_pm:.4f}")
 
     # ----- Finalize calibration plot -----
     plt.figure(fig_calibration.number)
@@ -355,10 +373,5 @@ def run_all_schemes():
 
 
 if __name__ == "__main__":
-    FILES = load_files(
-        model_name,
-        correct,
-        incorrect,
-        abstain
-    )
+    FILES = load_files(model_name, correct, incorrect, abstain)
     run_all_schemes()
