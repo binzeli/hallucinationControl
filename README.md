@@ -3,7 +3,9 @@ Incentivizing Confidence-Aware Abstention for LLM Hallucination Control
 
 ## Overview
 
-This project explores methods to control hallucinations in Large Language Models (LLMs) by incentivizing confidence-aware abstention. The system tests whether reward-based prompting can encourage models to say "I don't know" when uncertain, rather than providing incorrect answers.
+LLMs frequently produce confident but incorrect answers, partly because standard scoring conventions reward answering over expressing uncertainty. We study whether prompt-only interventions—announcing explicit reward schemes for answer-versus-abstain decisions alongside truthfulness- and humility-oriented norms—can reduce hallucination risk without modifying the model.
+
+We introduce **I-CALM**, a prompt-based framework that (i) elicits verbal confidence, (ii) partially rewards abstention via explicit reward schemes, and (iii) adds lightweight truthfulness- and humility-oriented norms. Experiments on PopQA show that abstention-rewarding prompts, especially with norms, lower the false-answer rate by shifting low-confidence cases into abstention, with a clear abstention–hallucination trade-off controlled by the abstention reward. Results demonstrate that selective answering on factual questions can be improved without retraining, though the effect size varies across models and datasets.
 
 ## Installation
 
@@ -37,7 +39,7 @@ API_KEY=your_openai_api_key_here
 
 ## Experiment Schemes
 
-The project implements five experimental schemes:
+Each scheme varies what reward scheme is disclosed to the model and whether a normative system prompt is added:
 
 | Scheme | Description | Rewards Mentioned | System Prompt |
 |--------|-------------|-------------------|---------------|
@@ -51,9 +53,11 @@ The project implements five experimental schemes:
 
 ### Available Models
 
-- `gpt-4o-mini` - GPT-4o Mini (no reasoning mode)
-- `gpt-5-mini` - GPT-5 Mini (with reasoning mode)
-- `qwen-3` - Qwen-3-8B
+- `gpt-4o-mini` - GPT-4o Mini 
+- `gpt-5-mini` - GPT-5 Mini
+- `qwen-3-4b` - Qwen3-4B-Instruct-2507
+- `gemini-3.1-flash-lite` - Gemini 3.1 Flash Lite
+- `llama-3-8b` - Meta-Llama-3-8B-Instruct
 
 
 ### Command-Line Arguments
