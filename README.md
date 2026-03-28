@@ -97,42 +97,22 @@ Optional: `-o <output_dir>` for outputs, `--num-bins <n>` for ECE (default 10).
 ## Project Structure
 
 ```
-├── main_exp/                           # Main (reward-scheme) experiments
-│   ├── models/
-│   │   └── gpt_client.py               # Generic GPT batch API client
-│   ├── popQA/
-│   │   ├── run_experiment.py           # Main entry for PopQA reward experiments
-│   │   ├── eval.py                     # Evaluation for main_exp PopQA
-│   │   ├── plot/
-│   │   │   ├── plot_abstention.py
-│   │   │   └── far_vs_abstention.py
-│   │   └── ablation_study/
-│   │       ├── remove_reward/run_no_reward.py
-│   │       └── remove_confidence/run_no_confidence.py
-│   ├── prompts/
-│   │   └── prompts.py                  # Experiment prompt templates
-│   ├── utils/
-│   │   ├── response_parser.py          # Parse model responses
-│   │   └── abstain_parser.py           # Detect abstention patterns
-│   ├── rare_common_facts.py
-│   └── example_output/                 # Example run outputs
-├── preliminary_exp/                     # Validity of self-reported confidence
-│   ├── README.md                       # PopQA & MMLU-Pro pipeline docs
-│   ├── run_PopQA.py                    # PopQA API runner (logprobs, IDK/best-guess)
-│   ├── run_MMLU-pro.py                 # MMLU-Pro API runner (no-CoT, repeats)
-│   ├── evaluate_PopQA.py               # ECE, Brier, correlation (numerical only)
-│   ├── evaluate_MMLU-Pro.py            # Same metrics for MMLU-Pro CSVs
-│   ├── utils/
-│   │   ├── README.md
-│   │   ├── api_caller.py               # Concurrent API calls, logprobs
-│   │   └── yaml_parser.py              # YAML load/save
-│   ├── prompts/
-│   │   └── biology/
-│   │       └── biology-1.yaml          # No-CoT prompt template
-│   ├── example_output/                 # Example result CSVs
-│   └── outputs/                        # Result CSVs (create dir; see preliminary_exp/README)
+├── main_exp/                   # Main (reward-scheme) experiments
+│   ├── popQA/                  # PopQA experiments, plots, ablation studies
+│   ├── mmlu-pro/               # MMLU-Pro experiments (standard & CoT)
+│   ├── simpleQA-verified/      # SimpleQA-verified experiments
+│   ├── TriviaQA/               # TriviaQA experiments
+│   ├── prompts/                # Shared prompt templates
+│   ├── utils/                  # Response & abstention parsers
+│   └── example_output/         # Example result CSVs & plots
+├── preliminary_exp/            # Preliminary: validity of self-reported confidence
+│   ├── run_PopQA.py            # PopQA runner (logprobs, IDK/best-guess)
+│   ├── run_MMLU-pro.py         # MMLU-Pro runner
+│   ├── evaluate_PopQA.py       # ECE, Brier, correlation metrics
+│   ├── evaluate_MMLU-Pro.py    # Same metrics for MMLU-Pro
+│   ├── utils/                  # API caller & YAML parser
+│   └── example_output/         # Example result CSVs
 ├── requirements.txt
-├── .env                                # API keys (create this file)
-├── .gitignore
+├── .env                        # API keys (create this file)
 └── README.md
 ```

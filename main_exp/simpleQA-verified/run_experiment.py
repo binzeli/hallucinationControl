@@ -176,6 +176,13 @@ Examples:
         )
     elif model_type == "qwen":
         runner = QwenClientSimpleQAVerified(experiments=EXPERIMENTS, model_name=args.model)
+        runner.run_experiment(
+            dataset=dataset,
+            exp_type=args.scheme,
+            reward_correct=args.reward_correct,
+            reward_abstain=args.reward_abstain,
+            reward_incorrect=args.reward_incorrect,
+        )
     elif model_type == "gemini":
         runner = GeminiClientSimpleQAVerified(experiments=EXPERIMENTS, model_name=args.model)
         runner.run_experiment(
