@@ -1,0 +1,449 @@
+"""
+Qwen-specific implementation for running experiments with Hugging Face models on SimpleQA-Verified.
+
+Mirrors main_exp/TriviaQA/models/qwen_client.py but adapted for:
+- Dataset: codelion/SimpleQA-Verified
+- Question field: "problem"
+- Gold answer field: "answer" (string / list / dict)
+- No s_pop / o_pop columns
+- Outputs written to main_exp/simpleQA-verified/outputs/
+"""
+
+import os
+import sys
+
+# Set up path before other imports - add main_exp directory to path
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+import pandas as pd
+import re
+from tqdm import tqdm
+from datasets import load_dataset
+import ast
+import string
+import random
+import numpy as np
+from dotenv import load_dotenv
+from datetime import datetime
+import json
+import time
+from transformers import AutoTokenizer, AutoModelForCausalLM
+import torch
+
+from prompts.prompts import get_experiment_prompt, SYSTEM_PROMPT
+from utils.abstain_parser import parse_csv
+from utils.response_parser import extract_fields
+
+# Load environment variables
+load_dotenv()
+
+
+class QwenClientSimpleQAVerified:
+    """
+    Runner for Qwen experiments using Hugging Face models on SimpleQA-Verified.
+    """
+
+    # Model configurations
+    MODEL_CONFIGS = {
+        "qwen-3": {
+            "full_name": "Qwen/Qwen3-8B",
+            "batch_size": 40,
+            "short_name": "qwen3-8b"
+        },
+        "qwen-3-4b": {
+            "full_name": "Qwen/Qwen3-4B-Instruct-2507",
+            "batch_size": 40,
+            "short_name": "qwen3-4b"
+        },
+        "qwen-3.5": {
+            "full_name": "Qwen/Qwen3.5-9B",
+            "batch_size": 40,
+            "short_name": "qwen35-9b"
+        }
+    }
+
+    DATASET_ID = "codelion/SimpleQA-Verified"
+    DATASET_SLUG = "simpleqa_verified"  # used in filenames
+
+    def __init__(self, experiments, model_name="qwen-3"):
+        """
+        Initialize Qwen experiment runner.
+
+        Args:
+            experiments: Dictionary of experiment configurations
+            model_name: Name of the model to use
+        """
+        self.experiments = experiments
+        self.model_name = model_name
+
+        if model_name not in self.MODEL_CONFIGS:
+            raise ValueError(f"Unknown model: {model_name}")
+
+        model_config = self.MODEL_CONFIGS[model_name]
+        self.model_full_name = model_config["full_name"]
+
+        print(f"🔧 Loading model: {self.model_full_name}")
+        self.tokenizer = AutoTokenizer.from_pretrained(self.model_full_name, trust_remote_code=True)
+        self.tokenizer.padding_side = "left"
+
+        self.model = AutoModelForCausalLM.from_pretrained(
+            self.model_full_name,
+            torch_dtype=torch.float16,
+            device_map="auto",
+            trust_remote_code=True
+        )
+        self.model.eval()
+        if self.tokenizer.pad_token is None:
+            self.tokenizer.pad_token = self.tokenizer.eos_token
+        if self.model.config.pad_token_id is None:
+            self.model.config.pad_token_id = self.tokenizer.pad_token_id
+        print("✅ Model loaded successfully")
+
+    # ------------------------
+    # HELPER FUNCTIONS
+    # ------------------------
+
+    @staticmethod
+    def normalize(text):
+        return text.lower().translate(str.maketrans('', '', string.punctuation)).strip()
+
+    @staticmethod
+    def get_gold_answers(ex):
+        """
+        Return list of acceptable gold answers.
+
+        SimpleQA-Verified typically stores `answer` as a plain string, but we
+        handle list and dict structures defensively.
+        """
+        ans = ex.get("answer")
+        if ans is None:
+            return []
+        if isinstance(ans, list):
+            return [str(x) for x in ans]
+        if isinstance(ans, dict):
+            values = []
+            for k in ["value", "normalized_value", "answer"]:
+                if k in ans and ans[k] is not None:
+                    values.append(str(ans[k]))
+            for v in ans.get("aliases") or []:
+                values.append(str(v))
+            return values
+        return [str(ans)]
+
+    def is_correct(self, llm_answer, gold_answers):
+        """Return True if llm_answer matches or is contained in any gold answer."""
+        if not gold_answers:
+            return False
+        if all(isinstance(g, str) and len(g) == 1 for g in gold_answers):
+            try:
+                joined = "".join(gold_answers)
+                parsed = ast.literal_eval(joined)
+                gold_answers = [str(parsed)] if not isinstance(parsed, list) else [str(x) for x in parsed]
+            except Exception:
+                gold_answers = ["".join(gold_answers)]
+
+        if llm_answer is None:
+            return False
+        norm_llm = self.normalize(llm_answer)
+        for gold in gold_answers:
+            norm_gold = self.normalize(gold)
+            if norm_gold in norm_llm or norm_llm in norm_gold:
+                return True
+        return False
+
+    # ------------------------
+    # GENERATION FUNCTIONS
+    # ------------------------
+
+    @staticmethod
+    def strip_think_tags(text):
+        """Remove Qwen <think>...</think> blocks if present."""
+        if not text:
+            return text
+        text = re.sub(r"<think>.*?</think>", "", text, flags=re.DOTALL)
+        text = text.replace("<think>", "").replace("</think>", "")
+        return text.strip()
+
+    def generate_response(self, prompt, exp_type=None, temperature=0, max_tokens=5000):
+        """Generate a single response from the model."""
+        use_system_prompt = self.experiments.get(exp_type, {}).get("use_system_prompt", False)
+        messages = []
+        if use_system_prompt and SYSTEM_PROMPT:
+            messages.append({"role": "system", "content": SYSTEM_PROMPT})
+        messages.append({"role": "user", "content": prompt})
+
+        text = self.tokenizer.apply_chat_template(
+            messages,
+            tokenize=False,
+            add_generation_prompt=True
+        )
+
+        model_inputs = self.tokenizer(text, return_tensors="pt").to(self.model.device)
+
+        do_sample = temperature is not None and temperature > 0
+        gen_kwargs = {
+            "max_new_tokens": max_tokens,
+            "do_sample": do_sample,
+        }
+        if do_sample:
+            gen_kwargs["temperature"] = float(temperature)
+
+        with torch.inference_mode():
+            generated_ids = self.model.generate(
+                **model_inputs,
+                **gen_kwargs
+            )
+
+        generated_ids = [output_ids[len(input_ids):] for input_ids, output_ids in zip(model_inputs.input_ids, generated_ids)]
+        response = self.tokenizer.batch_decode(generated_ids, skip_special_tokens=True)[0]
+
+        return self.strip_think_tags(response)
+
+    def generate_responses_batch(self, prompts, exp_type=None, temperature=0, max_tokens=5000):
+        """Generate responses for a batch of prompts in one call."""
+        use_system_prompt = self.experiments.get(exp_type, {}).get("use_system_prompt", False)
+        messages_list = []
+        for prompt in prompts:
+            messages = []
+            if use_system_prompt and SYSTEM_PROMPT:
+                messages.append({"role": "system", "content": SYSTEM_PROMPT})
+            messages.append({"role": "user", "content": prompt})
+            messages_list.append(messages)
+
+        print("messages_list[0]:", messages_list[0])  # Debug: print first message structure
+        texts = [
+            self.tokenizer.apply_chat_template(
+                messages,
+                tokenize=False,
+                add_generation_prompt=True
+            )
+            for messages in messages_list
+        ]
+
+        model_inputs = self.tokenizer(
+            texts, return_tensors="pt", padding=True
+        ).to(self.model.device)
+
+        do_sample = temperature is not None and temperature > 0
+        gen_kwargs = {
+            "max_new_tokens": max_tokens,
+            "do_sample": do_sample,
+        }
+        if do_sample:
+            gen_kwargs["temperature"] = float(temperature)
+
+        with torch.inference_mode():
+            generated_ids = self.model.generate(
+                **model_inputs,
+                **gen_kwargs
+            )
+
+        input_lengths = (model_inputs.input_ids != self.tokenizer.pad_token_id).sum(dim=1).tolist()
+        trimmed = [
+            output_ids[input_len:]
+            for output_ids, input_len in zip(generated_ids, input_lengths)
+        ]
+        responses = self.tokenizer.batch_decode(trimmed, skip_special_tokens=True)
+        return [self.strip_think_tags(r) for r in responses]
+
+    def run_batch(self, dataset, start_idx, end_idx, exp_type, reward_correct, reward_abstain,
+                  reward_incorrect, model_config):
+        """Process a batch of examples."""
+        if exp_type not in self.experiments:
+            raise ValueError(f"Unknown experiment type: {exp_type}")
+
+        results = []
+        indices = list(range(start_idx, end_idx))
+        print(f"📊 Total indices to process: {len(indices)}")
+
+        for i in tqdm(range(0, len(indices), model_config["batch_size"]),
+                      desc=f"Processing batch [{start_idx}-{end_idx}]"):
+            batch_indices = indices[i:i + model_config["batch_size"]]
+            print(
+                f"\n   🔄 Sub-batch {i // model_config['batch_size'] + 1}: "
+                f"Processing {len(batch_indices)} examples "
+                f"(indices {batch_indices[0]}-{batch_indices[-1]})"
+            )
+
+            prompts = []
+            examples = []
+            for idx in batch_indices:
+                ex = dataset[idx]
+                q = ex["problem"]
+                gold_answers = self.get_gold_answers(ex)
+                prompt = get_experiment_prompt(
+                    reward_correct=reward_correct,
+                    reward_abstain=reward_abstain,
+                    reward_incorrect=reward_incorrect,
+                    question=q,
+                    exp_type=exp_type
+                )
+                prompts.append(prompt)
+                examples.append((idx, q, gold_answers))
+
+            try:
+                print(f"      🤖 Generating responses for {len(prompts)} examples...")
+                outputs = self.generate_responses_batch(prompts, exp_type=exp_type, temperature=0)
+                print("      ✅ Responses generated successfully")
+            except Exception as e:
+                print(f"⚠️  Error processing batch {i // model_config['batch_size']}: {str(e)}")
+                continue
+
+            print("      📝 Processing results...")
+            processed_count = 0
+            for (idx, q, gold_answers), out, prompt in zip(examples, outputs, prompts):
+                try:
+                    print(f"         [{processed_count + 1}/{len(examples)}] Processing example {idx}...")
+                    print("         prompt:", prompt[:100] + "..." if len(prompt) > 100 else prompt)
+                    print("         response:", out[:100] + "..." if len(out) > 100 else out)
+
+                    if not out:
+                        print(f"⚠️  Could not generate response for index {idx}")
+                        continue
+
+                    ans, conf, best, best_conf = extract_fields(out)
+                    timestamp_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                    idk_flag = bool(re.search(r"i don't know", out or "", re.IGNORECASE))
+
+                    if idk_flag:
+                        correct = self.is_correct(best, gold_answers)
+                    else:
+                        correct = self.is_correct(ans, gold_answers)
+
+                    if idk_flag:
+                        score = reward_abstain if exp_type.lower().startswith("scheme_b") else reward_incorrect
+                    elif correct:
+                        score = reward_correct
+                    else:
+                        score = reward_incorrect
+
+                    false_flag = int(not correct and not idk_flag)
+
+                    results.append({
+                        "dataset_id": idx,
+                        "timestamp": timestamp_str,
+                        "question": q,
+                        "answer": gold_answers,
+                        "first_answer": ans,
+                        "first_confidence": conf,
+                        "best_guess": best,
+                        "best_guess_confidence": best_conf,
+                        "correct": int(correct),
+                        "score": score,
+                        "idk_flag": int(idk_flag),
+                        "false_answer_flag": false_flag,
+                    })
+                    processed_count += 1
+                    print(f"         ✅ Example {idx} processed (correct: {correct}, idk: {idk_flag})")
+                except Exception as e:
+                    print(f"⚠️  Error processing index {idx}: {str(e)}")
+                    continue
+
+            print(f"      🎯 Sub-batch complete: {processed_count}/{len(examples)} examples processed\n")
+        return pd.DataFrame(results)
+
+    def run_multi_batch_experiment(self, dataset, exp_type, reward_correct, reward_abstain,
+                                   reward_incorrect, model_config):
+        """Run experiment in multiple batches sequentially."""
+        if exp_type not in self.experiments:
+            raise ValueError(f"Unknown experiment type: {exp_type}")
+
+        total_size = len(dataset)
+        batch_size = min(total_size, model_config["batch_size"])
+        num_batches = (total_size + batch_size - 1) // batch_size
+
+        all_results = []
+        tracking_file = (
+            f"main_exp/simpleQA-verified/outputs/qwen_batch_files/"
+            f"batch_tracking_{exp_type}.json"
+        )
+        os.makedirs(os.path.dirname(tracking_file), exist_ok=True)
+
+        for i in range(num_batches):
+            start_idx = i * batch_size
+            end_idx = min((i + 1) * batch_size, total_size)
+
+            print(f"\n{'='*80}")
+            print(f"Processing batch {i+1}/{num_batches}: {start_idx} to {end_idx}")
+            print(f"{'='*80}")
+
+            results_df = self.run_batch(
+                dataset, start_idx, end_idx, exp_type,
+                reward_correct, reward_abstain, reward_incorrect, model_config
+            )
+
+            if results_df is not None and len(results_df) > 0:
+                all_results.append(results_df)
+                print(f"✅ Batch {i+1}/{num_batches} processed successfully ({len(results_df)} results)")
+            else:
+                print(f"⚠️  Batch {i+1}/{num_batches} produced no results")
+
+            if i < num_batches - 1:
+                print("\n⏳ Brief pause before next batch...\n")
+                time.sleep(2)
+
+        if all_results:
+            combined_df = pd.concat(all_results, ignore_index=True)
+            combined_df = combined_df.sort_values("dataset_id").reset_index(drop=True)
+
+            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+            if exp_type.lower().startswith("scheme_b"):
+                reward_str = f"{reward_correct:+g}_{reward_incorrect:+g}_{reward_abstain:+g}"
+            else:
+                reward_str = f"{reward_correct:+g}_{reward_incorrect:+g}"
+
+            final_file = (
+                f"main_exp/simpleQA-verified/outputs/{model_config['short_name']}_results/"
+                f"{self.DATASET_SLUG}_{exp_type}_results_{reward_str}_{timestamp}.csv"
+            )
+            os.makedirs(os.path.dirname(final_file), exist_ok=True)
+            combined_df.to_csv(final_file, index=False)
+
+            # Post-process for scheme_a_baseline and pure_eval
+            if exp_type in ["scheme_a_baseline", "pure_eval"]:
+                print(f"\n{'='*80}")
+                print(f"📝 Post-processing {exp_type} results...")
+                print(f"{'='*80}")
+                combined_df = parse_csv(final_file, final_file)
+
+            print(f"\n{'='*80}")
+            print("🎉 All batches processed successfully!")
+            print(f"📊 Total results: {len(combined_df)}")
+            print(f"💾 Final results saved to: {final_file}")
+            print(f"📝 Batch tracking saved to: {tracking_file}")
+            print(f"{'='*80}")
+
+            return combined_df
+        else:
+            print("\n❌ No results to combine")
+            return None
+
+    def run_experiment(self, dataset, exp_type, reward_correct, reward_abstain, reward_incorrect):
+        """Main entry point for Qwen experiments.
+
+        Args:
+            dataset: Pre-loaded dataset to run experiment on
+            exp_type: Type of experiment to run
+            reward_correct: Reward for correct answers
+            reward_abstain: Reward for abstaining
+            reward_incorrect: Reward/penalty for incorrect answers
+        """
+        if self.model_name not in self.MODEL_CONFIGS:
+            raise ValueError(f"Unknown model: {self.model_name}")
+
+        model_config = self.MODEL_CONFIGS[self.model_name]
+
+        print(f"\n🚀 Running {exp_type.upper()} experiment with Qwen (SimpleQA-Verified)...")
+        print("   Processing batches sequentially\n")
+
+        try:
+            results = self.run_multi_batch_experiment(
+                dataset, exp_type, reward_correct, reward_abstain, reward_incorrect,
+                model_config
+            )
+            return results
+        except Exception as e:
+            print(f"❌ Error during batch processing: {str(e)}")
+            import traceback
+            traceback.print_exc()
+            return None
