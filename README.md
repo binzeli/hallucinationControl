@@ -1,9 +1,11 @@
 # hallucinationControl
-Incentivizing Confidence-Aware Abstention for LLM Hallucination Control
+I-CALM: Incentivizing Confidence-Aware Abstention for LLM Hallucination Mitigation
 
 ## Overview
 
-This project explores methods to control hallucinations in Large Language Models (LLMs) by incentivizing confidence-aware abstention. The system tests whether reward-based prompting can encourage models to say "I don't know" when uncertain, rather than providing incorrect answers.
+LLMs frequently produce confident but incorrect answers, partly because standard scoring conventions reward answering over expressing uncertainty. We study whether prompt-only interventions—announcing explicit reward schemes for answer-versus-abstain decisions alongside truthfulness- and humility-oriented norms—can reduce hallucination risk without modifying the model.
+
+We introduce **I-CALM**, a prompt-based framework that (i) elicits verbal confidence, (ii) partially rewards abstention via explicit reward schemes, and (iii) adds lightweight truthfulness- and humility-oriented norms. Experiments on PopQA show that abstention-rewarding prompts, especially with norms, lower the false-answer rate by shifting low-confidence cases into abstention, with a clear abstention–hallucination trade-off controlled by the abstention reward. Results demonstrate that selective answering on factual questions can be improved without retraining, though the effect size varies across models and datasets.
 
 ## Installation
 
@@ -37,7 +39,7 @@ API_KEY=your_openai_api_key_here
 
 ## Experiment Schemes
 
-The project implements five experimental schemes:
+Each scheme varies what reward scheme is disclosed to the model and whether a normative system prompt is added:
 
 | Scheme | Description | Rewards Mentioned | System Prompt |
 |--------|-------------|-------------------|---------------|
@@ -51,9 +53,11 @@ The project implements five experimental schemes:
 
 ### Available Models
 
-- `gpt-4o-mini` - GPT-4o Mini (no reasoning mode)
-- `gpt-5-mini` - GPT-5 Mini (with reasoning mode)
-- `qwen-3` - Qwen-3-8B
+- `gpt-4o-mini` - GPT-4o Mini 
+- `gpt-5-mini` - GPT-5 Mini
+- `qwen-3-4b` - Qwen3-4B-Instruct-2507
+- `gemini-3.1-flash-lite` - Gemini 3.1 Flash Lite
+- `llama-3-8b` - Meta-Llama-3-8B-Instruct
 
 
 ### Command-Line Arguments
@@ -97,42 +101,22 @@ Optional: `-o <output_dir>` for outputs, `--num-bins <n>` for ECE (default 10).
 ## Project Structure
 
 ```
-├── main_exp/                           # Main (reward-scheme) experiments
-│   ├── models/
-│   │   └── gpt_client.py               # Generic GPT batch API client
-│   ├── popQA/
-│   │   ├── run_experiment.py           # Main entry for PopQA reward experiments
-│   │   ├── eval.py                     # Evaluation for main_exp PopQA
-│   │   ├── plot/
-│   │   │   ├── plot_abstention.py
-│   │   │   └── far_vs_abstention.py
-│   │   └── ablation_study/
-│   │       ├── remove_reward/run_no_reward.py
-│   │       └── remove_confidence/run_no_confidence.py
-│   ├── prompts/
-│   │   └── prompts.py                  # Experiment prompt templates
-│   ├── utils/
-│   │   ├── response_parser.py          # Parse model responses
-│   │   └── abstain_parser.py           # Detect abstention patterns
-│   ├── rare_common_facts.py
-│   └── example_output/                 # Example run outputs
-├── preliminary_exp/                     # Validity of self-reported confidence
-│   ├── README.md                       # PopQA & MMLU-Pro pipeline docs
-│   ├── run_PopQA.py                    # PopQA API runner (logprobs, IDK/best-guess)
-│   ├── run_MMLU-pro.py                 # MMLU-Pro API runner (no-CoT, repeats)
-│   ├── evaluate_PopQA.py               # ECE, Brier, correlation (numerical only)
-│   ├── evaluate_MMLU-Pro.py            # Same metrics for MMLU-Pro CSVs
-│   ├── utils/
-│   │   ├── README.md
-│   │   ├── api_caller.py               # Concurrent API calls, logprobs
-│   │   └── yaml_parser.py              # YAML load/save
-│   ├── prompts/
-│   │   └── biology/
-│   │       └── biology-1.yaml          # No-CoT prompt template
-│   ├── example_output/                 # Example result CSVs
-│   └── outputs/                        # Result CSVs (create dir; see preliminary_exp/README)
+├── main_exp/                   # Main (reward-scheme) experiments
+│   ├── popQA/                  # PopQA experiments, plots, ablation studies
+│   ├── mmlu-pro/               # MMLU-Pro experiments (standard & CoT)
+│   ├── simpleQA-verified/      # SimpleQA-verified experiments
+│   ├── TriviaQA/               # TriviaQA experiments
+│   ├── prompts/                # Shared prompt templates
+│   ├── utils/                  # Response & abstention parsers
+│   └── example_output/         # Example result CSVs & plots
+├── preliminary_exp/            # Preliminary: validity of self-reported confidence
+│   ├── run_PopQA.py            # PopQA runner (logprobs, IDK/best-guess)
+│   ├── run_MMLU-pro.py         # MMLU-Pro runner
+│   ├── evaluate_PopQA.py       # ECE, Brier, correlation metrics
+│   ├── evaluate_MMLU-Pro.py    # Same metrics for MMLU-Pro
+│   ├── utils/                  # API caller & YAML parser
+│   └── example_output/         # Example result CSVs
 ├── requirements.txt
-├── .env                                # API keys (create this file)
-├── .gitignore
+├── .env                        # API keys (create this file)
 └── README.md
 ```
