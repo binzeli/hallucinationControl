@@ -3,6 +3,7 @@ from matplotlib.patches import Rectangle
 from matplotlib import rcParams
 from matplotlib.patheffects import withSimplePatchShadow
 import matplotlib.gridspec as gridspec
+from matplotlib.ticker import MultipleLocator
 
 # -------------------- 
 # Configuration
@@ -140,7 +141,7 @@ ax.plot(pareto_x, pareto_y, color=color_pareto, linewidth=2.2,
 
 # ==================== INTELLIGENT ANNOTATIONS ====================
 annotation_style_1 = dict(
-    fontsize=12, alpha=0.87, family='sans-serif', weight='normal',
+    fontsize=13, alpha=0.87, family='sans-serif', weight='normal',
     color=color_neg1,
     bbox=dict(boxstyle='round,pad=0.3', facecolor='#ffffff',
               edgecolor='#d0cdc8', alpha=0.90, linewidth=0.6),
@@ -150,7 +151,7 @@ annotation_style_1 = dict(
 )
 
 annotation_style_2 = dict(
-    fontsize=12, alpha=0.87, family='sans-serif', weight='normal',
+    fontsize=13, alpha=0.87, family='sans-serif', weight='normal',
     color=color_0,
     bbox=dict(boxstyle='round,pad=0.3', facecolor='#ffffff',
               edgecolor='#d0cdc8', alpha=0.90, linewidth=0.6),
@@ -162,23 +163,23 @@ annotation_style_2 = dict(
 # Define custom offsets for each filtered point
 offsets_1 = {
     0: (0.010, 0.008, 'left', 'center'),      # A
-    1: (0.015, 0.008, 'left', 'center'),      # B (+0.2)
+    1: (0.03, 0.008, 'left', 'center'),      # B (+0.2)
     2: (-0.005, 0.001, 'right', 'center'),    # B w/ norm (+0.2)
-    3: (-0.01, 0.017, 'left', 'center'),      # B (+0.4)
+    3: (-0.02, 0.017, 'left', 'center'),      # B (+0.4)
     4: (-0.015, 0.002, 'right', 'center'),    # B w/ norm (+0.4)
     5: (-0.06, 0.003, 'left', 'center'),       # B (+0.6)
-    6: (0.04, 0.01, 'right', 'center'),      # B w/ norm (+0.6)
+    6: (0.07, 0.014, 'right', 'center'),      # B w/ norm (+0.6)
     7: (0.015, -0.001, 'left', 'center'),     # B (+0.8)
-    8: (-0.015, 0.001, 'right', 'center'),    # B w/ norm (+0.8)
+    8: (-0.015, -0.003, 'right', 'center'),    # B w/ norm (+0.8)
 }
 
 offsets_2 = {
     0: (-0.010, -0.003, 'right', 'top'),      # A
-    1: (-0.03, -0.008, 'left', 'center'),     # B (+0.2)
+    1: (-0.05, -0.005, 'left', 'center'),     # B (+0.2)
     2: (-0.001, -0.008, 'right', 'center'),   # B w/ norm (+0.2)
-    3: (0.01, 0.004, 'left', 'center'),       # B (+0.4)
-    4: (0.08, 0.001, 'right', 'center'),      # B w/ norm (+0.4)
-    5: (0.01, 0.008, 'left', 'center'),       # B (+0.6)
+    3: (0.0, 0.01, 'left', 'center'),       # B (+0.4)
+    4: (0.1, 0.001, 'right', 'center'),      # B w/ norm (+0.4)
+    5: (0.0, 0.01, 'left', 'center'),       # B (+0.6)
     6: (-0.015, 0.001, 'right', 'center'),    # B w/ norm (+0.6)
     7: (-0.04, -0.009, 'left', 'center'),     # B (+0.8)
     8: (-0.01, -0.003, 'right', 'center'),    # B w/ norm (+0.8)
@@ -205,8 +206,11 @@ ax.set_ylabel('False Answer Rate (Answered)',
              color=color_text, family='sans-serif')
 
 # Set limits (x is now abstention rate: 0 = answered everything, 1 = answered nothing)
-ax.set_xlim(0.02, 0.46)
+ax.set_xlim(0.02, 0.49)
 ax.set_ylim(0.335, 0.54)
+
+# Force 0.05 step ticks on x-axis
+ax.xaxis.set_major_locator(MultipleLocator(0.05))
 
 # Format x-axis as decimal numbers
 ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda y, _: '{:.2f}'.format(y)))
