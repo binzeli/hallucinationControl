@@ -96,7 +96,7 @@ for sx in [sep1_x, sep2_x]:
 
 def section_banner(ax, x_center, y, label, facecolor, edgecolor):
     ax.text(x_center, y, label,
-            fontsize=12, fontweight='bold', ha='center', va='center', color=TEXT_COLOR,
+            fontsize=14, fontweight='bold', ha='center', va='center', color=TEXT_COLOR,
             bbox=dict(boxstyle='round,pad=0.45', facecolor=facecolor,
                       edgecolor=edgecolor, linewidth=1.4, alpha=0.88))
 
@@ -109,11 +109,11 @@ section_banner(ax3, p1_center, 0.73, 'Penalty for incorrect answers = −1', '#D
 ax3.set_xlim(-0.7, max(x_positions) + 0.8)
 ax3.set_ylim(0, 0.80)
 ax3.set_xticks(x_positions)
-ax3.set_xticklabels(x_labels, fontsize=13, rotation=45, ha='center', color=TEXT_COLOR)
+ax3.set_xticklabels(x_labels, fontsize=15, rotation=45, ha='center', color=TEXT_COLOR)
 ax3.set_ylabel('Abstention over Error Ratio', fontsize=18, fontweight='bold', color=TEXT_COLOR, labelpad=10)
-ax3.set_xlabel('Settings & Reward Configurations', fontsize=18, fontweight='bold', color=TEXT_COLOR, labelpad=12)
+ax3.set_xlabel('Settings & Reward Configurations', fontsize=22, fontweight='bold', color=TEXT_COLOR, labelpad=12)
 
-ax3.yaxis.set_tick_params(labelsize=13, colors=ANNOT_COLOR)
+ax3.yaxis.set_tick_params(labelsize=17, colors=ANNOT_COLOR)
 ax3.xaxis.set_tick_params(colors=TEXT_COLOR)
 ax3.spines['left'].set_color(SPINE_COLOR)
 ax3.spines['bottom'].set_color(SPINE_COLOR)
@@ -125,11 +125,12 @@ ax3.set_axisbelow(True)
 legend_elements = [mpatches.Patch(facecolor=color, edgecolor='#666666', linewidth=0.8,
                                    label=scheme, alpha=0.92)
                    for scheme, color in colors.items()]
-legend = ax3.legend(handles=legend_elements, loc='upper left', fontsize=11,
+legend = ax3.legend(handles=legend_elements, loc='upper left', fontsize=14,
                     frameon=True, edgecolor='#DDDDDD', fancybox=True,
-                    framealpha=0.95, title='Scheme', title_fontsize=11)
+                    framealpha=0.95, title='Scheme', title_fontsize=16)
 legend.get_frame().set_linewidth(1.2)
 
 plt.tight_layout(pad=2.0)
 plt.savefig('abstention_ratio.png', dpi=180, bbox_inches='tight', facecolor=BG)
+plt.savefig('abstention_ratio.pdf', bbox_inches='tight', facecolor=BG)
 print("Saved to abstention_ratio_comprehensive.png")

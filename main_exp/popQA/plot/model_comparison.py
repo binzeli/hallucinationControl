@@ -94,9 +94,9 @@ for ax, (title, vals, errs) in zip(axes.flat, metrics):
                         yerr=ei, fmt='none', ecolor='#333', elinewidth=1.2, capsize=3, capthick=1.2, zorder=4
                     )
 
-    ax.set_title(title, fontsize=17, fontweight='bold', pad=10)
+    ax.set_title(title, fontsize=21, fontweight='bold', pad=10)
     ax.set_xticks(x)
-    ax.set_xticklabels(model_labels, fontsize=14)
+    ax.set_xticklabels(model_labels, fontsize=17)
     ax.tick_params(axis='y', labelsize=16)
     ax.yaxis.grid(True, linestyle='--', alpha=0.45, zorder=0)
     ax.set_axisbelow(True)
@@ -107,11 +107,12 @@ for ax, (title, vals, errs) in zip(axes.flat, metrics):
     ax.set_ylim(0, max(all_v) * 1.22)
 
 handles = [mpatches.Patch(color=c, label=s, alpha=0.85) for c, s in zip(colors, schemes)]
-fig.legend(handles=handles, title='Scheme', fontsize=14, title_fontsize=15,
-           loc='lower center', ncol=4, bbox_to_anchor=(0.5, -0.1),
+fig.legend(handles=handles, title='Scheme', fontsize=17, title_fontsize=18,
+           loc='lower center', ncol=4, bbox_to_anchor=(0.5, -0.15),
            framealpha=0.9, edgecolor='#ccc')
 
 plt.tight_layout()
 save_dir = os.path.dirname(os.path.abspath(__file__))
 plt.savefig(os.path.join(save_dir, 'model_comparison.png'), dpi=150, bbox_inches='tight')
+plt.savefig(os.path.join(save_dir, 'model_comparison.pdf'), bbox_inches='tight')
 print("Saved.")

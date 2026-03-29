@@ -198,10 +198,10 @@ for i, (x, y, label) in enumerate(zip(filtered_abstention_2, filtered_far1_2, fi
 
 # ==================== AXES & LABELS ====================
 ax.set_xlabel('Abstention Rate', 
-             fontsize=15, fontweight='700', labelpad=14, 
+             fontsize=22, fontweight='700', labelpad=14, 
              color=color_text, family='sans-serif')
 ax.set_ylabel('False Answer Rate (Answered)', 
-             fontsize=15, fontweight='700', labelpad=14, 
+             fontsize=22, fontweight='700', labelpad=14, 
              color=color_text, family='sans-serif')
 
 # Set limits (x is now abstention rate: 0 = answered everything, 1 = answered nothing)
@@ -217,10 +217,10 @@ for spine in ax.spines.values():
     spine.set_linewidth(1.8)
 
 # Legend
-legend = ax.legend(loc='upper right', fontsize=12, framealpha=0.98,
+legend = ax.legend(loc='upper right', fontsize=15, framealpha=0.98,
                   edgecolor='#999999', fancybox=False, 
                   frameon=True, shadow=False,
-                  title_fontsize=12, labelspacing=1.3, handlelength=2.4)
+                  title_fontsize=20, labelspacing=1.3, handlelength=2.4)
 legend.get_frame().set_linewidth(1.2)
 legend.get_frame().set_facecolor('#ffffff')
 for text in legend.get_texts():
@@ -230,7 +230,7 @@ legend.get_title().set_color('#0a0a0a')
 legend.get_title().set_fontweight('800')
 
 # Ticks
-ax.tick_params(axis='both', which='major', labelsize=12, 
+ax.tick_params(axis='both', which='major', labelsize=20, 
               colors=color_text, length=7.5, width=1.4, 
               top=False, right=False)
 ax.tick_params(axis='both', which='minor', length=4, width=0.9, 
@@ -243,5 +243,7 @@ plt.tight_layout()
 
 # Save
 plt.savefig('parento_frontier.png', dpi=300, bbox_inches='tight', 
+           facecolor='#ffffff', edgecolor='none', pad_inches=0.4)
+plt.savefig('parento_frontier.pdf', bbox_inches='tight',
            facecolor='#ffffff', edgecolor='none', pad_inches=0.4)
 print("Saved successfully.")
