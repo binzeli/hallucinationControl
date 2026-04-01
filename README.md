@@ -45,7 +45,7 @@ Each scheme varies what reward scheme is disclosed to the model and whether a no
 |--------|-------------|-------------------|---------------|
 | **pure_eval** | Pure evaluation with no reward information | None | No |
 | **scheme_a_baseline** | Simplified baseline with rewards but no IDK mention | Correct, Incorrect | No |
-| **scheme_a** | Rewards excluding IDK from prompt text | Correct, Incorrect, Abstain | No |
+| **scheme_a** | Rewards excluding IDK from prompt text | Correct, Incorrect | No |
 | **scheme_b** | Full rewards including IDK incentive | Correct, Incorrect, Abstain | No |
 | **scheme_b_norm** | Same as scheme_b with normative system prompt | Correct, Incorrect, Abstain | Yes |
 
